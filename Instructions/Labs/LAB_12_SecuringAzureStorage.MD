@@ -2,19 +2,19 @@
 lab:
   title: " 12 - 服務端點與保護儲存體"
   module: Module 03 - Secure data and applications
-ms.openlocfilehash: d47890d94d7f1a008024ebedf5154d487cb35792
-ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
+ms.openlocfilehash: ef6f31230914c8c122015334e629dad5c54dfe8d
+ms.sourcegitcommit: 47a471392d8e979c08213fe7de3fcc296adc35da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2022
-ms.locfileid: "145955406"
+ms.lasthandoff: 06/17/2022
+ms.locfileid: "146453858"
 ---
 # <a name="lab-12-service-endpoints-and-securing-storage"></a>實驗室 12：服務端點與保護儲存體
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
 ## <a name="lab-scenario"></a>實驗案例
 
-系統要求您建立概念證明，以便示範如何保護 Azure 檔案共用。 具體而言，您必須：
+系統要求您建立概念證明，以示範如何保護 Azure 檔案共用。 具體而言，您想要：
     
 - 建立儲存體端點，讓目的地為 Azure 儲存體的流量一律保留在 Azure 骨幹網路中。
 - 設定儲存體端點，僅限來自特定子網路的資源可以存取儲存體。
@@ -32,7 +32,7 @@ ms.locfileid: "145955406"
 
 ![image](https://user-images.githubusercontent.com/91347931/157534883-29664a05-85d1-4c70-99a7-f16d2360755d.png)
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>Instructions
 
 ### <a name="exercise-1-service-endpoints-and-security-storage"></a>練習 1：服務端點與保護儲存體
 
@@ -196,6 +196,13 @@ ms.locfileid: "145955406"
     |虛擬網路|**myVirtualNetwork**|
     |子網路|**私用**|
 
+16. 在 [子網路] 刀鋒視窗中，選取 [+ 關聯]，在 [關聯子網路] 區段中指定下列設定，然後按一下 [確定]：
+
+    |設定|值|
+    |---|---|
+    |虛擬網路|**myVirtualNetwork**|
+    |子網路|**公開**|
+    
 #### <a name="task-4-create-a-storage-account-with-a-file-share"></a>工作 4：建立具有檔案共用的儲存體帳戶
 
 在此工作中，您會建立具有檔案共用的儲存體帳戶，並取得儲存體帳戶金鑰。  
@@ -285,7 +292,7 @@ ms.locfileid: "145955406"
     |使用者名稱|**localadmin**|
     |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
     |公用輸入連接埠|**None**|
-    |已經有 Windows Server 授權了嗎|否|
+    |已經有 Windows Server 授權了嗎|**否**|
 
     >**注意**：針對公用輸入連接埠，我們會依賴預先建立的 NSG。 
 
@@ -320,7 +327,7 @@ ms.locfileid: "145955406"
     |使用者名稱|**localadmin**|
     |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
     |公用輸入連接埠|**None**|
-    |已經有 Windows Server 授權了嗎|否|
+    |已經有 Windows Server 授權了嗎|**否**|
 
     >**注意**：針對公用輸入連接埠，我們會依賴預先建立的 NSG。 
 
@@ -437,7 +444,7 @@ ms.locfileid: "145955406"
 
 > 請記得移除您不再使用的任何新建 Azure 資源。 移除未使用的資源可避免產生非預期的費用。 
 
-1. 按一下 Azure 入口網站右上方的第一個圖示，開啟 [Cloud Shell]。 如果出現提示，請選取 [PowerShell] 與 [建立儲存體]。
+1. 按一下 Azure 入口網站右上方的第一個圖示，開啟 [Cloud Shell]。 如果出現提示，請選取 [PowerShell] 和 [建立儲存體]。
 
 2. 確認在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 

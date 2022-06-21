@@ -2,12 +2,12 @@
 lab:
   title: 01 - 角色型存取控制
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 9520d720976926da7583c53a50cc25b216286d8a
-ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
+ms.openlocfilehash: 9ddbfd416d9897bcdf891c9c9265d8205277c176
+ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2022
-ms.locfileid: "145955396"
+ms.lasthandoff: 06/15/2022
+ms.locfileid: "146381337"
 ---
 # <a name="lab-01-role-based-access-control"></a>實驗 01：角色型存取控制
 # <a name="student-lab-manual"></a>學生實驗手冊
@@ -16,27 +16,27 @@ ms.locfileid: "145955396"
 
 系統要求您建立概念證明，顯示如何建立 Azure 使用者和群組。 此外，也顯示如何使用角色型存取控制將角色指派給群組。 具體而言，您需要：
 
-- 建立一個資深系統管理員群組，其中包含 Joseph Price 的使用者帳戶作為其成員。
-- 建立一個初級系統管理員群組，其中包含 Isabel Garcia 的使用者帳戶作為其成員。
-- 建立服務台群組，其中包含 Dylan Williams 的使用者帳戶作為其成員。
+- 建立一個資深管理員群組，其中包含 Joseph Price 的使用者帳戶作為其成員。
+- 建立一個資淺管理員群組，其中包含 Isabel Garcia 的使用者帳戶作為其成員。
+- 建立一個服務台群組，其中包含 Dylan Williams 的使用者帳戶作為其成員。
 - 將虛擬機器參與者角色指派給服務台群組。 
 
-> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師確認這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
-在本實驗室中，您須完成下列練習
+在本實驗室中，您將完成下列練習：
 
-- 練習 1：建立一個資深系統管理員群組，其中 Joseph Price 的使用者帳戶作為其成員 (Azure 入口網站)。 
-- 練習 2：建立一個初級系統管理員群組，其中 Isabel Garcia 的使用者帳戶作為其成員 (PowerShell)。
-- 練習 3：建立服務台群組，其中使用者 Dylan Williams 作為其成員 (Azure CLI)。 
+- 練習 1：建立一個資深管理員群組，其中使用者帳戶 Joseph Price 作為其成員 (Azure 入口網站)。 
+- 練習 2：建立一個資淺管理員群組，其中使用者帳戶 Isabel Garcia 作為其成員 (PowerShell)。
+- 練習 3：建立一個服務台群組，其中使用者 Dylan Williams 作為其成員 (Azure CLI)。 
 - 練習 4：將虛擬機器參與者角色指派給服務台群組。
 
 ## <a name="role-based-access-control-architecture-diagram"></a>角色型存取控制架構圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>Instructions
 
 ### <a name="exercise-1-create-the-senior-admins-group-with-the-user-account-joseph-price-as-its-member"></a>練習 1：建立一個資深系統管理員群組，其中 Joseph Price 的使用者帳戶作為其成員。 
 
@@ -247,7 +247,7 @@ ms.locfileid: "145955396"
 4. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以取得 Dylan Williams 使用者帳戶的 objectId 屬性： 
 
     ```cli
-    OBJECTID=$(echo $USER | jq '.[].objectId' | tr -d '"')
+    OBJECTID=$(echo $USER | jq '.[].id' | tr -d '"')
     ```
 
 5. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以將 Dylan 的使用者帳戶新增至服務台群組： 
@@ -331,9 +331,9 @@ ms.locfileid: "145955396"
 
 1. 在 Azure 入口網站中，按一下右上方的第一個圖示以開啟 [Cloud Shell]。 
 
-2. 在 [Cloud Shell] 窗格左上角的下拉式功能表中，選取 [PowerShell]，並在提示出現時按一下 [確認]。 
+2. 在 [Cloud Shell] 窗格左上角的下拉式功能表中選取 [PowerShell]，並在提示出現時按一下 [確認]。 
 
-3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列操作，移除您在此實驗室中建立的資源群組：
+3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列指令，移除您在此實驗室中建立的資源群組：
   
     ```
     Remove-AzResourceGroup -Name "AZ500LAB01" -Force -AsJob
