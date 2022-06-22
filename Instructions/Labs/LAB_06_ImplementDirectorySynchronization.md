@@ -2,12 +2,12 @@
 lab:
   title: 06 - 實作目錄同步作業
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 00c359e1875ab915ab697d8ed33e36d956540529
-ms.sourcegitcommit: 1da29a6d959a7f91dbbcbabf5ec06869c98fc1f1
+ms.openlocfilehash: 9403e136799cd27b91f27c5d8d268ab0aec3f7c5
+ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2022
-ms.locfileid: "145195845"
+ms.lasthandoff: 06/15/2022
+ms.locfileid: "146381346"
 ---
 # <a name="lab-06-implement-directory-synchronization"></a>實驗室 06：實作目錄同步作業
 # <a name="student-lab-manual"></a>學生實驗室手冊
@@ -20,11 +20,11 @@ ms.locfileid: "145195845"
 - 建立並設定 Azure AD 租用戶
 - 同步處理 AD DS 樹系與 Azure AD 租用戶
 
-> 此實驗室中所有資源使用的都是 **美國東部** 區域。 請與講師確認這是課程中要使用的區域。 
+> 此實驗室中所有資源使用的都是 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
-在本實驗室中，您須完成下列練習：
+在本實驗室中，您將完成下列練習：
 
 - 練習 1：部署裝載 Active Directory 網域控制站的 Azure VM
 - 練習 2：建立和設定 Azure Active Directory 租用戶
@@ -34,7 +34,7 @@ ms.locfileid: "145195845"
 
 ![image](https://user-images.githubusercontent.com/91347931/157525374-8f740f14-c2db-47b3-98f8-7feb9bc122b5.png)
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>Instructions
 
 ### <a name="exercise-1-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>練習 1：部署裝載 Active Directory 網域控制站的 Azure VM
 
@@ -51,7 +51,7 @@ ms.locfileid: "145195845"
 
 1. 登入 Azure 入口網站 **`https://portal.azure.com/`** 。
 
-    >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂閱中具有「擁有者」或「參與者」角色。
+    >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂用帳戶中具有「擁有者」或「參與者」角色。
 
 2. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請點選 [PowerShell] 與 [建立儲存體]。
 
@@ -121,9 +121,9 @@ ms.locfileid: "145195845"
 
 1. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入 **Azure Active Directory**，然後按下 **Enter** 鍵。
 
-2. 在顯示您目前 Azure AD 租用戶的 [概觀] 刀鋒視窗中，按一下 [管理租用戶]，然後在下一個畫面中點選 [+ 建立]。
+2. 在顯示您目前 Azure AD 租用戶的 [概觀] 刀鋒視窗中，按一下 [管理租用戶]，然後在下一個畫面中點選 [+ 建立]。  
 
-3. 在 [建立目錄] 刀鋒視窗的 [基本] 索引標籤上，確定已選取 [Azure Active Directory] 選項，然後按一下 [下一步：設定 >]。
+3. 在 [建立租用戶] 刀鋒視窗的 [基本] 索引標籤上，確定已選取 [Azure Active Directory] 選項，然後按一下 [下一步:   **設定 >]** 。
 
 4. 在 [建立目錄] 刀鋒視窗的 [設定] 索引標籤上，指定下列設定：
 
