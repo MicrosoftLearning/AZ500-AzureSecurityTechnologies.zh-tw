@@ -2,22 +2,22 @@
 lab:
   title: " 12 - 服務端點與保護儲存體"
   module: Module 03 - Secure data and applications
-ms.openlocfilehash: ef6f31230914c8c122015334e629dad5c54dfe8d
-ms.sourcegitcommit: 47a471392d8e979c08213fe7de3fcc296adc35da
+ms.openlocfilehash: 094c35e70258656693d64a816b9ed9382eade199
+ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2022
-ms.locfileid: "146453858"
+ms.lasthandoff: 07/18/2022
+ms.locfileid: "147168504"
 ---
 # <a name="lab-12-service-endpoints-and-securing-storage"></a>實驗室 12：服務端點與保護儲存體
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
 ## <a name="lab-scenario"></a>實驗案例
 
-系統要求您建立概念證明，以示範如何保護 Azure 檔案共用。 具體而言，您想要：
+系統要求您建立概念證明，以示範如何保護 Azure 檔案共用。  具體而言，您想要：
     
-- 建立儲存體端點，讓目的地為 Azure 儲存體的流量一律保留在 Azure 骨幹網路中。
-- 設定儲存體端點，僅限來自特定子網路的資源可以存取儲存體。
+-  建立儲存體端點，讓目的地為 Azure 儲存體的流量一律保留在 Azure 骨幹網路中。
+-  設定儲存體端點，僅限來自特定子網路的資源可以存取儲存體。
 - 確認特定子網路以外的資源無法存取儲存體。 
 
 > 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
@@ -32,7 +32,7 @@ ms.locfileid: "146453858"
 
 ![image](https://user-images.githubusercontent.com/91347931/157534883-29664a05-85d1-4c70-99a7-f16d2360755d.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>指示
 
 ### <a name="exercise-1-service-endpoints-and-security-storage"></a>練習 1：服務端點與保護儲存體
 
@@ -195,13 +195,6 @@ ms.locfileid: "146453858"
     |---|---|
     |虛擬網路|**myVirtualNetwork**|
     |子網路|**私用**|
-
-16. 在 [子網路] 刀鋒視窗中，選取 [+ 關聯]，在 [關聯子網路] 區段中指定下列設定，然後按一下 [確定]：
-
-    |設定|值|
-    |---|---|
-    |虛擬網路|**myVirtualNetwork**|
-    |子網路|**公開**|
     
 #### <a name="task-4-create-a-storage-account-with-a-file-share"></a>工作 4：建立具有檔案共用的儲存體帳戶
 
@@ -444,9 +437,9 @@ ms.locfileid: "146453858"
 
 > 請記得移除您不再使用的任何新建 Azure 資源。 移除未使用的資源可避免產生非預期的費用。 
 
-1. 按一下 Azure 入口網站右上方的第一個圖示，開啟 [Cloud Shell]。 如果出現提示，請選取 [PowerShell] 和 [建立儲存體]。
+1. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請選取 [PowerShell] 和 [建立儲存體]。
 
-2. 確認在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
+2. 確定在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 
 3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列指令，移除您在此實驗室中建立的資源群組：
   
