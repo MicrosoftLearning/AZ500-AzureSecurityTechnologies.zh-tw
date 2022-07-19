@@ -2,25 +2,25 @@
 lab:
   title: 13 - Azure 監視器
   module: Module 04 - Manage security operations
-ms.openlocfilehash: df6fbcf475fe0a5cefec130ab713f92997dcf206
-ms.sourcegitcommit: 022221e69467f2fdccf2e02bb54e6ec395570668
+ms.openlocfilehash: e51e88d55193532e3c91c485d0a247b5e686a48f
+ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2022
-ms.locfileid: "145195840"
+ms.lasthandoff: 07/18/2022
+ms.locfileid: "147168495"
 ---
 # <a name="lab-13-azure-monitor"></a>實驗室 13：Azure 監視器
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
 ## <a name="lab-scenario"></a>實驗案例
 
-您收到要求，必須建立監視虛擬機器效能的概念證明。 具體而言，您必須：
+您收到要求，必須建立監視虛擬機器效能的概念證明。  具體而言，您必須：
 
-- 設定能夠收集遙測資料和記錄的虛擬機器。
-- 顯示可收集哪些遙測資料和記錄。
+-  設定能夠收集遙測和記錄的虛擬機器。
+-  顯示可收集哪些遙測和記錄。
 - 示範資料的使用和查詢方法。 
 
-> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師確認這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
@@ -50,9 +50,9 @@ ms.locfileid: "145195840"
 
 1. 登入 Azure 入口網站： **`https://portal.azure.com/`** 。
 
-    >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂閱中具有「擁有者」或「參與者」角色。
+    >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂用帳戶中具有「擁有者」或「參與者」角色。
 
-2. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請選取 [PowerShell] 與 [建立儲存體]。
+2. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請選取 [PowerShell] 和 [建立儲存體]。
 
 3. 確定在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 
@@ -112,7 +112,7 @@ ms.locfileid: "145195840"
 
     |設定|值|
     |---|---|
-    |訂用帳戶|您在此實驗中使用的 Azure 訂閱名稱|
+    |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
     |資源群組|**AZ500LAB131415**|
     |名稱|任何有效的全域唯一名稱|
     |區域|**(美國) 美國東部**|
@@ -158,7 +158,7 @@ ms.locfileid: "145195840"
 6. 依序點選 [Windows 效能計數器] 與 [+ 新增效能計數器]，檢閱可用效能計數器的清單，然後新增下列效能計數器：
 
     - 記憶體 (\*)\可用記憶體 MB
-    - 處理序 (\*)\%處理器時間
+    - Process(\*)\\% 處理器時間
     - Windows 事件追蹤\總記憶體使用量 --- 非分頁集區
     - Windows 事件追蹤\總記憶體使用量 --- 分頁集區
 
