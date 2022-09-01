@@ -2,12 +2,12 @@
 lab:
   title: " 12 - 服務端點與保護儲存體"
   module: Module 03 - Secure data and applications
-ms.openlocfilehash: 094c35e70258656693d64a816b9ed9382eade199
-ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
+ms.openlocfilehash: 96c1073571e40558a102d2fd661b6b4e3b4f48d7
+ms.sourcegitcommit: 5eaa012a52e6f14e499393257855d314a720a668
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168504"
+ms.lasthandoff: 08/31/2022
+ms.locfileid: "147717265"
 ---
 # <a name="lab-12-service-endpoints-and-securing-storage"></a>實驗室 12：服務端點與保護儲存體
 # <a name="student-lab-manual"></a>學生實驗室手冊
@@ -43,10 +43,11 @@ ms.locfileid: "147168504"
 - 工作 1：建立虛擬網路
 - 工作 2：將子網路新增至虛擬網路，並設定儲存體端點
 - 工作 3：設定網路安全性群組以限制子網路的存取
-- 工作 4：建立具有檔案共用的儲存體帳戶
-- 工作 5：將虛擬機器部署至指定的子網路中
-- 工作 6：測試來自私人子網路的儲存體連線，以確認允許存取
-- 工作 7：測試來自公用子網路的儲存體連線，以確認拒絕存取 
+- 工作 4：設定網路安全性群組，以允許公用子網路上的 rdp
+- 工作 5：建立具有檔案共用的儲存體帳戶
+- 工作 6：將虛擬機器部署至指定的子網路中
+- 工作 7：測試來自私人子網路的儲存體連線，以確認允許存取
+- 工作 8：測試來自公用子網路的儲存體連線，以確認拒絕存取 
 
 #### <a name="task-1-create-a-virtual-network"></a>工作 1：建立虛擬網路
 
@@ -138,7 +139,7 @@ ms.locfileid: "147168504"
     |來源|**服務標記**|
     |來源服務標籤|**VirtualNetwork**|
     |來源連接埠範圍|**\***|
-    |目的地|**服務標記**|
+    |Destination|**服務標記**|
     |目的地服務標記|**Storage**|
     |目的地連接埠範圍|**\***|
     |通訊協定|**任何**|
@@ -157,7 +158,7 @@ ms.locfileid: "147168504"
     |來源|**服務標記**|
     |來源服務標籤|**VirtualNetwork**|
     |來源連接埠範圍|**\***|
-    |目的地|**服務標記**|
+    |Destination|**服務標記**|
     |目的地服務標記|**網際網路**|
     |目的地連接埠範圍|**\***|
     |通訊協定|**任何**|
@@ -177,7 +178,7 @@ ms.locfileid: "147168504"
     |---|---|
     |來源|**任何**|
     |來源連接埠範圍|**\***|
-    |目的地|**服務標記**|
+    |Destination|**服務標記**|
     |目的地服務標記|**VirtualNetwork**|
     |目的地連接埠範圍|**3389**|
     |通訊協定|**TCP**|
@@ -195,8 +196,58 @@ ms.locfileid: "147168504"
     |---|---|
     |虛擬網路|**myVirtualNetwork**|
     |子網路|**私用**|
+
+#### <a name="task-4-configure-a-network-security-group-to-allow-rdp-on-the-public-subnet"></a>工作 4：設定網路安全性群組，以允許公用子網路上的 rdp
+
+在此工作中，您必須建立具有一個輸入安全性規則 (RDP) 的網路安全性群組。 您也會為網路安全性群組與公用子網路建立關聯。 這可讓 RDP 存取公用 VM。
+
+1. 在 Azure 入口網站分頁頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入 **網路安全性群組**，然後按下 **Enter** 鍵。
+
+2. 在 [網路安全性群組] 刀鋒視窗中，按一下 [+ 建立]。
+
+3. 在 [建立網路安全性群組] 刀鋒視窗的 [基本] 索引標籤上，指定下列設定： 
+
+    |設定|值|
+    |---|---|
+    |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
+    |資源群組|**AZ500LAB12**|
+    |名稱|**myNsgPublic**|
+    |區域|美國東部|
+
+4. 按一下 [檢閱 + 建立]  ，然後按一下 [建立]  。
+
+    >**注意**：在後續步驟中，您會建立輸出安全性規則，以允許與 Azure 儲存體服務的通訊。 
+
+5. 在 Azure 入口網站中返回 [網路安全性群組] 刀鋒視窗，然後按一下 [myNsgPublic] 項目。
+
+6. 在 [myNsgPublic] 刀鋒視窗的 [設定] 區段按一下 [輸入安全性規則]，然後點選 [+ 新增]。
+
+7. 在 [新增輸入安全性規則] 刀鋒視窗上，指定下列設定 (將所有其他值保留為預設設定)： 
+
+    |設定|值|
+    |---|---|
+    |來源|**任何**|
+    |來源連接埠範圍|**\***|
+    |Destination|**服務標記**|
+    |目的地服務標記|**VirtualNetwork**|
+    |目的地連接埠範圍|**3389**|
+    |通訊協定|**TCP**|
+    |動作|**允許**|
+    |優先順序|**1200**|                                                    
+    |名稱|**Allow-RDP-All**|
+
+8. 在 [新增輸入安全性規則] 刀鋒視窗中按一下 [新增]，建立新的輸入規則。 
+
+    >**注意**：現在您能為網路安全性群組與公用子網路建立關聯。
+
+9. 在 [子網路] 刀鋒視窗中，選取 [+ 關聯]，在 [關聯子網路] 區段中指定下列設定，然後按一下 [確定]：
+
+    |設定|值|
+    |---|---|
+    |虛擬網路|**myVirtualNetwork**|
+    |子網路|**公開**|
     
-#### <a name="task-4-create-a-storage-account-with-a-file-share"></a>工作 4：建立具有檔案共用的儲存體帳戶
+#### <a name="task-5-create-a-storage-account-with-a-file-share"></a>工作 5：建立具有檔案共用的儲存體帳戶
 
 在此工作中，您會建立具有檔案共用的儲存體帳戶，並取得儲存體帳戶金鑰。  
 
@@ -263,7 +314,7 @@ ms.locfileid: "147168504"
 
     >**注意**：此時，您已在實驗室中設定虛擬網路、網路安全性群組，以及具備檔案共用的儲存體帳戶。 
 
-#### <a name="task-5-deploy-virtual-machines-into-the-designated-subnets"></a>工作 5：將虛擬機器部署至指定的子網路中
+#### <a name="task-6-deploy-virtual-machines-into-the-designated-subnets"></a>工作 6：將虛擬機器部署至指定的子網路中
 
 在此工作中，您會在私人子網路中建立兩部虛擬機器，並在公用子網路中建立一部虛擬機器。 
 
@@ -284,7 +335,7 @@ ms.locfileid: "147168504"
     |映像|**Windows Server 2022 Datacenter：Azure Edition - Gen2**|
     |使用者名稱|**localadmin**|
     |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
-    |公用輸入連接埠|**None**|
+    |公用輸入連接埠|**無**|
     |已經有 Windows Server 授權了嗎|**否**|
 
     >**注意**：針對公用輸入連接埠，我們會依賴預先建立的 NSG。 
@@ -319,7 +370,7 @@ ms.locfileid: "147168504"
     |映像|**Windows Server 2022 Datacenter：Azure Edition - Gen2**|
     |使用者名稱|**localadmin**|
     |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
-    |公用輸入連接埠|**None**|
+    |公用輸入連接埠|**無**|
     |已經有 Windows Server 授權了嗎|**否**|
 
     >**注意**：針對公用輸入連接埠，我們會依賴預先建立的 NSG。 
@@ -341,7 +392,7 @@ ms.locfileid: "147168504"
 
     >**注意**：待完成部署 **myVMPrivate** Azure VM 後，您就能繼續進行下一個工作。
 
-#### <a name="task-6-test-the-storage-connection-from-the-private-subnet-to-confirm-that-access-is-allowed"></a>工作 6：測試來自私人子網路的儲存體連線，以確認允許存取
+#### <a name="task-7-test-the-storage-connection-from-the-private-subnet-to-confirm-that-access-is-allowed"></a>工作 7：測試來自私人子網路的儲存體連線，以確認允許存取
 
 在此工作中，您會透過遠端桌面連線至 myVMPrivate 虛擬機器，並將磁碟機對應至檔案共用。 
 
@@ -393,7 +444,7 @@ ms.locfileid: "147168504"
 
     >**注意**：此時，您已確認私人子網路中的虛擬機器可以存取儲存體帳戶。 
 
-####  <a name="task-7-test-the-storage-connection-from-the-public-subnet-to-confirm-that-access-is-denied"></a>工作 7：測試來自公用子網路的儲存體連線，以確認拒絕存取 
+####  <a name="task-8-test-the-storage-connection-from-the-public-subnet-to-confirm-that-access-is-denied"></a>工作 8：測試來自公用子網路的儲存體連線，以確認拒絕存取 
 
 1. 瀏覽回 [虛擬機器] 刀鋒視窗。 
 
@@ -426,7 +477,7 @@ ms.locfileid: "147168504"
     Test-NetConnection -ComputerName www.bing.com -Port 80
     ```
 
-    >**注意**：由於沒有與公用子網路相關聯的網路安全性群組，因此測試將會成功。
+    >**注意**：測試將會成功，因為不存在任何輸入安全性規則會在公用子網路上拒絕網際網路。
 
 8. 終止 **myVMPublic** Azure VM 的遠端桌面工作階段。
 
@@ -448,4 +499,4 @@ ms.locfileid: "147168504"
     ```
 
 4.  關閉 [Cloud Shell] 窗格。 
- 
+
