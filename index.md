@@ -11,9 +11,7 @@ ms.locfileid: "145195862"
 ---
 # <a name="content-directory"></a>內容目錄
 
-
 您可以[在這裡下載](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/archive/master.zip)必要的實驗室檔案
-
 
 下方列出可連至各實驗室活動和示範的超連結。
 

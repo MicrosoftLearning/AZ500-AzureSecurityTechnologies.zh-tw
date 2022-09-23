@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 04 - MFA、條件式存取和 AAD 身分識別保護
+  title: 04 - MFA、條件式存取和 AAD Identity Protection
   module: Module 01 - Manage Identity and Access
 ms.openlocfilehash: f63f8a24c0d9b7c870967ee8c83292bd80b617f9
 ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
@@ -9,7 +9,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/04/2022
 ms.locfileid: "145195848"
 ---
-# <a name="lab-04-mfa-conditional-access-and-aad-identity-protection"></a>實驗室 04：MFA、條件式存取和 AAD 身分識別保護
+# <a name="lab-04-mfa-conditional-access-and-aad-identity-protection"></a>實驗室 04：MFA、條件式存取和 AAD Identity Protection
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
 ## <a name="lab-scenario"></a>實驗案例
@@ -31,7 +31,7 @@ ms.locfileid: "145195848"
 - 練習 3：實作 Azure AD 條件式存取原則 
 - 練習 4：實作 Azure AD Identity Protection
 
-## <a name="mfa---conditional-access---identity-protection-diagram"></a>MFA - 條件式存取 - 身分識別保護圖表
+## <a name="mfa---conditional-access---identity-protection-diagram"></a>MFA - 條件式存取 - Identity Protection圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157518628-8b4a9efe-0086-4ec0-825e-3d062748fa63.png)
 
@@ -86,10 +86,10 @@ ms.locfileid: "145195848"
    |---|---|
    |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
    |資源群組|按一下 [新建]，然後輸入以下名稱：**AZ500LAB04**|
-   |Location|**(美國) 美國東部**|
+   |位置|**(美國) 美國東部**|
    |VM 大小|**Standard_D2s_v3**|
    |虛擬機器名稱|**az500-04-vm1**|
-   |管理員使用者名稱|**學生**|
+   |管理員使用者名稱|**Student**|
    |管理員密碼|**請建立並記下您專屬的密碼，以供日後參考。系統會提示您輸入這組密碼，以取得必要的實驗室存取權。**|
    |虛擬網路名稱|**az500-04-vnet1**|
 
@@ -145,7 +145,7 @@ ms.locfileid: "145195848"
 
 在此工作中，您必須註冊 Azure AD Premium P2 試用版。 
 
-1. 在 Azure 入口網站的工具列中，按一下 Cloud Shell 圖示右邊的 **目錄 + 訂用帳戶** 圖示。 
+1. 在 Azure 入口網站的工具列中，按一下 Cloud Shell 圖示右邊的 **[目錄 + 訂用帳戶]** 圖示。 
 
 2. 在 [目錄 + 訂用帳戶] 刀鋒視窗中，按一下新建立的租用戶 **AdatumLab500-04**，然後點選 [切換] 按鈕將其設定為目前的目錄。
 
@@ -431,15 +431,15 @@ ms.locfileid: "145195848"
 
 2. 在 [AdatumLab500-04] 刀鋒視窗的 [管理] 區段中，按一下 [安全性]。
 
-3. 在 [安全性 \| 使用者入門] 刀鋒視窗的 [保護] 區段中，按一下 [身分識別保護]。
+3. 在 [安全性 \| 使用者入門] 刀鋒視窗的 [保護] 區段中，按一下 [Identity Protection]。
 
-4. 在 [身分識別保護 \| 概觀] 刀鋒視窗中檢閱「偵測到新的具風險使用者」與「偵測到新的具風險登入」圖表，以及其他與風險性使用者相關的資訊。 
+4. 在 [Identity Protection \| 概觀] 刀鋒視窗中檢閱「偵測到新的具風險使用者」與「偵測到新的具風險登入」圖表，以及其他與風險性使用者相關的資訊。 
 
 #### <a name="task-2-configure-a-user-risk-policy"></a>工作 2：設定使用者風險原則
 
 在此工作中，您必須建立使用者風險原則。 
 
-1. 在 [身分識別保護 \| 概觀] 刀鋒視窗的 [保護] 區段中 ，按一下 [登入風險原則]
+1. 在 [Identity Protection \| 概觀] 刀鋒視窗的 [保護] 區段中 ，按一下 [登入風險原則]
 
 2. 按照下列設定指定 **使用者風險補救原則**： 
 
@@ -457,7 +457,7 @@ ms.locfileid: "145195848"
 
 在此工作中，您必須設定登入風險原則。 
 
-1. 在 [身分識別保護 \| 使用者風險原則] 刀鋒視窗的 [保護] 區段中 ，按一下 [登入風險原則]
+1. 在 [Identity Protection \| 使用者風險原則] 刀鋒視窗的 [保護] 區段中 ，按一下 [登入風險原則]
 
 2. 按照下列設定指定 **登入風險補救原則**： 
 
@@ -485,7 +485,7 @@ ms.locfileid: "145195848"
 
    |設定|值|
    |---|---|
-   |使用者名稱|**學生**|
+   |使用者名稱|**Student**|
    |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
 
     >**注意**：等待遠端桌面工作階段和 **伺服器管理員** 載入。  
@@ -546,23 +546,23 @@ ms.locfileid: "145195848"
 
 **清除資源**
 
-> 我們必須移除您不再使用的身分識別保護資源。 
+> 我們必須移除您不再使用的Identity Protection資源。 
 
-請按照下列步驟停用 **AdatumLab500-04** Azure AD 租用戶中的身分識別保護原則。
+請按照下列步驟停用 **AdatumLab500-04** Azure AD 租用戶中的Identity Protection原則。
 
 1. 在 Azure 入口網站中，返回 [AdatumLab500-04] Azure Active Directory 租用戶的刀鋒視窗。
 
 2. 在 [AdatumLab500-04] 刀鋒視窗的 [管理] 區段中，按一下 [安全性]。
 
-3. 在 [安全性 \| 使用者入門] 刀鋒視窗的 [保護] 區段中，按一下 [身分識別保護]。
+3. 在 [安全性 \| 使用者入門] 刀鋒視窗的 [保護] 區段中，按一下 [Identity Protection]。
 
-4. 在 [身分識別保護 \| 概觀] 刀鋒視窗中按一下 [使用者風險原則]。
+4. 在 [Identity Protection \| 概觀] 刀鋒視窗中按一下 [使用者風險原則]。
 
-5. 在 [身分識別保護 \| 使用者風險原則] 刀鋒視窗中將 [施行原則] 設定為 [關閉]，然後按一下 [儲存]。
+5. 在 [Identity Protection \| 使用者風險原則] 刀鋒視窗中將 [施行原則] 設定為 [關閉]，然後按一下 [儲存]。
 
-6. 在 [身分識別保護 \| 使用者風險原則] 刀鋒視窗中按一下 [登入風險原則]
+6. 在 [Identity Protection \| 使用者風險原則] 刀鋒視窗中按一下 [登入風險原則]
 
-7. 在 [身分識別保護 \| 登入風險原則] 刀鋒視窗中將 [施行原則] 設定為 [關閉]，然後按一下 [儲存]。
+7. 在 [Identity Protection \| 登入風險原則] 刀鋒視窗中將 [施行原則] 設定為 [關閉]，然後按一下 [儲存]。
 
 按照下列步驟停止您先前在實驗室中佈建的 Azure VM。
 

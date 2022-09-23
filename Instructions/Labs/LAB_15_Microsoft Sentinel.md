@@ -2,15 +2,15 @@
 lab:
   title: 15 - Microsoft Sentinel
   module: Module 04 - Manage Security Operations
-ms.openlocfilehash: 63a24bbc17b846d3587cf3fb83ab46b7235d5fcd
-ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
+ms.openlocfilehash: 147bb0c8f6637393087c5a913f5c9bd8ca380866
+ms.sourcegitcommit: 3c178de473f4f986a3a7ea1d03c9f5ce699a05a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2022
-ms.locfileid: "145195877"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147871961"
 ---
 # <a name="lab-15-microsoft-sentinel"></a>實驗室 15：Microsoft Sentinel
-# <a name="student-lab-manual"></a>學生實驗手冊
+# <a name="student-lab-manual"></a>學生實驗室手冊
 
 ## <a name="lab-scenario"></a>實驗案例
 
@@ -22,7 +22,7 @@ ms.locfileid: "145195877"
 - 新增內建和自訂警示 
 - 檢閱如何使用劇本將事件回應設為自動化。
 
-> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師確認這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
@@ -147,7 +147,7 @@ ms.locfileid: "145195877"
 
     |設定|值|
     |---|---|
-    |訂用帳戶|您在此實驗中使用的 Azure 訂閱帳戶名稱|
+    |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
     |資源群組|**AZ500LAB131415**|
     |Location|**(美國) 美國東部**|
     |劇本名稱|**變更事件嚴重性**|
@@ -157,7 +157,7 @@ ms.locfileid: "145195877"
 
     >**注意**：等待部署完成。
 
-7. 在 Azure 入口網站分頁頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入 **「資源群組」** ，然後按下 **Enter** 鍵。
+7. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入「資源群組」，然後按下 **Enter** 鍵。
 
 8. 在 [資源群組] 刀鋒視窗的資源群組清單中，按一下 [AZ500LAB131415] 項目。
 
@@ -217,7 +217,7 @@ ms.locfileid: "145195877"
 
 9. 在 [分析規則精靈 - 建立新規則] 刀鋒視窗的 [事件設定] 索引標籤上接受預設設定，然後按一下 [下一步：自動回應 >]。 
 
-10. 在 [分析規則精靈 - 建立新規則] 刀鋒視窗的 [自動化回應] 索引標籤上，在 [警示自動化] 下拉式清單中選取 [變更事件嚴重性] 項目旁的核取方塊，然後按一下 [下一步：檢閱 >]。 
+10. 在 [分析規則精靈 - 建立新規則] 刀鋒視窗的 [自動化回應] 索引標籤上，在 [警示自動化 (傳統)] 下拉式清單中選取 [變更事件嚴重性] 項目旁的核取方塊，然後按一下 [下一步: 檢閱 >]。 
 
 11. 在 [分析規則精靈 - 建立新規則] 刀鋒視窗的 [審核及建立] 索引標籤上按一下 [建立]。
 
@@ -263,7 +263,7 @@ ms.locfileid: "145195877"
 
 > 請記得移除您不再使用的任何新建 Azure 資源。 移除未使用的資源可避免產生非預期的費用。 
 
-1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請點選 [PowerShell] 與 [建立儲存體]。
+1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請按一下 [PowerShell] 與 [建立儲存體]。
 
 2. 確定在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 

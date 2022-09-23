@@ -9,10 +9,10 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/15/2022
 ms.locfileid: "146381337"
 ---
-# <a name="lab-01-role-based-access-control"></a>實驗 01：角色型存取控制
-# <a name="student-lab-manual"></a>學生實驗手冊
+# <a name="lab-01-role-based-access-control"></a>實驗室 01：角色型存取控制
+# <a name="student-lab-manual"></a>學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## <a name="lab-scenario"></a>實驗室案例
 
 系統要求您建立概念證明，顯示如何建立 Azure 使用者和群組。 此外，也顯示如何使用角色型存取控制將角色指派給群組。 具體而言，您需要：
 
@@ -36,7 +36,7 @@ ms.locfileid: "146381337"
 
 ![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>指示
 
 ### <a name="exercise-1-create-the-senior-admins-group-with-the-user-account-joseph-price-as-its-member"></a>練習 1：建立一個資深系統管理員群組，其中 Joseph Price 的使用者帳戶作為其成員。 
 
@@ -53,7 +53,7 @@ ms.locfileid: "146381337"
 
 1. 啟動瀏覽器工作階段並登入 Azure 入口網站 **`https://portal.azure.com/`** 。
 
-    >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於此實驗室的 Azure 訂閱中具有擁有者或參與者角色，並在與該訂閱相關聯的 Azure AD 租用戶中具有全域管理員角色。
+    >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於此實驗室的 Azure 訂用賬戶中具有擁有者或參與者角色，並在與該訂用賬戶相關聯的 Azure AD 租用戶中具有全域管理員角色。
 
 2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件] 文字輸入框中，輸入 **Azure Active Directory**，然後按 **Enter** 鍵。
 
@@ -284,9 +284,9 @@ ms.locfileid: "146381337"
 
    |設定|值|
    |---|---|
-   |訂閱名稱|您的 Azure 訂用帳戶的名稱|
+   |訂用賬戶名稱|您的 Azure 訂用帳戶的名稱|
    |資源群組名稱|**AZ500Lab01**|
-   |Location|美國東部 |
+   |位置|美國東部 |
 
 3. 按一下 [檢閱 + 建立]，然後按一下 [建立]。
 

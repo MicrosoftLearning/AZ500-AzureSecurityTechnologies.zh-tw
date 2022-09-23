@@ -2,12 +2,12 @@
 lab:
   title: 13 - Azure 監視器
   module: Module 04 - Manage security operations
-ms.openlocfilehash: e51e88d55193532e3c91c485d0a247b5e686a48f
-ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
+ms.openlocfilehash: d7418287b895ccb5af66f01b499181b321e2bc36
+ms.sourcegitcommit: 3c178de473f4f986a3a7ea1d03c9f5ce699a05a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168495"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147871970"
 ---
 # <a name="lab-13-azure-monitor"></a>實驗室 13：Azure 監視器
 # <a name="student-lab-manual"></a>學生實驗室手冊
@@ -145,7 +145,7 @@ ms.locfileid: "147168495"
 
 1. 在 Azure 入口網站中，返回您先前在本練習建立的 Log Analytics 工作區。
 
-2. 在 [Log Analytics 工作區] 刀鋒視窗的 [設定] 區段中，按一下 [代理程式設定]。
+2. 在 [Log Analytics 工作區] 刀鋒視窗的 [設定] 區段中，按一下 [舊版代理程式管理].
 
 3. 在 [代理程式設定] 刀鋒視窗中檢閱可指定的設定，包括 Windows 事件記錄檔、Windows 效能計數器、Linux 效能計數器、IIS 記錄檔和 Syslog。 
 

@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 10 - 金鑰保存庫 (透過設定 Always Encrypted 來實作安全資料)
+  title: 10 - Key Vault (透過設定 Always Encrypted 來實作安全資料)
   module: Module 03 - Secure Data and Applications
 ms.openlocfilehash: c31dd6e930e0f1d1b82e7c6ea502bb6fa51a7dd7
 ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
@@ -9,7 +9,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 05/31/2022
 ms.locfileid: "145955379"
 ---
-# <a name="lab-10-key-vault-implementing-secure-data-by-setting-up-always-encrypted"></a>實驗室 10：金鑰保存庫 (透過設定 Always Encrypted 來實作安全資料)
+# <a name="lab-10-key-vault-implementing-secure-data-by-setting-up-always-encrypted"></a>實驗室 10：Key Vault (透過設定 Always Encrypted 來實作安全資料)
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
 ## <a name="lab-scenario"></a>實驗案例
@@ -75,7 +75,7 @@ ms.locfileid: "145955379"
    |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
    |資源群組|按一下 [新建]，然後輸入以下名稱：**AZ500LAB10**|
    |Location|**(美國) 美國東部**|
-   |管理員使用者名稱|**學生**|
+   |管理員使用者名稱|**Student**|
    |管理員密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
    
     >**注意**：雖然您可以變更用於登入虛擬機器的系統管理認證，但您無須這麼做。
@@ -259,7 +259,7 @@ ms.locfileid: "145955379"
     |設定|值|
     |----|----|
     |描述|**Key1**|
-    |到期 (Expires)|**12 個月**|
+    |到期|**12 個月**|
     
 9. 按一下 [新增] 以更新應用程式認證。
 
@@ -353,7 +353,7 @@ ms.locfileid: "145955379"
 
     |設定|值|
     |---|---|
-    |使用者名稱|**學生**|
+    |使用者名稱|**Student**|
     |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
 
     >**注意**：等待遠端桌面工作階段和 **伺服器管理員** 載入。 關閉 [伺服器管理員]。 
@@ -369,7 +369,7 @@ ms.locfileid: "145955379"
     |伺服器類型|**資料庫引擎**|
     |Server Name (伺服器名稱)|您稍早在此工作中識別的伺服器名稱|
     |驗證|**SQL Server 驗證**|
-    |登入|**學生**|
+    |登入|**Student**|
     |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
 
 8. 在 [連線至伺服器] 對話方塊中，按一下 [連線]。

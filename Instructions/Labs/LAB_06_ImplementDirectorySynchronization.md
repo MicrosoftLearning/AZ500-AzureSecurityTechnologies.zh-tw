@@ -34,7 +34,7 @@ ms.locfileid: "146381346"
 
 ![image](https://user-images.githubusercontent.com/91347931/157525374-8f740f14-c2db-47b3-98f8-7feb9bc122b5.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>指示
 
 ### <a name="exercise-1-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>練習 1：部署裝載 Active Directory 網域控制站的 Azure VM
 
@@ -79,7 +79,7 @@ ms.locfileid: "146381346"
 
 1. 在相同的瀏覽器視窗中開啟另一個瀏覽器索引標籤，然後瀏覽至 **https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain** 。
 
-2. 在 [Create a new Windows VM and create a new AD Forest, Domain and DC] \(建立新的 Windows VM，以及建立新的 AD 樹系、網域和 DC\) 頁面上，按一下 [部署到 Azure]。 這會將瀏覽器自動重新導向 Azure 入口網站中的 [使用新的 AD 樹系建立 Azure VM] 刀鋒視窗。
+2. 在 [建立新的 Windows VM，以及建立新的 AD 樹系、網域和 DC] 頁面上，按一下 [部署到 Azure]。 這會將瀏覽器自動重新導向 Azure 入口網站中的 [使用新的 AD 樹系建立 Azure VM] 刀鋒視窗。
 
 3. 在 [使用新的 AD 樹系建立 Azure VM] 刀鋒視窗中按一下 [編輯參數]。
 
@@ -92,7 +92,7 @@ ms.locfileid: "146381346"
    |訂用帳戶|您 Azure 訂閱的名稱|
    |資源群組|按一下 [建立新項目] 並輸入以下名稱：**AZ500LAB06**|
    |區域|您在前一項工作識別出的 Azure 區域|
-   |管理員使用者名稱|**學生**|
+   |管理員使用者名稱|**Student**|
    |管理員密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
    |網域名稱|**adatum.com**|
    |DNS 前置詞|您在前一項工作找出的 DNS 主機名稱|
@@ -225,7 +225,7 @@ ms.locfileid: "146381346"
 
    |設定|值|
    |---|---|
-   |使用者名稱|**學生**|
+   |使用者名稱|**Student**|
    |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
 
     >**注意**：等待遠端桌面工作階段和 **伺服器管理員** 載入。  
