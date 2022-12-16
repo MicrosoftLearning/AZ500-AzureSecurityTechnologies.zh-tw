@@ -2,17 +2,12 @@
 lab:
   title: 01 - 角色型存取控制
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 9ddbfd416d9897bcdf891c9c9265d8205277c176
-ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 06/15/2022
-ms.locfileid: "146381337"
 ---
+
 # <a name="lab-01-role-based-access-control"></a>實驗室 01：角色型存取控制
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗室案例
+## <a name="lab-scenario"></a>實驗案例
 
 系統要求您建立概念證明，顯示如何建立 Azure 使用者和群組。 此外，也顯示如何使用角色型存取控制將角色指派給群組。 具體而言，您需要：
 
@@ -21,7 +16,7 @@ ms.locfileid: "146381337"
 - 建立一個服務台群組，其中包含 Dylan Williams 的使用者帳戶作為其成員。
 - 將虛擬機器參與者角色指派給服務台群組。 
 
-> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
@@ -36,7 +31,7 @@ ms.locfileid: "146381337"
 
 ![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>Instructions
 
 ### <a name="exercise-1-create-the-senior-admins-group-with-the-user-account-joseph-price-as-its-member"></a>練習 1：建立一個資深系統管理員群組，其中 Joseph Price 的使用者帳戶作為其成員。 
 
@@ -76,7 +71,7 @@ ms.locfileid: "146381337"
 
 #### <a name="task2-use-the-azure-portal-to-create-a-senior-admins-group-and-add-the-user-account-of-joseph-price-to-the-group"></a>工作 2：使用 Azure 入口網站來建立資深系統管理員群組，並將 Joseph Price 的使用者帳戶新增至群組。
 
-在此工作中，您會建立 *資深系統管理員* 群組、將 Joseph Price 的使用者帳戶新增至群組，並將其設定為群組擁有者。
+在此工作中，您會建立*資深系統管理員*群組、將 Joseph Price 的使用者帳戶新增至群組，並將其設定為群組擁有者。
 
 1. 在 Azure 入口網站中，巡覽回顯示 Azure Active Directory 租用戶的刀鋒視窗。 
 
@@ -210,7 +205,7 @@ ms.locfileid: "146381337"
     DOMAINNAME=$(az ad signed-in-user show --query 'userPrincipalName' | cut -d '@' -f 2 | sed 's/\"//')
     ```
 
-3. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以建立使用者 Dylan Williams。 使用 *您的網域*。
+3. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以建立使用者 Dylan Williams。 使用*您的網域*。
  
     ```cli
     az ad user create --display-name "Dylan Williams" --password "Pa55w.rd1234" --user-principal-name Dylan@$DOMAINNAME
@@ -278,13 +273,13 @@ ms.locfileid: "146381337"
 
 #### <a name="task-1-create-a-resource-group"></a>工作 1：建立資源群組
 
-1. 在 Azure 入口網站中，在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件] 文字輸入框中，輸入 **資源群組**，然後按 **Enter** 鍵。
+1. 在 Azure 入口網站中，在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件] 文字輸入框中，輸入**資源群組**，然後按 **Enter** 鍵。
 
 2. 在 [資源群組] 窗格上，按一下 [+ 建立]，並指定下列設定：
 
    |設定|值|
    |---|---|
-   |訂用賬戶名稱|您的 Azure 訂用帳戶的名稱|
+   |訂閱名稱|您的 Azure 訂用帳戶的名稱|
    |資源群組名稱|**AZ500Lab01**|
    |位置|美國東部 |
 
@@ -329,7 +324,7 @@ ms.locfileid: "146381337"
 
 > 請記得移除您不再使用的任何新建 Azure 資源。 移除未使用的資源可避免產生非預期的費用。
 
-1. 在 Azure 入口網站中，按一下右上方的第一個圖示以開啟 [Cloud Shell]。 
+1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 
 
 2. 在 [Cloud Shell] 窗格左上角的下拉式功能表中選取 [PowerShell]，並在提示出現時按一下 [確認]。 
 
