@@ -2,26 +2,21 @@
 lab:
   title: 09 - 設定和保護 ACR 與 AKS
   module: Module 02 - Implement Platform Protection
-ms.openlocfilehash: 167dca080d65d97997b3a884015bfa2228c17a23
-ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2022
-ms.locfileid: "145955415"
 ---
+
 # <a name="lab-09-configuring-and-securing-acr-and-aks"></a>實驗室 09：設定和保護 ACR 與 AKS
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
 ## <a name="lab-scenario"></a>實驗案例
 
-系統要求您使用 Azure Container Registry 和 Azure Kubernetes Service 部署概念證明。 具體而言，概念證明應示範：
+系統要求您使用 Azure Container Registry 和 Azure Kubernetes Service 部署概念證明。  具體而言，概念證明應示範：
 
-- 使用 Dockerfile 組建映像。
-- 使用 Azure Container Registry 儲存映像。
-- 設定 Azure Kubernetes Service。
+-   使用 Dockerfile 組建映像。
+-   使用 Azure Container Registry 儲存映像。
+-   設定 Azure Kubernetes Service。
 - 在內部和外部保護及存取容器應用程式。 
 
-> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
@@ -44,7 +39,7 @@ ms.locfileid: "145955415"
 
 ### <a name="estimated-timing-45-minutes"></a>預計時間：45 分鐘
 
-> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師確認這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
 在本練習中，您將會完成下列工作：
 
@@ -112,7 +107,7 @@ ms.locfileid: "145955415"
     ```sh
     ACRNAME=$(az acr list --resource-group AZ500LAB09 --query '[].{Name:name}' --output tsv)
 
-    az acr build --image sample/nginx:v1 --registry $ACRNAME --file Dockerfile .
+    az acr build --resource-group AZ500LAB09 --image sample/nginx:v1 --registry $ACRNAME --file Dockerfile .
     ```
 
     >**注意**：等候命令成功完成。 這大約需要 2 分鐘。
@@ -176,7 +171,7 @@ ms.locfileid: "145955415"
 
     >**注意**：等待部署完成。 這大約需要 10 分鐘。
 
-9. 當部署完成後，在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件] 文字輸入框中，輸入 **資源群組**，然後按下 **Enter** 鍵。
+9. 當部署完成後，在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件] 文字輸入框中，輸入**資源群組**，然後按下 **Enter** 鍵。
 
 10. 在 [資源群組] 刀鋒視窗的資源群組清單中，記下名為 **MC_AZ500LAB09_MyKubernetesCluster_eastus** 的新資源群組，其中包含 AKS 節點的元件。 檢閱此資源群組中的資源。 
     
@@ -200,7 +195,7 @@ ms.locfileid: "145955415"
     kubectl get nodes
     ```
 
-    >**注意**：確認叢集節點的 **狀態** 已列為 **就緒**。
+    >**注意**：確認叢集節點的**狀態**已列為**就緒**。
 
 #### <a name="task-4-grant-the-aks-cluster-permissions-to-access-the-acr-and-manage-its-virtual-network"></a>工作 4：將存取 ACR 和管理其虛擬網路的權限授與 AKS 叢集
 
@@ -254,11 +249,11 @@ ms.locfileid: "145955415"
     code ./nginxexternal.yaml
     ```
 
-    >**注意**：這是 *外部* yaml 檔案。
+    >**注意**：這是*外部* yaml 檔案。
 
-4. 在編輯器窗格中，向下捲動至 **第 24 行**，並以 ACR 名稱取代 **`<ACRUniquename>`** 預留位置。
+4. 在編輯器窗格中，向下捲動至**第 24 行**，並以 ACR 名稱取代 **`<ACRUniquename>`** 預留位置。
 
-5. 在編輯器窗格中，依序按一下右上角的 **省略號** 圖示、[儲存] 以及 [關閉編輯器]。 
+5. 在編輯器窗格中，依序按一下右上角的**省略號**圖示、[儲存] 以及 [關閉編輯器]。 
 
 6. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令將變更套用至叢集：
 
@@ -287,7 +282,7 @@ ms.locfileid: "145955415"
 
 3. 開啟新的瀏覽器索引標籤，並瀏覽至您在上一個步驟中識別的 IP 位址。
 
-4. 確認會顯示 **歡迎使用 nginx!** 頁面。 
+4. 確認會顯示**歡迎使用 nginx!** 頁面。 
 
 #### <a name="task-7-deploy-an-internal-service-to-aks"></a>工作 7：將內部服務部署至 AKS
 
@@ -299,11 +294,11 @@ ms.locfileid: "145955415"
     code ./nginxinternal.yaml
     ```
 
-    >**注意**：這是 *內部* yaml 檔案。
+    >**注意**：這是*內部* yaml 檔案。
 
 2. 在編輯器窗格中，向下捲動至包含容器映像參考的行，並以 ACR 名稱取代 **`<ACRUniquename>`** 預留位置。
 
-3. 在編輯器窗格中，依序按一下右上角的 **省略號** 圖示、[儲存] 以及 [關閉編輯器]。 
+3. 在編輯器窗格中，依序按一下右上角的**省略號**圖示、[儲存] 以及 [關閉編輯器]。 
 
 4. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令將變更套用至叢集：
 
@@ -324,7 +319,7 @@ ms.locfileid: "145955415"
     kubectl get service nginxinternal
     ```
 
-7. 在 [Cloud Shell] 窗格的 Bash 工作階段中，檢閱輸出。 在此案例中，外部 IP 為私人 IP 位址。 如果處於 **擱置** 狀態，請再次執行先前的命令。
+7. 在 [Cloud Shell] 窗格的 Bash 工作階段中，檢閱輸出。 在此案例中，外部 IP 為私人 IP 位址。 如果處於**擱置**狀態，請再次執行先前的命令。
 
     >**注意**：記錄此 IP 位址。 您將在下一個工作中需要它。 
 

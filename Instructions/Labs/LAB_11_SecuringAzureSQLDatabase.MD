@@ -2,25 +2,20 @@
 lab:
   title: 11 - 保護 Azure SQL Database
   module: Module 03 - Secure data and applications
-ms.openlocfilehash: 1112086c681d4d81e186ad87a8a01085f42f8490
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "145195871"
 ---
+
 # <a name="lab-11-securing-azure-sql-database"></a>實驗室 11：保護 Azure SQL Database
 # <a name="student-lab-manual"></a>學生實驗手冊
 
 ## <a name="lab-scenario"></a>實驗案例
 
-系統要求您檢閱 Azure SQL 資料庫的安全性功能。 具體而言，您要關注的是：
+系統要求您檢閱 Azure SQL 資料庫的安全性功能。  具體而言，您要關注的是：
 
-- 防止攻擊，例如 SQL 插入式攻擊和資料外流。 
-- 能夠探索資料庫資訊並將其分類為不同類別，例如機密。 
+-  防止攻擊，例如 SQL 插入式攻擊和資料外流。 
+-  能夠探索資料庫資訊並將其分類為不同類別，例如機密。 
 - 能夠稽核資料庫伺服器、資料庫查詢和記錄事件。 
 
-> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師確認這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
@@ -97,7 +92,7 @@ ms.locfileid: "145195871"
 
       >**注意**：如果未顯示 **(設定)** ，請重新整理瀏覽器。
     
-7. 在 [伺服器設定] 刀鋒視窗上，檢閱定價和試用期間、**弱點評定設定** 和 **進階威脅防護設定** 的相關資訊。
+7. 在 [伺服器設定] 刀鋒視窗上，檢閱定價和試用期間、**弱點評定設定**和**進階威脅防護設定**的相關資訊。
 
 8. 回到 [適用於雲端的 Microsoft Defender] 刀鋒視窗，檢閱 [建議] 和 [安全性警示]。
 
@@ -187,7 +182,7 @@ ms.locfileid: "145195871"
 
 > 請記得移除您不再使用的任何新建 Azure 資源。 移除未使用的資源可避免產生非預期的費用。 
 
-1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請點選 [PowerShell] 與 [建立儲存體]。
+1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請按一下 [PowerShell] 與 [建立儲存體]。
 
 2. 確定在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 
