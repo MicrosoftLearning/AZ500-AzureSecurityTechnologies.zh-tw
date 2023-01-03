@@ -2,13 +2,8 @@
 lab:
   title: 13 - Azure 監視器
   module: Module 04 - Manage security operations
-ms.openlocfilehash: d7418287b895ccb5af66f01b499181b321e2bc36
-ms.sourcegitcommit: 3c178de473f4f986a3a7ea1d03c9f5ce699a05a4
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147871970"
 ---
+
 # <a name="lab-13-azure-monitor"></a>實驗室 13：Azure 監視器
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
@@ -20,7 +15,7 @@ ms.locfileid: "147871970"
 -  顯示可收集哪些遙測和記錄。
 - 示範資料的使用和查詢方法。 
 
-> 此實驗室中所有資源均使用 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
@@ -66,23 +61,10 @@ ms.locfileid: "147871970"
 
 5. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以建立新的 Azure 虛擬機器。 
 
-    >**注意**：New-AzVm 命令無法在 Azure CLI 4.24 版中運作，Microsoft 目前正在調查解決方案。  此實驗室的因應措施是安裝並還原至 Az.Compute 4.23.0 版，因此不會受到這個問題影響。
-   
-    >**說明**：還原至 Az.Compute 4.23.0 版 
-  
-   #### <a name="step-1-download-the-working-version-of-the-module-4230-into-your-cloud-shell-session"></a>步驟 1：將此模組的可運作版本 (4.23.0) 下載到您的 Cloud Shell 工作階段 
-   **類型**：Install-Module -Name Az.Compute -Force -RequiredVersion 4.23.0
-
-   #### <a name="step-2-start-a-new-powershell-session-that-will-allow-the-azcompute-assembly-version-to-be-loaded"></a>步驟 2：啟動允許載入 Az.Compute 組件版本的新 PowerShell 工作階段 
-   **類型**：pwsh
-
-   #### <a name="step-3-verify-that-version-4230-is-loaded"></a>步驟 3：確認已載入 4.23.0 版
-   **類型**：Get-Module -Name Az.Compute
-   
     ```powershell
-    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -OpenPorts 80,3389
+    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -PublicIpSku Standard -OpenPorts 80,3389 -Size Standard_DS1_v2 
     ```
-
+    
 6.  出現憑據提示時：
 
     |設定|值|
@@ -106,7 +88,7 @@ ms.locfileid: "147871970"
 
 1. 在 Azure 入口網站分頁頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入 **「Log Analytics 工作區」** ，然後按下 **Enter** 鍵。
 
-2. 在 [Log Analytics 工作區] 刀鋒視窗上，按一下 [+ 建立]。
+2. 在 [Log Analytics 工作區] 刀鋒視窗上，按一下 [+ 建立] **** 。
 
 3. 在 [建立 Log Analytics 工作區] 刀鋒視窗的 [基本] 索引標籤上，指定下列設定 (其他設定請保留預設值)：
 
@@ -115,7 +97,7 @@ ms.locfileid: "147871970"
     |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
     |資源群組|**AZ500LAB131415**|
     |名稱|任何有效的全域唯一名稱|
-    |區域|**(美國) 美國東部**|
+    |區域|美國東部|
 
 4. 選取 [檢閱 + 建立]。
 
@@ -180,7 +162,7 @@ ms.locfileid: "147871970"
     
 5. 檢閱預先定義查詢的清單，選取 [記憶體和 CPU 使用量]，然後按一下對應的 [執行] 按鈕。
 
-    >**注意**：您可以從查詢 **虛擬機器的可用記憶體** 開始。 如果沒有查詢到任何結果，請確認範圍已設定為 [虛擬機器]
+    >**注意**：您可以從查詢**虛擬機器的可用記憶體**開始。 如果沒有查詢到任何結果，請確認範圍已設定為 [虛擬機器]
 
 6. 查詢會自動在新的查詢索引標籤中開啟。 
 

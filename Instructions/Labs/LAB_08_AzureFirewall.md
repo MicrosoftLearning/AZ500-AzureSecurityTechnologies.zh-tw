@@ -67,7 +67,7 @@ lab:
 
 4. 在 [編輯範本] 刀鋒視窗中按一下 [載入檔案]，找出 **\\Allfiles\\Labs\\08\\template.json** 檔案，然後按一下 [開啟]。
 
-    >**注意**：請檢閱範本內容，並注意範本所部署的是裝載 Windows Server 2019 Datacenter 的 Azure VM。
+    >**注意**：請檢閱範本內容，並注意範本所部署的是裝載 Windows Server 2016 Datacenter 的 Azure VM。
 
 5. 在 [編輯範本] 刀鋒視窗中按一下 [儲存]。
 
