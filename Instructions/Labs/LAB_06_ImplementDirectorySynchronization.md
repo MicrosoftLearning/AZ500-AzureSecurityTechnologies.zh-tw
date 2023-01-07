@@ -2,13 +2,8 @@
 lab:
   title: 06 - 實作目錄同步作業
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 9403e136799cd27b91f27c5d8d268ab0aec3f7c5
-ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 06/15/2022
-ms.locfileid: "146381346"
 ---
+
 # <a name="lab-06-implement-directory-synchronization"></a>實驗室 06：實作目錄同步作業
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
@@ -20,7 +15,7 @@ ms.locfileid: "146381346"
 - 建立並設定 Azure AD 租用戶
 - 同步處理 AD DS 樹系與 Azure AD 租用戶
 
-> 此實驗室中所有資源使用的都是 **美國東部** 區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
 ## <a name="lab-objectives"></a>實驗室目標
 
@@ -34,7 +29,7 @@ ms.locfileid: "146381346"
 
 ![image](https://user-images.githubusercontent.com/91347931/157525374-8f740f14-c2db-47b3-98f8-7feb9bc122b5.png)
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>Instructions
 
 ### <a name="exercise-1-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>練習 1：部署裝載 Active Directory 網域控制站的 Azure VM
 
@@ -139,13 +134,13 @@ ms.locfileid: "146381346"
 
 5. 按一下 [檢閱 + 建立]  ，然後按一下 [建立]  。
 
-    >**注意**：等待新租用戶建立完成。 使用 **通知** 圖示監視部署狀態。 
+    >**注意**：等待新租用戶建立完成。 使用**通知**圖示監視部署狀態。 
 
 #### <a name="task-2-add-a-custom-dns-name-to-the-new-azure-ad-tenant"></a>工作 2：在新的 Azure AD 租用戶中新增自訂 DNS 名稱
 
 在此工作中，您必須在新的 Azure AD 租用戶中新增自訂 DNS 名稱。 
 
-1. 在 Azure 入口網站的工具列中，按一下 Cloud Shell 圖示右邊的 **目錄 + 訂閱** 圖示。 
+1. 在 Azure 入口網站的工具列中，按一下 Cloud Shell 圖示右邊的**目錄 + 訂閱**圖示。 
 
 2. 在 [目錄 + 訂閱] 刀鋒視窗中選取新建立的 租用戶 [AdatumSync] 行，然後按一下 [切換] 按鈕。
 
@@ -194,7 +189,7 @@ ms.locfileid: "146381346"
 
 6. 以 **syncadmin** 的身分登出，然後關閉 InPrivate 瀏覽器視窗。
 
-> **結果**：完成本練習就代表您已建立 Azure AD 租用戶，為新的 Azure AD 租用戶新增自訂 DNS 名稱，並建立了具有全域管理員角色的 Azure AD 使用者。
+> **結果**：完成此練習就代表您已建立 Azure AD 租用戶，了解如何為新的 Azure AD 租用戶新增自訂 DNS 名稱，並建立了具有全域管理員角色的 Azure AD 使用者。
 
 
 ### <a name="exercise-3-synchronize-active-directory-forest-with-an-azure-active-directory-tenant"></a>練習 3：同步處理 Active Directory 樹系與 Azure Active Directory 租用戶
@@ -215,20 +210,20 @@ ms.locfileid: "146381346"
 
 1. 在 Azure 入口網站中，將 [目錄 + 訂閱] 篩選條件設定為 Azure AD 租用戶，該 Azure AD 租用戶應與您在本實驗室第一項練習中部署 Azure VM 的 Azure 訂閱相關聯。
 
-2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入 **虛擬機器**，然後按下 **Enter** 鍵。
+2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入**虛擬機器**，然後按下 **Enter** 鍵。
 
 3. 在 [虛擬機器] 刀鋒視窗中按一下 [adVM] 項目。 
 
 4. 在 [adVM] 刀鋒視窗中按一下 [連線]，然後在下拉式功能表中點選 [RDP]。 
 
-5. **IP 位址** 參數請選取 [負載平衡器公用 IP 位址]，然後點選 [下載 RDP 檔案]，再使用該檔案透過遠端桌面連線至 **adVM** Azure VM。 出現驗證提示時，請提供下列認證：
+5. **IP 位址**參數請選取 [負載平衡器公用 IP 位址]，然後點選 [下載 RDP 檔案]，再使用該檔案透過遠端桌面連線至 **adVM** Azure VM。 出現驗證提示時，請提供下列認證：
 
    |設定|值|
    |---|---|
    |使用者名稱|**Student**|
    |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
 
-    >**注意**：等待遠端桌面工作階段和 **伺服器管理員** 載入。  
+    >**注意**：等待遠端桌面工作階段和**伺服器管理員**載入。  
 
     >**注意**：下列步驟須在連線至 **adVM** Azure VM 的遠端桌面工作階段中執行。 
 
@@ -330,11 +325,11 @@ ms.locfileid: "146381346"
 
 5. 在連線至 **adVM** 的遠端桌面工作階段中，切換至 [Active Directory 管理中心]，並在 **ToSync** OU 的物件清單中選取 [aduser1] 項目。接著，在 [工作] 窗格的 [aduser1] 區段選取 [屬性]。
 
-6. 在 [aduser1] 視窗的 [組織] 區段中，於 [部門] 文字輸入框內輸入 **銷售**，然後選取 [確定]。
+6. 在 [aduser1] 視窗的 [組織] 區段中，於 [部門] 文字輸入框內輸入**銷售**，然後選取 [確定]。
 
 7. 在連線至 **adVM** 的遠端桌面工作階段中，啟動 **Windows PowerShell**。
 
-8. 在 **系統管理員：Windows PowerShell** 主控台中執行下列指令，以啟動 Azure AD Connect 差異同步處理：
+8. 在**系統管理員：Windows PowerShell** 主控台中執行下列指令，以啟動 Azure AD Connect 差異同步處理：
 
     ```powershell
     Import-Module -Name 'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1'
@@ -406,11 +401,11 @@ ms.locfileid: "146381346"
 
 13. 在 Azure 入口網站中前往 [使用者 - 所有使用者] 刀鋒視窗，按一下代表 **asyncadmin** 使用者帳戶的項目，然後在 [syncadmin - 設定檔] 刀鋒視窗中點選 [刪除]。出現確認提示時，請按一下 [是]。
 
-14. 重複以相同的順序執行上述步驟，以刪除 **aduser1** 使用者帳戶和 **內部部署目錄同步處理服務帳戶**。
+14. 重複以相同的順序執行上述步驟，以刪除 **aduser1** 使用者帳戶和**內部部署目錄同步處理服務帳戶**。
 
 15. 前往 Azure AD 租用戶的 [AdatumSync - 概觀] 刀鋒視窗，按一下 [管理租用戶] 並勾選 [AdatumSync] 目錄的核取方塊，接著點選 [刪除]。在 [刪除租用戶「AdatumSync」] 刀鋒視窗中按一下 [取得刪除 Azure 資源的權限] 連結，然後在 Azure Active Directory 的 [屬性] 刀鋒視窗中，將 [Azure 資源的存取管理] 設定為 [是]，再按一下 [儲存] 。
 
-    >**注意**：進行刪除作業時若收到如 **刪除所有使用者** 之類的警告訊息，請繼續執行刪除您所建立的使用者。若出現 **刪除 LinkedIn 應用程式** 的警告訊息，請按一下該訊息並確認刪除 LinkedIn 應用程式。您必須解決所有警告才能成功刪除租用戶。
+    >**注意**：進行刪除作業時若收到如**刪除所有使用者**之類的警告訊息，請繼續執行刪除您所建立的使用者。若出現**刪除 LinkedIn 應用程式**的警告訊息，請按一下該訊息並確認刪除 LinkedIn 應用程式。您必須解決所有警告才能成功刪除租用戶。
 
 16. 登出 Azure 入口網站後再次登入。 
 

@@ -2,13 +2,8 @@
 lab:
   title: 03 - Resource Manager 鎖定
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 54375454646bdcf0586b249f65349691c3a3b9c3
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "145195847"
 ---
+
 # <a name="lab-03-resource-manager-locks"></a>實驗 03：Resource Manager 鎖定
 # <a name="student-lab-manual"></a>學生實驗室手冊
 
@@ -20,7 +15,7 @@ ms.locfileid: "145195847"
 
 - 建立刪除鎖定
 
-> 此實驗室中所有資源使用的都是 **美國東部** 區域。 請與講師確認這是課程中要使用的區域。 
+> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
  
 ## <a name="lab-objectives"></a>實驗室目標
 
@@ -54,7 +49,7 @@ ms.locfileid: "145195847"
 
     >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂用帳戶中具有「擁有者」或「參與者」角色。
 
-1. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請選取 [PowerShell] 與 [建立儲存體]。
+1. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請選取 [PowerShell] 和 [建立儲存體]。
 
 1. 確定在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 
@@ -62,7 +57,12 @@ ms.locfileid: "145195847"
 
     ```powershell
     New-AzResourceGroup -Name AZ500LAB03 -Location 'EastUS'
+    
+    Confirm
+    Provided resource group already exists. Are you sure you want to update it?
+    [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): Y
     ```
+1. 在 [Cloud Shell] 窗格內的 PowerShell 工作階段中，輸入 **Y**，然後按 Enter 鍵。
 
 1. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中執行下列命令，以便在新建的資源群組中建立儲存體帳戶：
     
@@ -105,7 +105,7 @@ ms.locfileid: "145195847"
 
 1. 您應該會看到「無法更新儲存體帳戶」的通知。
 
-1. 在 Azure 入口網站頂端的工具列中按一下 **通知** 圖示以檢閱通知，內容應類似於下列文字： 
+1. 在 Azure 入口網站頂端的工具列中按一下**通知**圖示以檢閱通知，內容應類似於下列文字： 
 
     > **「無法更新儲存體帳戶 'xxxxxxxx'。錯誤：因為下列範圍已鎖定，所以範圍 'xxxxxxxx' 無法執行寫入作業：'/subscriptions/xxxxx-xxx-xxxx-xxxx-xxxxxxxx/resourceGroups/AZ500LAB03/providers/Microsoft.Storage/storageAccounts/xxxxxxx'。請移除鎖定，然後再試一次。」**
 
@@ -129,7 +129,7 @@ ms.locfileid: "145195847"
 
 1. 在 [設定] 區段中選取 [鎖定]。  
 
-1. 在 [鎖定] 刀鋒視窗中按一下 **ReadOnly 鎖定** 項目最右邊的 **刪除** 圖示。
+1. 在 [鎖定] 刀鋒視窗中按一下 **ReadOnly 鎖定**項目最右邊的**刪除**圖示。
 
 1. 按一下 [+ 新增]，然後指定下列設定：
 
@@ -158,7 +158,7 @@ ms.locfileid: "145195847"
 
     > **「因為 'xxxxxx' 或其父代有刪除鎖定，所以無法刪除此資源。必須先移除鎖定，才可刪除此資源。」**
 
-   >**注意**：您現在已確認 **刪除** 鎖定允許變更設定，但可防止資源意外遭到刪除。
+   >**注意**：您現在已確認**刪除**鎖定允許變更設定，但可防止資源意外遭到刪除。
 
    >**注意**：使用資源鎖定可以實作額外的防線，防止最重要的資源遭到意外或惡意變更和/或刪除。 具備「擁有者」角色的所有使用者都可以移除資源鎖定，但必須在充分了解情況的條件下才能這麼做。 鎖定可以彌補角色型存取控制的不足。 
 
