@@ -4,10 +4,10 @@ lab:
   module: Module 04 - Manage Security Operations
 ---
 
-# <a name="lab-15-microsoft-sentinel"></a>實驗室 15：Microsoft Sentinel
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 15：Microsoft Sentinel
+# 學生實驗手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 **注意：** **Azure Sentinel** 已重新命名為 **Microsoft Sentinel** 
 
@@ -17,27 +17,27 @@ lab:
 - 新增內建和自訂警示 
 - 檢閱如何使用劇本將事件回應設為自動化。
 
-> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
 - 練習 1：實作 Microsoft Sentinel
 
-## <a name="microsoft-sentinel-diagram"></a>Microsoft Sentinel 圖表
+## Microsoft Sentinel 圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157538440-4953be73-90be-4edd-bd23-b678326ba637.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-## <a name="lab-files"></a>實驗室檔案：
+## 實驗室檔案：
 
 - **\\Allfiles\\Labs\\15\\changeincidentseverity.json**
 
-### <a name="exercise-1-implement-microsoft-sentinel"></a>練習 1：實作 Microsoft Sentinel
+### 練習 1：實作 Microsoft Sentinel
 
-### <a name="estimated-timing-30-minutes"></a>預估時間：30 分鐘
+### 預估時間：30 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -48,7 +48,7 @@ lab:
 - 工作 5：建立自訂警示並將劇本設定為自動回應。
 - 工作 6：叫用事件並檢閱相關聯的動作。
 
-#### <a name="task-1-on-board-azure-sentinel"></a>工作 1：讓 Microsoft Sentinel 上線
+#### 工作 1：讓 Microsoft Sentinel 上線
 
 在此工作中，您必須讓 Microsoft Sentinel 上線，並連線至 Log Analytics 工作區。 
 
@@ -66,7 +66,7 @@ lab:
 
     >**注意**：Microsoft Sentinel 對工作區有非常明確的需求。 舉例來說，您無法使用適用於雲端的 Microsoft Defender 所建立的工作區。 如需詳細資訊請參閱[快速入門：使 Microsoft Sentinel 上線](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
     
-#### <a name="task-2-configure-microsoft-sentinel-to-use-the-azure-activity-data-connector"></a>工作 2：將 Microsoft Sentinel 設定為使用 Azure 活動資料連接器。 
+#### 工作 2：將 Microsoft Sentinel 設定為使用 Azure 活動資料連接器。 
 
 在此工作中，您必須將 Microsoft Sentinel 設定為使用 Azure 活動資料連接器。  
 
@@ -96,7 +96,7 @@ lab:
 
     >**注意**：顯示「已連線」狀態和 [收到的資料] 圖表可能需要超過 15 分鐘。
 
-#### <a name="task-3-create-a-rule-that-uses-the-azure-activity-data-connector"></a>工作 3：建立使用 Azure 資料連接器的規則。 
+#### 工作 3：建立使用 Azure 資料連接器的規則。 
 
 在此工作中，您必須檢閱並建立使用 Azure 活動資料連接器的規則。 
 
@@ -124,13 +124,13 @@ lab:
 
     >**注意**：您現在有使用中的規則了。
 
-#### <a name="task-4-create-a-playbook"></a>工作 4：建立劇本
+#### 工作 4：建立劇本
 
 在此工作中，您必須建立劇本。 安全性劇本是在回應警示時可從 Microsoft Sentinel 叫用的工作集合。 
 
 1. 在 Azure 入口網站分頁頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入 **「部署自訂範本」** ，然後按下 **Enter** 鍵。
 
-2. 在 [自訂部署] 刀鋒視窗中按一下 [在編輯器中組建您自己的範本] 選項。
+2. 在 [自訂部署] 刀鋒視窗中按一下 [在編輯器中建置您自己的範本] 選項。
 
 3. 在 [編輯範本] 刀鋒視窗中按一下 [載入檔案]，找出 **\\Allfiles\\Labs\\15\\changeincidentseverity.json** 檔案，然後按一下 [開啟]。
 
@@ -176,7 +176,7 @@ lab:
 
 16. 在 [Logic Apps 設計工具] 刀鋒視窗中，按一下 [儲存] 以儲存變更。
 
-#### <a name="task-5-create-a-custom-alert-and-configure-a-playbook-as-an-automated-response"></a>工作 5：建立自訂警示並將劇本設定為自動回應
+#### 工作 5：建立自訂警示並將劇本設定為自動回應
 
 1. 在 Azure 入口網站中返回 [Microsoft Sentinel \| 概觀] 刀鋒視窗。
 
@@ -218,7 +218,7 @@ lab:
 
     >**注意**：您現在有稱為**劇本示範**的新使用中規則。 如果發生了規則邏輯所識別的事件，則會產生中嚴重性的警示，並產生相應的事件。
 
-#### <a name="task-6-invoke-an-incident-and-review-the-associated-actions"></a>工作 6：叫用事件並檢閱相關聯的動作。
+#### 工作 6：叫用事件並檢閱相關聯的動作。
 
 1. 在 Azure 入口網站中，瀏覽至 [適用於雲端的 Microsoft Defender \| 概觀] 刀鋒視窗。
 
@@ -258,7 +258,7 @@ lab:
 
 > 請記得移除您不再使用的任何新建 Azure 資源。 移除未使用的資源可避免產生非預期的費用。 
 
-1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請按一下 [PowerShell] 與 [建立儲存體]。
+1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請點選 [PowerShell] 與 [建立儲存體]。
 
 2. 確定在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 

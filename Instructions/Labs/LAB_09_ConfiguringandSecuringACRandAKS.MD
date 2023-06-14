@@ -4,10 +4,10 @@ lab:
   module: Module 02 - Implement Platform Protection
 ---
 
-# <a name="lab-09-configuring-and-securing-acr-and-aks"></a>實驗室 09：設定和保護 ACR 與 AKS
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 09：設定和保護 ACR 與 AKS
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 系統要求您使用 Azure Container Registry 和 Azure Kubernetes Service 部署概念證明。  具體而言，概念證明應示範：
 
@@ -16,28 +16,28 @@ lab:
 -   設定 Azure Kubernetes Service。
 - 在內部和外部保護及存取容器應用程式。 
 
-> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
 - 練習 1：設定和保護 ACR 與 AKS
 
-## <a name="configuring-and-securing-acr-and-aks-diagram"></a>設定和保護 ACR 與 AKS 圖表
+## 設定和保護 ACR 與 AKS 圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157532250-1104a829-792a-4b6d-beff-fe976e2d5d4b.png)
 
-## <a name="intructions"></a>指示
+## 指示
 
-## <a name="lab-files"></a>實驗室檔案：
+## 實驗室檔案：
 
 - **\\Allfiles\\Labs\\09\\nginxexternal.yaml**
 - **\\Allfiles\\Labs\\09\\nginxinternal.yaml**
 
-### <a name="exercise-1-configuring-and-securing-acr-and-aks"></a>練習 1：設定和保護 ACR 與 AKS
+### 練習 1：設定和保護 ACR 與 AKS
 
-### <a name="estimated-timing-45-minutes"></a>預計時間：45 分鐘
+### 預計時間：45 分鐘
 
 > 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
@@ -52,7 +52,7 @@ lab:
 - 工作 7：將內部服務部署至 AKS
 - 工作 8：驗證您是否可以存取內部 AKS 託管服務
 
-#### <a name="task-1-create-an-azure-container-registry"></a>工作 1：建立 Azure Container Registry
+#### 工作 1：建立 Azure Container Registry
 
 在此工作中，您會建立實驗室的資源群組和 Azure Container Registry。
 
@@ -90,7 +90,7 @@ lab:
 
     >**注意**：記錄 ACR 的名稱。 您將在下一個工作中需要它。
 
-#### <a name="task-2-create-a-dockerfile-build-a-container-and-push-it-to-azure-container-registry"></a>工作 2：建立 Dockerfile、組建容器，並將其推送至 Azure Container Registry
+#### 工作 2：建立 Dockerfile、組建容器，並將其推送至 Azure Container Registry
 
 在此工作中，您將建立 Dockerfile、從 Dockerfile 組建映像，並將映像部署至 ACR。 
 
@@ -126,7 +126,7 @@ lab:
 
     >**注意**：資訊清單包含 sha256 摘要、資訊清單建立日期和平台項目。 
 
-#### <a name="task-3-create-an-azure-kubernetes-service-cluster"></a>工作 3：建立 Azure Kubernetes Service 叢集
+#### 工作 3：建立 Azure Kubernetes Service 叢集
 
 在此工作中，您會建立 Azure Kubernetes 服務，並檢閱已部署的資源。 
 
@@ -197,7 +197,7 @@ lab:
 
     >**注意**：確認叢集節點的**狀態**已列為**就緒**。
 
-#### <a name="task-4-grant-the-aks-cluster-permissions-to-access-the-acr-and-manage-its-virtual-network"></a>工作 4：將存取 ACR 和管理其虛擬網路的權限授與 AKS 叢集
+#### 工作 4：將存取 ACR 和管理其虛擬網路的權限授與 AKS 叢集
 
 在此工作中，您會將存取 ACR 和管理其虛擬網路的權限授與 AKS 叢集。 
 
@@ -229,7 +229,7 @@ lab:
     az role assignment create --assignee $AKS_MANAGED_ID --role "Contributor" --scope $AKS_VNET_ID
     ```
 
-#### <a name="task-5-deploy-an-external-service-to-aks"></a>工作 5：將外部服務部署至 AKS
+#### 工作 5：將外部服務部署至 AKS
 
 在此工作中，您會下載資訊清單檔、編輯 YAML 檔案，並將變更套用至叢集。 
 
@@ -268,7 +268,7 @@ lab:
     service/nginxexternal created
     ```
 
-#### <a name="task-6-verify-the-you-can-access-an-external-aks-hosted-service"></a>工作 6：驗證您是否可以存取外部 AKS 託管服務
+#### 工作 6：驗證您是否可以存取外部 AKS 託管服務
 
 在此工作中，使用公用 IP 位址確認容器可從外部存取。
 
@@ -284,7 +284,7 @@ lab:
 
 4. 確認會顯示**歡迎使用 nginx!** 頁面。 
 
-#### <a name="task-7-deploy-an-internal-service-to-aks"></a>工作 7：將內部服務部署至 AKS
+#### 工作 7：將內部服務部署至 AKS
 
 在此工作中，您會在 AKS 上部署內部對應服務。 
 
@@ -327,7 +327,7 @@ lab:
 
     >**注意**：或者，您可以使用 叢集 IP 位址。
 
-#### <a name="task-8-verify-the-you-can-access-an-internal-aks-hosted-service"></a>工作 8：驗證您是否可以存取內部 AKS 託管服務
+#### 工作 8：驗證您是否可以存取內部 AKS 託管服務
 
 在此工作中，您會使用 AKS 叢集上執行的其中一個 Pod 來存取內部服務。 
 

@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-05-azure-ad-privileged-identity-management"></a>實驗室 05：Azure AD rivileged Identity Management
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 05：Azure AD rivileged Identity Management
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 系統要求您建立使用 Azure Privileged Identity Management (PIM) 的概念證明，以啟用 Just-In-Time 系統管理，並控制可執行特殊許可權作業的使用者數目。 具體需求如下：
 
@@ -20,7 +20,7 @@ lab:
 
 > 請先確認您已完成實驗室 04 再繼續操作：MFA、條件式存取和 AAD 身分識別保護。 您需要使用 Azure AD 租用戶、AdatumLab500-04，以及 aaduser1、aaduser2、aaduser3 使用者帳戶。
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
@@ -28,15 +28,15 @@ lab:
 - 練習 2：啟用需要及不需要核准的 PIM 角色。
 - 練習 3：建立存取權檢閱並檢閱 PIM 稽核功能。
 
-## <a name="azure-ad-privileged-identity-management-diagram"></a>Azure AD Privileged Identity Management 圖表
+## Azure AD Privileged Identity Management 圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157522920-264ce57e-5c55-4a9d-8f35-e046e1a1e219.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-### <a name="exercise-1---configure-pim-users-and-roles"></a>練習 1：設定 PIM 使用者和角色
+### 練習 1：設定 PIM 使用者和角色
 
-#### <a name="estimated-timing-15-minutes"></a>預估時間：15 分鐘
+#### 預估時間：15 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -44,7 +44,7 @@ lab:
 - 工作 2：將角色設定為須取得核准才能啟用及新增符合資格的成員。
 - 工作 3：對角色進行使用者永久性指派。 
 
-#### <a name="task-1-make-a-user-eligible-for-a-role"></a>工作 1：讓使用者有資格獲派角色
+#### 工作 1：讓使用者有資格獲派角色
 
 在此工作中，您必須讓使用者有資格獲派 Azure AD 目錄角色。
 
@@ -78,7 +78,7 @@ lab:
 
     >**注意**：在登入期間，aaduser2 有資格使用計費管理員角色。 
 
-#### <a name="task-2-configure-a-role-to-require-approval-to-activate-and-add-an-eligible-member"></a>工作 2：將角色設定為須取得核准才能啟用及新增符合資格的成員
+#### 工作 2：將角色設定為須取得核准才能啟用及新增符合資格的成員
 
 1. 在 Azure 入口網站中巡覽回 [Privileged Identity Management] 刀鋒視窗，然後按一下 [Azure AD 角色]。 
 
@@ -116,7 +116,7 @@ lab:
 
     >**注意**：使用者 aaduser2 符合全域讀取者角色的使用資格。 
  
-#### <a name="task-3-give-a-user-permanent-assignment-to-a-role"></a>工作 3：對角色進行使用者永久性指派。
+#### 工作 3：對角色進行使用者永久性指派。
 
 1. 在 Azure 入口網站中巡覽回 [Privileged Identity Management] 刀鋒視窗，然後按一下 [Azure AD 角色]。 
 
@@ -136,16 +136,16 @@ lab:
 
     >**注意**：使用者 aaduser2 現在已具備安全性系統管理員角色的永久資格。
     
-### <a name="exercise-2---activate-pim-roles-with-and-without-approval"></a>練習 2：啟用需要及不需要核准的 PIM 角色
+### 練習 2：啟用需要及不需要核准的 PIM 角色
 
-#### <a name="estimated-timing-15-minutes"></a>預估時間：15 分鐘
+#### 預估時間：15 分鐘
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：啟用不需要核准的角色。 
 - 工作 2：啟用需要核准的角色。 
 
-#### <a name="task-1-activate-a-role-that-does-not-require-approval"></a>工作 1：啟用不需要核准的角色。
+#### 工作 1：啟用不需要核准的角色。
 
 在此工作中，您必須啟用不需要核准的角色。
 
@@ -184,7 +184,7 @@ lab:
 12.  在 [停用 - 計費管理員] 刀鋒視窗中再按一下 [停用] 加以確認。
 
 
-#### <a name="task-2-activate-a-role-that-requires-approval"></a>工作 2：啟用需要核准的角色。 
+#### 工作 2：啟用需要核准的角色。 
 
 在此工作中，您必須啟用需要核准的角色。
 
@@ -248,16 +248,16 @@ lab:
 
 > 結果：您已完成啟用需要及不需要核准的 PIM 角色這項練習。 
 
-### <a name="exercise-3---create-an-access-review-and-review-pim-auditing-features"></a>練習 3：建立存取權檢閱並檢閱 PIM 稽核功能
+### 練習 3：建立存取權檢閱並檢閱 PIM 稽核功能
 
-#### <a name="estimated-timing-10-minutes"></a>預估時間：10 分鐘
+#### 預估時間：10 分鐘
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：在 PIM 中設定 Azure AD 目錄角色的安全性警示
 - 工作 2：檢閱 PIM 警示、摘要資訊，以及詳細的稽核資訊
 
-#### <a name="task-1-configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>工作 1：在 PIM 中設定 Azure AD 目錄角色的安全性警示
+#### 工作 1：在 PIM 中設定 Azure AD 目錄角色的安全性警示
 
 在此工作中，您必須降低角色指派過時所帶來的風險。 為達成這個目標，您需要建立 PIM 存取權檢閱，確定指派的角色仍然有效。 具體而言，您必須檢閱全域讀取者角色。 
 
@@ -315,7 +315,7 @@ lab:
 
 19. 選取代表**全域讀取者**檢閱的項目。 請注意，[進度] 圖表已更新並顯示您的檢閱。 
 
-#### <a name="task-2-review-pim-alerts-summary-information-and-detailed-audit-information"></a>工作 2：檢閱 PIM 警示、摘要資訊，以及詳細的稽核資訊。 
+#### 工作 2：檢閱 PIM 警示、摘要資訊，以及詳細的稽核資訊。 
 
 在此工作中，您必須檢閱 PIM 警示、摘要資訊，以及詳細的稽核資訊。 
 
@@ -345,7 +345,7 @@ lab:
 
     >**注意**：如果您沒有看到主要 Azure AD 租用戶項目，請按一下 [切換目錄] 連結，選取您的主要租用戶行，然後按一下 [切換] 按鈕。
 
-2. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請按一下 [PowerShell] 與 [建立儲存體]。
+2. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請點選 [PowerShell] 與 [建立儲存體]。
 
 3. 確定在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 

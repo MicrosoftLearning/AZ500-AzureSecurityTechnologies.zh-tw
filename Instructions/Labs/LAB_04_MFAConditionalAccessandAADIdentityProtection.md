@@ -1,23 +1,23 @@
 ---
 lab:
-  title: 04 - MFA、條件式存取和 AAD Identity Protection
+  title: 04 - MFA 和條件式存取
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-04-mfa-conditional-access-and-aad-identity-protection"></a>實驗室 04：MFA、條件式存取和 AAD Identity Protection
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 04：MFA 和條件式存取
+# 學生實驗手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 您收到要求，必須為用於增強 Azure Active Directory (Azure AD) 驗證的功能建立概念證明。 具體而言，您必須評估：
 
 - Azure AD 多重要素驗證
 - Azure AD 條件式存取
-- Azure AD Identity Protection
+- Azure AD 條件式存取風險型原則
 
 > 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
@@ -26,26 +26,26 @@ lab:
 - 練習 3：實作 Azure AD 條件式存取原則 
 - 練習 4：實作 Azure AD Identity Protection
 
-## <a name="mfa---conditional-access---identity-protection-diagram"></a>MFA - 條件式存取 - Identity Protection圖表
+## MFA - 條件式存取 - Identity Protection圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157518628-8b4a9efe-0086-4ec0-825e-3d062748fa63.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-## <a name="lab-files"></a>實驗室檔案：
+## 實驗室檔案：
 
 - **\\Allfiles\\Labs\\04\\az-500-04_azuredeploy.json**
 - **\\Allfiles\\Labs\\04\\az-500-04_azuredeploy.parameters.json** 
 
-### <a name="exercise-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>練習 1：使用 Azure Resource Manager 範本部署 Azure VM
+### 練習 1：使用 Azure Resource Manager 範本部署 Azure VM
 
-### <a name="estimated-timing-10-minutes"></a>預估時間：10 分鐘
+### 預估時間：10 分鐘
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：使用 Azure Resource Manager 範本部署 Azure VM。
 
-#### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>工作 1：使用 Azure Resource Manager 範本部署 Azure VM
+#### 工作 1：使用 Azure Resource Manager 範本部署 Azure VM
 
 在這項工作中，您必須使用 ARM 範本建立虛擬機器。 本實驗室的最後一項練習會使用此虛擬機器。 
 
@@ -79,7 +79,7 @@ lab:
 
    |設定|值|
    |---|---|
-   |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
+   |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
    |資源群組|按一下 [新建]，然後輸入以下名稱：**AZ500LAB04**|
    |位置|美國東部 |
    |VM 大小|**Standard_D2s_v3**|
@@ -97,9 +97,9 @@ lab:
 > 結果：您已起始 Azure VM **az500-04-vm1** 的範本部署；您會在本實驗室的最後一項練習中用到此 VM。
 
 
-### <a name="exercise-2-implement-azure-mfa"></a>練習 2：實作 Azure MFA
+### 練習 2：實作 Azure MFA
 
-### <a name="estimated-timing-30-minutes"></a>預估時間：30 分鐘
+### 預估時間：30 分鐘
 
 在本練習中，您須完成下列工作
 
@@ -110,7 +110,7 @@ lab:
 - 工作 5：進行 Azure MFA 設定。
 - 工作 6：驗證 MFA 設定
 
-#### <a name="task-1-create-a-new-azure-ad-tenant"></a>工作 1：建立新的 Azure AD 租用戶
+#### 工作 1：建立新的 Azure AD 租用戶
 
 在此工作中，您必須建立新的 Azure AD 租用戶。 
 
@@ -136,7 +136,7 @@ lab:
     >**注意**：等待新租用戶建立完成。 使用**通知**圖示監視部署狀態。 
 
 
-#### <a name="task-2-activate-azure-ad-premium-p2-trial"></a>工作 2：啟用 Azure AD Premium P2 試用版
+#### 工作 2：啟用 Azure AD Premium P2 試用版
 
 在此工作中，您必須註冊 Azure AD Premium P2 試用版。 
 
@@ -153,19 +153,19 @@ lab:
 5. 在 [啟用] 刀鋒視窗的 [Azure AD Premium P2] 區段中，按一下 [免費試用]，然後點選 [啟用]。
 
 
-#### <a name="task-3-create-azure-ad-users-and-groups"></a>工作 3：建立 Azure AD 使用者和群組。
+#### 工作 3：建立 Azure AD 使用者和群組。
 
 在這項工作中，您必須建立三位使用者：aaduser1 (全域管理員)、aaduser2 (使用者) 以及 aaduser3 (使用者)。 在之後的工作中，您會需要每位使用者的主體名稱和密碼。 
 
 1. 返回 [AdatumLab500-04] Azure Active Directory 刀鋒視窗，然後在 [管理] 區段中按一下 [使用者]。
 
-2. 在 [使用者 \| 所有使用者] 刀鋒視窗中，按一下 [+ 新增使用者]。 
+2. 在 **使用者上 |所有使用者** 刀鋒視窗，按一下 **[+ 新增使用者** ]，然後按一下 [ **建立新使用者**]。 
 
 3. 在 [新增使用者] 刀鋒視窗中，確定已選取 [建立使用者] 選項並指定下列設定 (其他設定請保留預設值)，然後按一下 [建立]：
 
    |設定|值|
    |---|---|
-   |使用者名稱|**aaduser1**|
+   |使用者主體名稱|**aaduser1**|
    |名稱|**aaduser1**|
    |密碼|確定已選取 [自動產生密碼] 選項，然後按一下 [顯示密碼]|
    |群組|**已選取 0 個群組**|
@@ -178,37 +178,33 @@ lab:
 
 4. 返回 [使用者 \| 所有使用者] 刀鋒視窗，按一下 [+ 新增使用者]。 
 
-5. 在 [新增使用者] 刀鋒視窗中，確定已選取 [建立使用者] 選項並指定下列設定 (其他設定請保留預設值)：
+5. 在 [ **新增使用者** ] 刀鋒視窗上，確定已選取 [ **建立使用者** ] 選項，並指定下列設定 (讓其他人保留預設值) 並按一下 [ **建立**]。
 
    |設定|值|
    |---|---|
-   |使用者名稱|**aaduser2**|
+   |使用者主體名稱|**aaduser2**|
    |名稱|**aaduser2**|
    |密碼|確定已選取 [自動產生密碼] 選項，然後按一下 [顯示密碼]|
-   |群組|**已選取 0 個群組**|
-   |角色|**使用者**|
    |使用位置|**美國**|  
 
     >**注意**：記錄完整的使用者名稱和密碼。
 
 6. 返回 [使用者 \| 所有使用者] 刀鋒視窗，按一下 [+ 新增使用者]。 
 
-7. 按一下 [新增使用者]，完成新使用者設定，然後點選 [建立]。
+7. 在 [ **新增使用者** ] 刀鋒視窗上，確定已選取 [ **建立使用者** ] 選項，並指定下列設定 (讓其他人保留預設值) 並按一下 [ **建立**]。 
 
    |設定|值|
    |---|---|
-   |使用者名稱|**aaduser3**|
+   |使用者主體名稱|**aaduser3**|
    |名稱|**aaduser3**|
    |密碼|確定已選取 [自動產生密碼] 選項，然後按一下 [顯示密碼]|
-   |群組|**已選取 0 個群組**|
-   |角色|**使用者**|
    |使用位置|**美國**|  
 
     >**注意**：記錄完整的使用者名稱和密碼。
 
     >**注意**：此時 [使用者] 頁面上應該會列出三位新使用者。 
     
-#### <a name="task-4-assign-azure-ad-premium-p2-licenses-to-azure-ad-users"></a>工作 4：將 Azure AD Premium P2 授權指派給 Azure AD 使用者
+#### 工作 4：將 Azure AD Premium P2 授權指派給 Azure AD 使用者
 
 在此工作中，您必須為每位使用者指派 Azure Active Directory Premium P2 授權。
 
@@ -230,7 +226,7 @@ lab:
 
     >**注意**：此時，您已將 Azure Active Directory Premium P2 授權指派給之後會在此實驗室使用的所有使用者帳戶。 請務必先登出，再重新登入。 
 
-#### <a name="task-5-configure-azure-mfa-settings"></a>工作 5：進行 Azure MFA 設定。
+#### 工作 5：進行 Azure MFA 設定。
 
 在此工作中，您必須設定 MFA 並且為 aaduser1 啟用 MFA。 
 
@@ -284,7 +280,7 @@ lab:
 
     >**注意**：確定您已登入 **AdatumLab500-04** Azure AD 租用戶。 您可以使用 [目錄 + 訂用帳戶] 篩選器切換 Azure AD 租用戶。 確定您是透過具有 Azure AD 租用戶全域管理員角色的使用者身分登入。
 
-#### <a name="task-6-validate-mfa-configuration"></a>工作 6：驗證 MFA 設定
+#### 工作 6：驗證 MFA 設定
 
 在此工作中，您必須進行 aaduser1 使用者帳戶登入測試，藉此驗證 MFA 設定。 
 
@@ -317,16 +313,16 @@ lab:
 > 結果：您已建立新的 AD 租用戶，完成 AD 使用者與 MFA 的設定，以及測試使用者的 MFA 體驗。 
 
 
-### <a name="exercise-3-implement-azure-ad-conditional-access-policies"></a>練習 3：實作 Azure AD 條件式存取原則 
+### 練習 3：實作 Azure AD 條件式存取原則 
 
-### <a name="estimated-timing-15-minutes"></a>預估時間：15 分鐘
+### 預估時間：15 分鐘
 
 在本練習中，您須完成下列工作 
 
 - 工作 1：設定條件式存取原則。
 - 工作 2：測試條件式存取原則。
 
-#### <a name="task-1---configure-a-conditional-access-policy"></a>工作 1：設定條件式存取原則。 
+#### 工作 1：設定條件式存取原則。 
 
 在此工作中，您必須檢閱條件式存取原則設定，並建立原則，要求登入 Azure 入口網站時必須使用 MFA。 
 
@@ -362,7 +358,7 @@ lab:
 
     >**注意**：此時您已設定必須使用 MFA 才能登入 Azure 入口網站的條件式存取原則。 
 
-#### <a name="task-2---test-the-conditional-access-policy"></a>工作 2：測試條件式存取原則。
+#### 工作 2：測試條件式存取原則。
 
 在此工作中，您必須以 **aaduser2** 的身分登入 Azure 入口網站，並確認必須使用 MFA。 在繼續進行下一項練習前，您必須先刪除此原則。 
 
@@ -404,9 +400,9 @@ lab:
 
 >結果：您已完成 Azure AD 條件式存取的設定及測試。
 
-### <a name="exercise-4-implement-azure-ad-identity-protection"></a>練習 4：實作 Azure AD Identity Protection
+### 練習 4：在條件式存取中部署風險型原則
 
-### <a name="estimated-timing-30-minutes"></a>預估時間：30 分鐘
+### 預估時間：30 分鐘
 
 在本練習中，您須完成下列工作 
 
@@ -416,7 +412,7 @@ lab:
 - 工作 4：根據 Azure AD Identity Protection 原則模擬風險事件 
 - 工作 5：檢閱 Azure AD Identity Protection 報告
 
-#### <a name="task-1-enable-azure-ad-identity-protection"></a>工作 1：啟用 Azure AD Identity Protection
+#### 工作 1：啟用 Azure AD Identity Protection
 
 在此工作中，您必須在 Azure 入口網站中檢視 Azure AD Identity Protection 選項。 
 
@@ -424,7 +420,7 @@ lab:
 
     >**注意**：確定您已登入 **AdatumLab500-04** Azure AD 租用戶。 您可以使用 [目錄 + 訂用帳戶] 篩選器切換 Azure AD 租用戶。 確定您是透過具有 Azure AD 租用戶全域管理員角色的使用者身分登入。
 
-#### <a name="task-2-configure-a-user-risk-policy"></a>工作 2：設定使用者風險原則
+#### 工作 2：設定使用者風險原則
 
 在此工作中，您必須建立使用者風險原則。 
 
@@ -472,7 +468,7 @@ lab:
 
 22. 按一下 [建立] 以啟用您的原則。
 
-#### <a name="task-3-configure-a-sign-in-risk-policy"></a>工作 3：設定登入風險原則
+#### 工作 3：設定登入風險原則
 
 1. 瀏覽至 **AdatumLab500-04** [Azure AD 租用戶] > [安全性] > [條件式存取]。
 
@@ -508,7 +504,7 @@ lab:
 
 16. 按一下 [建立] 以啟用您的原則。
 
-#### <a name="task-4-simulate-risk-events-against-the-azure-ad-identity-protection-policies"></a>工作 4：根據 Azure AD Identity Protection 原則模擬風險事件 
+#### 工作 4：根據 Azure AD Identity Protection 原則模擬風險事件 
 
 > 開始進行此工作前，請確定您在練習 1 中啟動的範本部署已完成。 該部署內含名為 **az500-04-vm1** 的 Azure VM。 
 
@@ -559,7 +555,7 @@ lab:
 
     >**注意**：您已經嘗試過兩種不同的登入方式。接下來，您必須檢閱 Azure Identity Protection 報告。
 
-#### <a name="task-5-review-the-azure-ad-identity-protection-reports"></a>工作 5：檢閱 Azure AD Identity Protection 報告
+#### 工作 5：檢閱 Azure AD Identity Protection 報告
 
 在此工作中，您要檢閱透過 ToR 瀏覽器登入產生的 Azure AD Identity Protection 報告。
 
@@ -597,11 +593,11 @@ lab:
 
 4. 在 [Identity Protection \| 概觀] 刀鋒視窗中按一下 [使用者風險原則]。
 
-5. 在 [Identity Protection \| 使用者風險原則] 刀鋒視窗中將 [施行原則] 設定為 [關閉]，然後按一下 [儲存]。
+5. 在 [ **Identity Protection \| 使用者風險原則** ] 刀鋒視窗上，將 [ **原則強制執行** ] 設定為 [ **停用** ]，然後按一下 [ **儲存**]。
 
 6. 在 [Identity Protection \| 使用者風險原則] 刀鋒視窗中按一下 [登入風險原則]
 
-7. 在 [Identity Protection \| 登入風險原則] 刀鋒視窗中將 [施行原則] 設定為 [關閉]，然後按一下 [儲存]。
+7. 在 [ **Identity Protection \| 登入風險原則** ] 刀鋒視窗上，將 [ **原則強制執行** ] 設定為 [ **停用** ]，然後按一下 [ **儲存**]。
 
 按照下列步驟停止您先前在實驗室中佈建的 Azure VM。
 

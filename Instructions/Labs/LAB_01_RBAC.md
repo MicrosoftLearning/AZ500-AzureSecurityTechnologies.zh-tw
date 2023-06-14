@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-01-role-based-access-control"></a>實驗室 01：角色型存取控制
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 01：角色型存取控制
+# 學生實驗手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 系統要求您建立概念證明，顯示如何建立 Azure 使用者和群組。 此外，也顯示如何使用角色型存取控制將角色指派給群組。 具體而言，您需要：
 
@@ -16,9 +16,9 @@ lab:
 - 建立一個服務台群組，其中包含 Dylan Williams 的使用者帳戶作為其成員。
 - 將虛擬機器參與者角色指派給服務台群組。 
 
-> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您將完成下列練習：
 
@@ -27,22 +27,22 @@ lab:
 - 練習 3：建立一個服務台群組，其中使用者 Dylan Williams 作為其成員 (Azure CLI)。 
 - 練習 4：將虛擬機器參與者角色指派給服務台群組。
 
-## <a name="role-based-access-control-architecture-diagram"></a>角色型存取控制架構圖表
+## 角色型存取控制架構圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
 
-## <a name="instructions"></a>Instructions
+## 指示
 
-### <a name="exercise-1-create-the-senior-admins-group-with-the-user-account-joseph-price-as-its-member"></a>練習 1：建立一個資深系統管理員群組，其中 Joseph Price 的使用者帳戶作為其成員。 
+### 練習 1：建立一個資深系統管理員群組，其中 Joseph Price 的使用者帳戶作為其成員。 
 
-#### <a name="estimated-timing-10-minutes"></a>預估時間：10 分鐘
+#### 預估時間：10 分鐘
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：使用 Azure 入口網站為 Joseph Price 建立使用者帳戶。
 - 工作 2：使用 Azure 入口網站來建立資深系統管理員群組，並將 Joseph Price 的使用者帳戶新增至群組。
 
-#### <a name="task-1-use-the-azure-portal-to-create-a-user-account-for-joseph-price"></a>工作 1：使用 Azure 入口網站為 Joseph Price 建立使用者帳戶 
+#### 工作 1：使用 Azure 入口網站為 Joseph Price 建立使用者帳戶 
 
 在此工作中，您會為 Joseph Price 建立使用者帳戶。 
 
@@ -69,7 +69,7 @@ lab:
 
 8. 重新整理 [使用者 \| 所有使用者] 刀鋒視窗，確認在 Azure AD 租用戶中已建立新的使用者。
 
-#### <a name="task2-use-the-azure-portal-to-create-a-senior-admins-group-and-add-the-user-account-of-joseph-price-to-the-group"></a>工作 2：使用 Azure 入口網站來建立資深系統管理員群組，並將 Joseph Price 的使用者帳戶新增至群組。
+#### 工作 2：使用 Azure 入口網站來建立資深系統管理員群組，並將 Joseph Price 的使用者帳戶新增至群組。
 
 在此工作中，您會建立*資深系統管理員*群組、將 Joseph Price 的使用者帳戶新增至群組，並將其設定為群組擁有者。
 
@@ -93,16 +93,16 @@ lab:
 
 > 結果：您已使用 Azure 入口網站來建立使用者和群組，並將使用者指派給群組。 
 
-### <a name="exercise-2-create-a-junior-admins-group-containing-the-user-account-of-isabel-garcia-as-its-member"></a>練習 2：建立一個初級系統管理員群組，其中包含 Isabel Garcia 的使用者帳戶作為其成員。
+### 練習 2：建立一個初級系統管理員群組，其中包含 Isabel Garcia 的使用者帳戶作為其成員。
 
-#### <a name="estimated-timing-10-minutes"></a>預估時間：10 分鐘
+#### 預估時間：10 分鐘
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：使用 PowerShell 為 Isabel Garcia 建立使用者帳戶。
 - 工作 2：使用 PowerShell 建立初級系統管理員群組，並將 Isabel Garcia 的使用者帳戶新增至群組。 
 
-#### <a name="task-1-use-powershell-to-create-a-user-account-for-isabel-garcia"></a>工作 1：使用 PowerShell 為 Isabel Garcia 建立使用者帳戶。
+#### 工作 1：使用 PowerShell 為 Isabel Garcia 建立使用者帳戶。
 
 在此工作中，您將使用 PowerShell 為 Isabel Garcia 建立使用者帳戶。
 
@@ -147,7 +147,7 @@ lab:
     Get-AzureADUser 
     ```
 
-#### <a name="task2-use-powershell-to-create-the-junior-admins-group-and-add-the-user-account-of-isabel-garcia-to-the-group"></a>工作 2：使用 PowerShell 建立初級系統管理員群組，並將 Isabel Garcia 的使用者帳戶新增至群組。
+#### 工作 2：使用 PowerShell 建立初級系統管理員群組，並將 Isabel Garcia 的使用者帳戶新增至群組。
 
 在此工作中，您會使用 PowerShell 建立初級系統管理員群組，並將 Isabel Garcia 的使用者帳戶新增至群組。
 
@@ -184,16 +184,16 @@ lab:
 > 結果：您使用 PowerShell 建立使用者和群組帳戶，並將使用者帳戶新增至群組帳戶。 
 
 
-### <a name="exercise-3-create-a-service-desk-group-containing-the-user-account-of-dylan-williams-as-its-member"></a>練習 3：建立服務台群組，其中包含 Dylan Williams 的使用者帳戶作為其成員。
+### 練習 3：建立服務台群組，其中包含 Dylan Williams 的使用者帳戶作為其成員。
 
-#### <a name="estimated-timing-10-minutes"></a>預估時間：10 分鐘
+#### 預估時間：10 分鐘
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：使用 Azure CLI 為 Dylan Williams 建立使用者帳戶。
 - 工作 2：使用 Azure CLI 建立服務台群組，並將 Dylan 的使用者帳戶新增至群組。 
 
-#### <a name="task-1-use-azure-cli-to-create-a-user-account-for-dylan-williams"></a>工作 1：使用 Azure CLI 為 Dylan Williams 建立使用者帳戶。
+#### 工作 1：使用 Azure CLI 為 Dylan Williams 建立使用者帳戶。
 
 在此工作中，您會為 Dylan Williams 建立使用者帳戶。
 
@@ -217,7 +217,7 @@ lab:
     az ad user list --output table
     ```
 
-#### <a name="task-2-use-azure-cli-to-create-the-service-desk-group-and-add-the-user-account-of-dylan-to-the-group"></a>工作 2：使用 Azure CLI 建立服務台群組，並將 Dylan 的使用者帳戶新增至群組。 
+#### 工作 2：使用 Azure CLI 建立服務台群組，並將 Dylan 的使用者帳戶新增至群組。 
 
 在此工作中，您會建立服務台群組，並將 Dylan 指派給群組。 
 
@@ -262,16 +262,16 @@ lab:
 > 結果：使用 Azure CLI 建立使用者和群組帳戶，並將使用者帳戶新增至群組。 
 
 
-### <a name="exercise-4-assign-the-virtual-machine-contributor-role-to-the-service-desk-group"></a>練習 4：將虛擬機器參與者角色指派給服務台群組。
+### 練習 4：將虛擬機器參與者角色指派給服務台群組。
 
-#### <a name="estimated-timing-10-minutes"></a>預估時間：10 分鐘
+#### 預估時間：10 分鐘
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：建立資源群組。 
 - 工作 2：將服務台虛擬機器參與者權限指派給資源群組。  
 
-#### <a name="task-1-create-a-resource-group"></a>工作 1：建立資源群組
+#### 工作 1：建立資源群組
 
 1. 在 Azure 入口網站中，在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件] 文字輸入框中，輸入**資源群組**，然後按 **Enter** 鍵。
 
@@ -290,7 +290,7 @@ lab:
 4. 回到 [資源群組] 刀鋒視窗，重新整理頁面，並確認新的資源群組出現在資源群組清單中。
 
 
-#### <a name="task-2-assign-the-service-desk-virtual-machine-contributor-permissions"></a>工作 2：指派服務台虛擬機器參與者權限。 
+#### 工作 2：指派服務台虛擬機器參與者權限。 
 
 1. 在 [資源群組] 刀鋒視窗中，按一下 [AZ500LAB01] 資源群組項目。
 
