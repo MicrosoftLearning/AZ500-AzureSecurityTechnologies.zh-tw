@@ -4,10 +4,10 @@ lab:
   module: Module 03 - Secure data and applications
 ---
 
-# <a name="lab-12-service-endpoints-and-securing-storage"></a>實驗室 12：服務端點與保護儲存體
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 12：服務端點與保護儲存體
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 系統要求您建立概念證明，以示範如何保護 Azure 檔案共用。  具體而言，您必須：
     
@@ -15,23 +15,23 @@ lab:
 -  設定儲存體端點，僅限來自特定子網路的資源可以存取儲存體。
 - 確認特定子網路以外的資源無法存取儲存體。 
 
-> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
 - 練習 1：服務端點與保護儲存體
 
-## <a name="service-endpoints-and-securing-storage-diagram"></a>服務端點與保護儲存體圖表
+## 服務端點與保護儲存體圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157534883-29664a05-85d1-4c70-99a7-f16d2360755d.png)
 
-## <a name="instructions"></a>Instructions
+## 指示
 
-### <a name="exercise-1-service-endpoints-and-security-storage"></a>練習 1：服務端點與保護儲存體
+### 練習 1：服務端點與保護儲存體
 
-### <a name="estimated-timing-45-minutes"></a>預計時間：45 分鐘
+### 預計時間：45 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -44,7 +44,7 @@ lab:
 - 工作 7：測試來自私人子網路的儲存體連線，以確認允許存取
 - 工作 8：測試來自公用子網路的儲存體連線，以確認拒絕存取 
 
-#### <a name="task-1-create-a-virtual-network"></a>工作 1：建立虛擬網路
+#### 工作 1：建立虛擬網路
 
 在此工作中，您會建立一個虛擬網路。
 
@@ -76,7 +76,7 @@ lab:
 
 7. 在 [建立虛擬網路] 刀鋒視窗的 [檢閱 + 建立] 索引標籤上，按一下 [建立]。
 
-#### <a name="task-2-add-a-subnet-to-the-virtual-network-and-configure-a-storage-endpoint"></a>工作 2：將子網路新增至虛擬網路，並設定儲存體端點
+#### 工作 2：將子網路新增至虛擬網路，並設定儲存體端點
 
 在此工作中，您會建立另一個子網路，並在該子網路啟用服務端點。 每項服務、每個子網路都會啟用服務端點。 
 
@@ -100,7 +100,7 @@ lab:
 
     >**注意**：目前虛擬網路有兩個子網路：公用及私人。 
     
-#### <a name="task-3-configure-a-network-security-group-to-restrict-access-to-the-subnet"></a>工作 3：設定網路安全性群組以限制子網路的存取
+#### 工作 3：設定網路安全性群組以限制子網路的存取
 
 在此工作中，您會建立具有兩個輸出安全性規則 (儲存體和網際網路)，以及一個輸入安全性規則 (RDP) 的網路安全性群組。 您也會為網路安全性群組與私人子網路建立關聯。 這會限制來自連線至該子網路後 Azure VM 的輸出流量。
 
@@ -192,7 +192,7 @@ lab:
     |虛擬網路|**myVirtualNetwork**|
     |子網路|**私用**|
 
-#### <a name="task-4-configure-a-network-security-group-to-allow-rdp-on-the-public-subnet"></a>工作 4：設定網路安全性群組，以允許公用子網路上的 rdp
+#### 工作 4：設定網路安全性群組，以允許公用子網路上的 rdp
 
 在此工作中，您將建立具有一個輸入安全性規則 (RDP) 的網路安全性群組。 您也會為網路安全性群組與公用子網路建立關聯。 這可讓 RDP 存取公用 VM。
 
@@ -242,7 +242,7 @@ lab:
     |虛擬網路|**myVirtualNetwork**|
     |子網路|**公開**|
     
-#### <a name="task-5-create-a-storage-account-with-a-file-share"></a>工作 5：建立具有檔案共用的儲存體帳戶
+#### 工作 5：建立具有檔案共用的儲存體帳戶
 
 在此工作中，您會建立具有檔案共用的儲存體帳戶，並取得儲存體帳戶金鑰。  
 
@@ -309,7 +309,7 @@ lab:
 
     >**注意**：此時，您已在實驗室中設定虛擬網路、網路安全性群組，以及具備檔案共用的儲存體帳戶。 
 
-#### <a name="task-6-deploy-virtual-machines-into-the-designated-subnets"></a>工作 6：將虛擬機器部署至指定的子網路中
+#### 工作 6：將虛擬機器部署至指定的子網路中
 
 在此工作中，您會在私人子網路中建立兩部虛擬機器，並在公用子網路中建立一部虛擬機器。 
 
@@ -323,7 +323,7 @@ lab:
 
     |設定|值|
     |---|---|
-    |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
+    |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
     |資源群組|**AZ500LAB12**|
     |虛擬機器名稱|**myVmPrivate**|
     |區域|**(美國) 美國東部**|
@@ -358,7 +358,7 @@ lab:
 
     |設定|值|
     |---|---|
-    |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
+    |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
     |資源群組|**AZ500LAB12**|
     |虛擬機器名稱|**myVmPublic**|
     |區域|**(美國) 美國東部**|
@@ -387,7 +387,7 @@ lab:
 
     >**注意**：待完成部署 **myVMPrivate** Azure VM 後，您就能繼續進行下一個工作。
 
-#### <a name="task-7-test-the-storage-connection-from-the-private-subnet-to-confirm-that-access-is-allowed"></a>工作 7：測試來自私人子網路的儲存體連線，以確認允許存取
+#### 工作 7：測試來自私人子網路的儲存體連線，以確認允許存取
 
 在此工作中，您會透過遠端桌面連線至 myVMPrivate 虛擬機器，並將磁碟機對應至檔案共用。 
 
@@ -439,7 +439,7 @@ lab:
 
     >**注意**：此時，您已確認私人子網路中的虛擬機器可以存取儲存體帳戶。 
 
-####  <a name="task-8-test-the-storage-connection-from-the-public-subnet-to-confirm-that-access-is-denied"></a>工作 8：測試來自公用子網路的儲存體連線，以確認拒絕存取 
+####  工作 8：測試來自公用子網路的儲存體連線，以確認拒絕存取 
 
 1. 瀏覽回 [虛擬機器] 刀鋒視窗。 
 

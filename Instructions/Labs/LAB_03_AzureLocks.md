@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-03-resource-manager-locks"></a>實驗 03：Resource Manager 鎖定
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗 03：Resource Manager 鎖定
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例 
+## 實驗案例 
 
 您收到要求，必須建立概念證明以顯示如何使用資源鎖定防止意外刪除或變更的情況發生。 具體而言，您需要：
 
@@ -15,23 +15,23 @@ lab:
 
 - 建立刪除鎖定
 
-> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
  
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
 - 練習 1：Resource Manager 鎖定
 
-## <a name="resource-manager-locks-diagram"></a>Resource Manager 鎖定圖表
+## Resource Manager 鎖定圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157514986-1bf6a9ea-4c7f-4487-bcd7-542648f8dc95.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-### <a name="exercise-1-resource-manager-locks"></a>練習 1：Resource Manager 鎖定
+### 練習 1：Resource Manager 鎖定
 
-#### <a name="estimated-timing-20-minutes"></a>預估時間：20 分鐘
+#### 預估時間：20 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -41,7 +41,7 @@ lab:
 - 工作 4：移除 ReadOnly 鎖定並建立刪除鎖定。
 - 工作 5：測試刪除鎖定。
 
-#### <a name="task-1-create-a-resource-group-with-a-storage-account"></a>工作 1：建立資源群組和儲存體帳戶。
+#### 工作 1：建立資源群組和儲存體帳戶。
 
 在此工作中，您必須為本實驗室建立資源群組和儲存體帳戶。 
 
@@ -74,7 +74,7 @@ lab:
 
 1. 關閉 [Cloud Shell] 窗格。
 
-#### <a name="task-2-add-a-readonly-lock-on-the-storage-account"></a>工作 2：在儲存體帳戶上新增 ReadOnly 鎖定。 
+#### 工作 2：在儲存體帳戶上新增 ReadOnly 鎖定。 
 
 在此工作中，您必須為儲存體帳戶新增唯讀鎖定。 這項操作可避免資源意外遭到刪除或修改。 
 
@@ -97,7 +97,7 @@ lab:
 
    >**注意**：儲存體帳戶現在已受到保護，可避免意外遭到刪除和修改。
 
-#### <a name="task-3-test-the-readonly-lock"></a>工作 3：測試 ReadOnly 鎖定 
+#### 工作 3：測試 ReadOnly 鎖定 
 
 1. 在 [儲存體帳戶] 刀鋒視窗的 [設定] 區段中，按一下 [設定]。
 
@@ -121,7 +121,7 @@ lab:
 
    >**注意**：您現在已確認 ReadOnly 鎖定可防止資源意外遭到刪除和修改。
 
-#### <a name="task-4-remove-the-readonly-lock-and-create-a-delete-lock"></a>工作 4：移除 ReadOnly 鎖定並建立刪除鎖定。
+#### 工作 4：移除 ReadOnly 鎖定並建立刪除鎖定。
 
 在此工作中，您必須從儲存體帳戶中移除 ReadOnly 鎖定，並建立刪除鎖定。 
 
@@ -140,7 +140,7 @@ lab:
 
 1. 按一下 [確定]。 
 
-#### <a name="task-5-test-the-delete-lock"></a>工作 5：測試刪除鎖定。
+#### 工作 5：測試刪除鎖定。
 
 在此工作中，您必須測試刪除鎖定。 您應該要能夠修改儲存體帳戶，但不能將其刪除。 
 
@@ -151,8 +151,6 @@ lab:
    >**注意**：這次應該可順利進行變更。
 
 1. 在 [儲存體帳戶] 刀鋒視窗中選取 [概觀]，然後在 [概觀] 刀鋒視窗中按一下 [刪除]。
-
-1. 在 [刪除儲存體帳戶] 刀鋒視窗中輸入儲存體帳戶的名稱，確認您要繼續操作，然後按一下 [刪除]。
 
 1. 檢閱類似於下列文字的通知內容： 
 

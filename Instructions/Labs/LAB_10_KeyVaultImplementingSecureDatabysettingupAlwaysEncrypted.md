@@ -4,10 +4,10 @@ lab:
   module: Module 03 - Secure Data and Applications
 ---
 
-# <a name="lab-10-key-vault-implementing-secure-data-by-setting-up-always-encrypted"></a>實驗室 10：Key Vault (透過設定 Always Encrypted 來實作安全資料)
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 10：Key Vault (透過設定 Always Encrypted 來實作安全資料)
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 系統要求您建立概念證明應用程式，該應用程式會運用 Azure SQL Database 對 Always Encrypted 功能的支援。 此案例中使用的所有秘密和金鑰都應儲存於 Key Vault 中。 應用程式須在 Azure Active Directory (Azure AD) 中註冊，以強化其安全性狀態。 若要達成這些目標，概念證明應包括：
 
@@ -18,7 +18,7 @@ lab:
 
 若要專注在與建置此概念證明相關的 Azure 安全性層面，您會從自動化 ARM 範本部署開始，使用 Visual Studio 2019 和 SQL Server Management Studio 2018 設定虛擬機器。
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
@@ -27,27 +27,27 @@ lab:
 - 練習 3：設定 Azure SQL 資料庫和資料驅動應用程式
 - 練習 4：示範如何使用 Azure Key Vault 加密 Azure SQL 資料庫
 
-## <a name="key-vault-diagram"></a>Key Vault 圖表
+## Key Vault 圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157532938-c724cc40-f64f-4d69-9e91-d75344c5e0a2.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-## <a name="lab-files"></a>實驗室檔案：
+## 實驗室檔案：
 
 - **\\Allfiles\\Labs\\10\\az-500-10_azuredeploy.json**
 
 - **\\Allfiles\\Labs\\10\\program.cs**
 
-### <a name="total-lab-time-estimate-60-minutes"></a>預估總實驗時間：60 分鐘
+### 預估總實驗時間：60 分鐘
 
-### <a name="exercise-1-deploy-the-base-infrastructure-from-an-arm-template"></a>練習 1：從 ARM 範本部署基本基礎結構
+### 練習 1：從 ARM 範本部署基本基礎結構
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：部署 Azure VM 與 Azure SQL 資料庫
 
-#### <a name="task-1-deploy-an-azure-vm-and-an-azure-sql-database"></a>工作 1：部署 Azure VM 與 Azure SQL 資料庫
+#### 工作 1：部署 Azure VM 與 Azure SQL 資料庫
 
 在此工作中，您將部署 Azure VM，這會在部署過程中自動安裝 Visual Studio 2019 和 SQL Server Management Studio 2018。 
 
@@ -67,7 +67,7 @@ lab:
 
    |設定|值|
    |---|---|
-   |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
+   |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
    |資源群組|按一下 [新建]，然後輸入以下名稱：**AZ500LAB10**|
    |Location|美國東部 |
    |管理員使用者名稱|**Student**|
@@ -83,7 +83,7 @@ lab:
 
     >**注意**：請勿等候 ARM 範本部署完成，而是繼續下一個練習。 部署可能需要 **20-25 分鐘**。 
 
-### <a name="exercise-2-configure-the-key-vault-resource-with-a-key-and-a-secret"></a>練習 2：使用金鑰和祕密設定 Key Vault 資源
+### 練習 2：使用金鑰和祕密設定 Key Vault 資源
 
 >**注意**：此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
@@ -93,7 +93,7 @@ lab:
 - 工作 2：將金鑰新增到 Key Vault
 - 工作 3：將祕密新增到 Key Vault
 
-#### <a name="task-1-create-and-configure-a-key-vault"></a>工作 1：建立及設定 Key Vault
+#### 工作 1：建立及設定 Key Vault
 
 在此工作中，您將建立 Azure Key Vault 資源。 您也會設定 Azure Key Vault 權限。
 
@@ -128,7 +128,8 @@ lab:
     |設定|值|
     |----|----|
     |從範本設定 (選用)|**金鑰、祕密及憑證管理**|
-    |金鑰權限|按一下 [全選] 會產生 **12 個已選取**的權限 (確認**未選取** **輪替原則作業**的權限) |
+    |金鑰權限|按一下 **[全部選取** ]，總共 **9 個選取** 的許可權|
+    |金鑰許可權/密碼編譯作業|按一下 **[登入** ]，總共 **1 個選取** 的許可權|
     |秘密權限|按一下 [全選]，總共會產生 **7 個已選取**的權限|
     |認證權限|按一下 [全選]，總共會產生 **15 個已選取**的權限|
     |選取主體|按一下 [未選取任何項目]，在 [主體] 刀鋒視窗上，選取您的使用者帳戶，然後按一下 [下一步]|
@@ -137,7 +138,7 @@ lab:
     
     >**注意**：先前的 [檢閱 + 建立] 作業會返回 [存取原則] 頁面，其中會列出 [應用程式]、[電子郵件]、[金鑰權限]、[祕密權限] 與 [憑證權限]。
       
-#### <a name="task-2-add-a-key-to-key-vault"></a>工作 2：將金鑰新增到 Key Vault
+#### 工作 2：將金鑰新增到 Key Vault
 
 在此工作中，您會將金鑰新增至 Key Vault，並檢視金鑰的相關資訊。 
 
@@ -178,7 +179,7 @@ lab:
     >**注意**：您可以使用金鑰識別碼來參考任何金鑰。 若要取得目前最新版本，請參考 `https://<key_vault_name>.vault.azure.net/keys/MyLabKey` 或透過下列方式取得特定版本：`https://<key_vault_name>.vault.azure.net/keys/MyLabKey/<key_version>`
 
 
-#### <a name="task-3-add-a-secret-to-key-vault"></a>工作 3：將祕密新增到 Key Vault
+#### 工作 3：將祕密新增到 Key Vault
 
 1. 切換回到 [Cloud Shell] 窗格。
 
@@ -213,7 +214,7 @@ lab:
     >**注意**：若要取得祕密的目前最新版本，請參考 `https://<key_vault_name>.vault.azure.net/secrets/<secret_name>` 或參考 `https://<key_vault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>` 取得特定版本
 
 
-### <a name="exercise-3-configure-an-azure-sql-database-and-a-data-driven-application"></a>練習 3：設定 Azure SQL 資料庫和資料驅動應用程式
+### 練習 3：設定 Azure SQL 資料庫和資料驅動應用程式
 
 在本練習中，您將會完成下列工作：
 
@@ -224,7 +225,7 @@ lab:
 - 工作 5：在 SQL Database 中建立資料表，然後選取要加密的資料行
 
 
-#### <a name="task-1-enable-a-client-application-to-access-the-azure-sql-database-service"></a>工作 1：啟用用戶端應用程式，以存取 Azure SQL Database 服務。 
+#### 工作 1：啟用用戶端應用程式，以存取 Azure SQL Database 服務。 
 
 在此工作中，您會啟用用戶端應用程式，以存取 Azure SQL Database 服務。 透過設定必要的驗證，並取得您須用於驗證應用程式的應用程式識別碼和秘密，便能完成此操作。
 
@@ -267,7 +268,7 @@ lab:
     >**注意**：請務必*先*複製值，再從刀鋒視窗離開瀏覽。 離開後，便無法再擷取其純文字值。
 
 
-#### <a name="task-2-create-a-policy-allowing-the-application-access-to-the-key-vault"></a>工作 2：建立允許應用程式存取 Key Vault 的原則。
+#### 工作 2：建立允許應用程式存取 Key Vault 的原則。
 
 在此工作中，您會授與新註冊的應用程式權限，以存取儲存在 Key Vault 中的秘密。
 
@@ -296,7 +297,7 @@ lab:
 6. 關閉 [Cloud Shell] 窗格。 
 
 
-#### <a name="task-3-retrieve-sql-azure-database-adonet-connection-string"></a>工作 3：擷取 SQL Azure 資料庫 ADO.NET 連接字符串 
+#### 工作 3：擷取 SQL Azure 資料庫 ADO.NET 連接字符串 
 
 練習 1 中的 ARM 範本部署已佈建 Azure SQL Server 執行個體，以及名為**醫學**的 Azure SQL 資料庫。 您會使用新的資料表結構，來更新空白資料庫資源，並選取資料行進行加密
 
@@ -310,11 +311,11 @@ lab:
 
     >**注意**：介面包括適用於 ADO.NET、JDBC、ODBC、PHP 和 Go 的連接字串。 
    
-4. 記錄 **ADO.NET 連接字串**。 稍後您將會用到此資訊。
+4. 記錄 **ADO.NET (SQL 驗證) ** 連接字串。 稍後您將會用到此資訊。
 
     >**注意**：當您使用連接字串時，請務必將 `{your_password}` 預留位置取代為您在練習 1 中以部署設定的密碼。
 
-#### <a name="task-4-log-on-to-the-azure-vm-running-visual-studio-2019-and-sql-management-studio-2018"></a>工作 4：登入執行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
+#### 工作 4：登入執行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
 
 在此工作中，您會登入在練習 1 中起始部署的 Azure VM。 此 Azure VM 裝載 Visual Studio 2019 和 SQL Server Management Studio 2018。
 
@@ -324,7 +325,7 @@ lab:
 
 2. 在顯示的虛擬機器清單中，選取 **az500-10-vm1** 項目。 在 [az500-10-vm1] 刀鋒視窗的 [基本資訊] 窗格上，記下 [公用 IP 位址]。 稍後您會用到此項目。 
 
-#### <a name="task-5-create-a-table-in-the-sql-database-and-select-data-columns-for-encryption"></a>工作 5：在 SQL Database 中建立資料表，然後選取要加密的資料行
+#### 工作 5：在 SQL Database 中建立資料表，然後選取要加密的資料行
 
 在此工作中，您會使用 SQL Server Management Studio 連線至 SQL Database，並建立資料表。 然後，您會使用 Azure Key Vault 自動產生的金鑰來加密兩個資料行。 
 
@@ -332,7 +333,7 @@ lab:
 
     >**注意**：記錄伺服器名稱。 稍後在此工作中，您會需要伺服器名稱。
 
-2. 在 [防火牆設定] 刀鋒視窗上，向下捲動至 [規則名稱]，並指定下列設定： 
+2. 在 [ **防火牆設定]** 刀鋒視窗上，向下捲動至 [規則名稱]，按一下 **[+ 新增防火牆規則**]，然後指定下列設定： 
 
     |設定|值|
     |---|---|
@@ -340,7 +341,7 @@ lab:
     |起始 IP|az500-10-vm1 的公用 IP 位址|
     |結束 IP|az500-10-vm1 的公用 IP 位址|
 
-3. 按一下 [儲存] 和 [確定] 以儲存變更，並關閉確認窗格。 
+3. 按一下 [ **儲存** ] 以儲存變更，並關閉確認窗格。 
 
     >**注意**：這會修改伺服器防火牆設定，允許從您在此實驗室中部署的 Azure VM 公用 IP 位址連線至醫學資料庫。
 
@@ -414,13 +415,13 @@ lab:
     >**注意**：[Always Encrypted 金鑰] 子節點包含 [資料行主要金鑰] 和 [資料行加密金鑰] 子資料夾。
 
 
-### <a name="exercise-4-demonstrate-the-use-of-azure-key-vault-in-encrypting-the-azure-sql-database"></a>練習 4：示範如何使用 Azure Key Vault 加密 Azure SQL 資料庫
+### 練習 4：示範如何使用 Azure Key Vault 加密 Azure SQL 資料庫
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：執行資料驅動應用程式，示範如何使用 Azure Key Vault 加密 Azure SQL 資料庫
 
-#### <a name="task-1-run-a-data-driven-application-to-demonstrate-the-use-of-azure-key-vault-in-encrypting-the-azure-sql-database"></a>工作 1：執行資料驅動應用程式，示範如何使用 Azure Key Vault 加密 Azure SQL 資料庫
+#### 工作 1：執行資料驅動應用程式，示範如何使用 Azure Key Vault 加密 Azure SQL 資料庫
 
 您會使用 Visual Studio 建立主控台應用程式，將資料載入加密的資料行，然後使用存取 Key Vault 中金鑰的連接字串安全存取該資料。
 
@@ -458,7 +459,7 @@ lab:
 
 10. 返回 RDP 工作階段，然後在 Visual Studio 主控台的 [方案總管] 視窗中，按一下 [Program.cs]，並以您複製到剪貼簿的程式碼取代內容。
 
-11. 在 [Visual Studio] 視窗 [Program.cs] 窗格的第 15 行中，用您稍早在實驗室中記錄的 Azure SQL 資料庫 **ADO.NET** 連接字串取代 `<connection string noted earlier>` 預留位置。 在連接字串中，將 `{your_password}` 預留位置取代為 `Pa55w.rd1234`。 如果您將字串儲存在實驗室電腦中，您可能需要離開 RDP 工作階段以複製 ADO 字串，然後返回 Azure 虛擬機器貼上字串。
+11. 在 [Visual Studio] 視窗 [Program.cs] 窗格的第 15 行中，用您稍早在實驗室中記錄的 Azure SQL 資料庫 **ADO.NET** 連接字串取代 `<connection string noted earlier>` 預留位置。 在連接字串中 `{your_password}` ，將 placehodler 取代為您在練習 1 中部署中指定的密碼。 如果您將字串儲存在實驗室電腦中，您可能需要離開 RDP 工作階段以複製 ADO 字串，然後返回 Azure 虛擬機器貼上字串。
 
 12. 在 [Visual Studio] 視窗中，於 [Program.cs] 窗格的第 16 行，用您稍早在實驗室中記錄已註冊應用程式的**應用程式 (用戶端) 識別碼**值取代 `<client id noted earlier>` 預留位置。 
 
@@ -494,7 +495,7 @@ lab:
 
 1. 在 Azure 入口網站中，按一下右上方的第一個圖示以開啟 [Cloud Shell]。 
 
-2. 在 [Cloud Shell] 窗格左上角的下拉式功能表中，選取 [PowerShell]，並在提示出現時按一下 [確認]。
+2. 在 [Cloud Shell] 窗格的左上方下拉式功能表中，視需要選取 **[PowerShell**]，並在出現提示時按一下 [**確認**]。
 
 3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列操作，移除您在此實驗室中建立的資源群組：
   

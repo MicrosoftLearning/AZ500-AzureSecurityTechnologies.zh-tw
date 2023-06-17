@@ -4,33 +4,33 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-02-azure-policy"></a>實驗室 02：Azure 原則
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 02：Azure 原則
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 系統要求您建立概念證明，示範如何使用 Azure 原則。 具體而言，您需要：
 
 - 建立允許的位置原則，確保只在特定區域中建立資源。
 - 測試並確保資源只在[允許的位置]中建立
 
-> 針對此實驗室中所有的資源，我們使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 針對此實驗室中所有的資源，我們使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您會完成下列練習：
 
 - 練習 1：實作 Azure 原則。 
 
-## <a name="azure-policy-diagram"></a>Azure 原則圖表
+## Azure 原則圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157511920-19c1f06c-86bd-440d-80ac-d96aa27aefff.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-### <a name="exercise-1-implement-azure-policy"></a>練習 1：實作 Azure 原則
+### 練習 1：實作 Azure 原則
 
-#### <a name="estimated-timing-20-minutes"></a>預估時間：20 分鐘
+#### 預估時間：20 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -38,7 +38,7 @@ lab:
 - 工作 2：建立允許的位置原則指派。
 - 工作 3：建立允許的位置原則指派可以運作。 
 
-#### <a name="task-1-create-a-resource-group-for-the-lab"></a>工作 1：建立實驗室的資源群組。 
+#### 工作 1：建立實驗室的資源群組。 
 
 在此工作中，您會建立實驗室的資源群組。 
 
@@ -69,7 +69,7 @@ lab:
 
 1. 關閉 [Cloud Shell]。
 
-#### <a name="task-2-create-an-allowed-locations-policy-assignment"></a>工作 2：建立允許的位置原則指派。
+#### 工作 2：建立允許的位置原則指派。
 
 在此工作中，您會建立允許的位置原則指派，並指定原則使用的 Azure 區域。 
 
@@ -103,7 +103,7 @@ lab:
    |設定|值|
    |---|---|
    |指派名稱|**允許英國南部的 AZ500LAB02**|
-   |描述|**僅允許在英國南部的 AZ500LAB02 中建立資源**|
+   |Description|**僅允許在英國南部的 AZ500LAB02 中建立資源**|
    |強制執行原則|**Enabled**|
 
 1. 按一下 [下一步] **** 。
@@ -118,7 +118,7 @@ lab:
 
    >**注意**：Azure 原則指派最多可能需要 30 分鐘才會生效的原因是，必須全域複寫。 這通常只需幾分鐘。  如果下一個工作失敗，請等候幾分鐘，然後再次嘗試這些步驟。
 
-#### <a name="task-3-test-the-allowed-locations-policy-assignment"></a>工作 3：測試允許的位置原則指派
+#### 工作 3：測試允許的位置原則指派
 
 在此工作中，您會測試允許的位置原則指派。 
 

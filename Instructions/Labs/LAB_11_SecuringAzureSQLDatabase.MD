@@ -4,10 +4,10 @@ lab:
   module: Module 03 - Secure data and applications
 ---
 
-# <a name="lab-11-securing-azure-sql-database"></a>實驗室 11：保護 Azure SQL Database
-# <a name="student-lab-manual"></a>學生實驗手冊
+# 實驗室 11：保護 Azure SQL Database
+# 學生實驗手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 系統要求您檢閱 Azure SQL 資料庫的安全性功能。  具體而言，您要關注的是：
 
@@ -15,27 +15,27 @@ lab:
 -  能夠探索資料庫資訊並將其分類為不同類別，例如機密。 
 - 能夠稽核資料庫伺服器、資料庫查詢和記錄事件。 
 
-> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
 - 練習 1：實作 SQL Database 安全功能
 
-## <a name="securing-azure-sql-database-diagram"></a>保護 Azure SQL Database 圖表
+## 保護 Azure SQL Database 圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157533836-7250fa58-a109-4882-a55b-d3fa3baf34ab.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-## <a name="lab-files"></a>實驗室檔案：
+## 實驗室檔案：
 
 - **\\Allfiles\\Labs\\11\\azuredeploy.json**
 
-### <a name="exercise-1-implement-sql-database-security-features"></a>練習 1：實作 SQL Database 安全功能
+### 練習 1：實作 SQL Database 安全功能
 
-### <a name="estimated-timing-30-minutes"></a>預估時間：30 分鐘
+### 預估時間：30 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -44,7 +44,7 @@ lab:
 - 工作 3：設定資料分類
 - 工作 4：設定稽核
 
-#### <a name="task-1-deploy-an-azure-sql-database"></a>工作 1：部署 Azure SQL Database
+#### 工作 1：部署 Azure SQL Database
 
 在這項工作中，您將使用範本來部署實驗室基礎結構。 
 
@@ -66,7 +66,7 @@ lab:
 
    |設定|值|
    |---|---|
-   |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
+   |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
    |資源群組|按一下 [新建]，然後輸入以下名稱：**AZ500LAB11**|
    |Location|**(美國) 美國東部**|
 
@@ -74,7 +74,7 @@ lab:
 
     >**注意**：等待部署完成。 
 
-#### <a name="task-2-configure-advanced-data-protection"></a>工作 2：設定進階資料保護
+#### 工作 2：設定進階資料保護
 
 1. 在 Azure 入口網站分頁頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入 **「資源群組」** ，然後按下 **Enter** 鍵。
 
@@ -82,24 +82,22 @@ lab:
 
 3. 在 [AZ500LAB11] 刀鋒視窗上，按一下代表新建 SQL Server 的項目。
 
-4. 在 [SQL 伺服器] 刀鋒視窗的 [安全性] 區段中，按一下 [適用於雲端的 Microsoft Defender]。 捲動到 [使用者入門] 的頁面底部，然後選取 [升級]。 在 [安裝代理程式] 索引標籤上，選取 [安裝代理程式]。
-
-5. 在 [SQL 伺服器] 刀鋒視窗的 [安全性] 區段中，按一下 [適用於雲端的 Microsoft Defender]，選取 [啟用適用於 SQL 的 Microsoft Defender]。
+4. 在 [SQL 伺服器] 刀鋒視窗的 [安全性] 區段中，按一下 [適用於雲端的 Microsoft Defender]，選取 [啟用適用於 SQL 的 Microsoft Defender]。
 
       >**注意**：等候通知指出已成功啟用適用於 SQL 的 Azure Defender。
 
-6. 在 [SQL 伺服器] 刀鋒視窗的 [安全性] 區段中，在 [適用於雲端的 Microsoft Defender] 頁面中的 [適用於 SQL 的 Microsoft Defender：**已在伺服器層級上啟用 (設定)]** 參數中，按一下 **(設定)** 。   
+5. 在 [SQL Server] 刀鋒視窗的 [**安全性**] 區段的 [**雲端Microsoft Defender**] 頁面上，Microsoft Defender 于 [訂用帳戶**層級**] ([設定) 參數] 的 [啟用]，按一下 **[ (設定) **。  
 
       >**注意**：如果未顯示 **(設定)** ，請重新整理瀏覽器。
     
-7. 在 [伺服器設定] 刀鋒視窗上，檢閱定價和試用期間、**弱點評定設定**和**進階威脅防護設定**的相關資訊。
+6. 在 [伺服器設定] 刀鋒視窗上，檢閱定價和試用期間、**弱點評定設定**和**進階威脅防護設定**的相關資訊。
 
-8. 回到 [適用於雲端的 Microsoft Defender] 刀鋒視窗，檢閱 [建議] 和 [安全性警示]。
+7. 回到 [適用於雲端的 Microsoft Defender] 刀鋒視窗，檢閱 [建議] 和 [安全性警示]。
 
       >**注意**：建議可能需要 10-15 分鐘才會出現在[適用於雲端的 Microsoft Defender] 刀鋒視窗上。 您可以繼續進行下一項工作而不必等待，但當您完成所有剩餘工作之後，請考慮返回此刀鋒視窗。
 
 
-#### <a name="task-3-configure-data-classification"></a>工作 3：設定資料分類
+#### 工作 3：設定資料分類
 
 在這項工作中，您將探索並分類 SQL 資料庫中的資訊，以滿足 GPDR 和資料保護合規性。
 
@@ -129,7 +127,7 @@ lab:
 
 9. 回到 [資料探索與分類] 刀鋒視窗的 [概觀] 索引標籤上，請注意該索引標籤已更新以說明最新的分類資訊。 
 
-#### <a name="task-4--configure-auditing"></a>工作 4：設定稽核 
+#### 工作 4：設定稽核 
 
 在這項工作中，您會先設定伺服器層級的稽核，然後設定資料庫層級的稽核。 
 
@@ -182,7 +180,7 @@ lab:
 
 > 請記得移除您不再使用的任何新建 Azure 資源。 移除未使用的資源可避免產生非預期的費用。 
 
-1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請按一下 [PowerShell] 與 [建立儲存體]。
+1. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請點選 [PowerShell] 與 [建立儲存體]。
 
 2. 確定在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]。
 

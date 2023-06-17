@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-06-implement-directory-synchronization"></a>實驗室 06：實作目錄同步作業
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 06：實作目錄同步作業
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 您收到要求，必須建立概念證明以展示如何將內部部署的 Active Directory Domain Services (AD DS) 環境與 Azure Active Directory (Azure AD) 租用戶整合。 具體而言，您必須：
 
@@ -15,32 +15,32 @@ lab:
 - 建立並設定 Azure AD 租用戶
 - 同步處理 AD DS 樹系與 Azure AD 租用戶
 
-> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
-在本實驗室中，您將完成下列練習：
+在本實驗室中，您須完成下列練習：
 
 - 練習 1：部署裝載 Active Directory 網域控制站的 Azure VM
 - 練習 2：建立和設定 Azure Active Directory 租用戶
 - 練習 3：同步處理 Active Directory 樹系與 Azure Active Directory 租用戶
 
-## <a name="implement-directory-synchronization"></a>實作目錄同步作業
+## 實作目錄同步作業
 
 ![image](https://user-images.githubusercontent.com/91347931/157525374-8f740f14-c2db-47b3-98f8-7feb9bc122b5.png)
 
-## <a name="instructions"></a>Instructions
+## 指示
 
-### <a name="exercise-1-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>練習 1：部署裝載 Active Directory 網域控制站的 Azure VM
+### 練習 1：部署裝載 Active Directory 網域控制站的 Azure VM
 
-### <a name="estimated-timing-10-minutes"></a>預估時間：10 分鐘
+### 預估時間：10 分鐘
 
 在本練習中，您將會完成下列工作：
 
 - 工作 1：識別 Azure VM 部署可用的 DNS 名稱
 - 工作 2：使用 ARM 範本部署裝載 Active Directory 網域控制站的 Azure VM
 
-#### <a name="task-1-identify-an-available-dns-name-for-an-azure-vm-deployment"></a>工作 1：識別 Azure VM 部署可用的 DNS 名稱
+#### 工作 1：識別 Azure VM 部署可用的 DNS 名稱
 
 在此工作中，您必須為 Azure VM 部署識別 DNS 名稱。 
 
@@ -68,13 +68,13 @@ lab:
 
 7. 關閉 Cloud Shell。
 
-#### <a name="task-2-use-an-arm-template-to-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>工作 2：使用 ARM 範本部署裝載 Active Directory 網域控制站的 Azure VM
+#### 工作 2：使用 ARM 範本部署裝載 Active Directory 網域控制站的 Azure VM
 
 在此工作中，您必須部署要裝載 Active Directory 網域控制站的 Azure VM
 
 1. 在相同的瀏覽器視窗中開啟另一個瀏覽器索引標籤，然後瀏覽至 **https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain** 。
 
-2. 在 [建立新的 Windows VM，以及建立新的 AD 樹系、網域和 DC] 頁面上，按一下 [部署到 Azure]。 這會將瀏覽器自動重新導向 Azure 入口網站中的 [使用新的 AD 樹系建立 Azure VM] 刀鋒視窗。
+2. 在 [ **使用新的 AD 樹系建立 Azure VM** ] 頁面上，按一下 [ **部署至 Azure**]。 這會將瀏覽器自動重新導向 Azure 入口網站中的 [使用新的 AD 樹系建立 Azure VM] 刀鋒視窗。 
 
 3. 在 [使用新的 AD 樹系建立 Azure VM] 刀鋒視窗中按一下 [編輯參數]。
 
@@ -100,9 +100,9 @@ lab:
 > 結果：完成本練習就代表您已使用 Azure Resource Manager 範本起動用於裝載 Active Directory 網域控制站的 Azure VM 部署
 
 
-### <a name="exercise-2-create-and-configure-an-azure-active-directory-tenant"></a>練習 2：建立和設定 Azure Active Directory 租用戶 
+### 練習 2：建立和設定 Azure Active Directory 租用戶 
 
-### <a name="estimated-timing-20-minutes"></a>預估時間：20 分鐘
+### 預估時間：20 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -110,7 +110,7 @@ lab:
 - 工作 2：在新的 Azure AD 租用戶中新增自訂 DNS 名稱
 - 工作 3：使用全域管理員角色建立 Azure AD 使用者
 
-#### <a name="task-1-create-an-azure-active-directory-ad-tenant"></a>工作 1：建立 Azure Active Directory (AD) 租用戶
+#### 工作 1：建立 Azure Active Directory (AD) 租用戶
 
 在此工作中，您會建立要用於此實驗室的新 Azure AD 租用戶。 
 
@@ -136,7 +136,7 @@ lab:
 
     >**注意**：等待新租用戶建立完成。 使用**通知**圖示監視部署狀態。 
 
-#### <a name="task-2-add-a-custom-dns-name-to-the-new-azure-ad-tenant"></a>工作 2：在新的 Azure AD 租用戶中新增自訂 DNS 名稱
+#### 工作 2：在新的 Azure AD 租用戶中新增自訂 DNS 名稱
 
 在此工作中，您必須在新的 Azure AD 租用戶中新增自訂 DNS 名稱。 
 
@@ -156,13 +156,13 @@ lab:
 
     >**注意**：您將無法完成驗證程序，因為您並非 **adatum.com** DNS 網域名稱的擁有者。 但這不會妨礙您同步處理 **adatum.com** AD DS 網域與 Azure AD 租用戶。 為了進行同步處理，您必須使用在前一項工作中識別的 Azure AD 租用戶的初始 DNS 名稱 (結尾為 **onmicrosoft.com** 的名稱)。 不過請注意，使用這種方法會導致 AD DS 網域的 DNS 網域名稱與 Azure AD 租用戶的 DNS 網域名稱不同。 換句話說，Adatum 使用者在登入 AD DS 網域和登入 Azure AD 租用戶時，必須分別使用不同的名稱。
 
-#### <a name="task-3-create-an-azure-ad-user-with-the-global-administrator-role"></a>工作 3：使用全域管理員角色建立 Azure AD 使用者
+#### 工作 3：使用全域管理員角色建立 Azure AD 使用者
 
 在此工作中，您必須新增 Azure AD 使用者，並為其指派全域管理員角色。 
 
 1. 在 [AdatumSync] Azure AD 租用戶刀鋒視窗的 [管理] 區段中，按一下 [使用者]。
 
-2. 在 [使用者 \| 所有使用者] 刀鋒視窗中，按一下 [+ 新增使用者]。 
+2. 在 **[使用者] |所有使用者** 刀鋒視窗，按一下 **[+ 新增使用者** ]，然後按一下 [ **建立新使用者**]。
 
 3. 在 [新增使用者] 刀鋒視窗中，確定已選取 [建立使用者] 選項並指定下列設定 (其他設定請保留預設值)，然後按一下 [建立]：
 
@@ -192,9 +192,9 @@ lab:
 > **結果**：完成此練習就代表您已建立 Azure AD 租用戶，了解如何為新的 Azure AD 租用戶新增自訂 DNS 名稱，並建立了具有全域管理員角色的 Azure AD 使用者。
 
 
-### <a name="exercise-3-synchronize-active-directory-forest-with-an-azure-active-directory-tenant"></a>練習 3：同步處理 Active Directory 樹系與 Azure Active Directory 租用戶
+### 練習 3：同步處理 Active Directory 樹系與 Azure Active Directory 租用戶
 
-### <a name="estimated-timing-20-minutes"></a>預估時間：20 分鐘
+### 預估時間：20 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -202,7 +202,7 @@ lab:
 - 工作 2：安裝 Azure AD Connect
 - 工作 3：驗證目錄同步作業
 
-#### <a name="task-1-prepare-ad-ds-for-directory-synchronization"></a>工作 1：為目錄同步作業準備 AD DS
+#### 工作 1：為目錄同步作業準備 AD DS
 
 在此工作中，您必須連線至執行 AD DS 網域控制站的 Azure VM，並建立目錄同步處理帳戶。 
 
@@ -253,7 +253,7 @@ lab:
    |[密碼] 與 [確認密碼]|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
    |其他密碼選項|**密碼永不到期**|
 
-#### <a name="task-2-install-azure-ad-connect"></a>工作 2：安裝 Azure AD Connect
+#### 工作 2：安裝 Azure AD Connect
 
 在此工作中，您必須在虛擬機器上安裝 AD Connect。 
 
@@ -309,7 +309,7 @@ lab:
 21. 檢閱 [設定完成] 頁面上的資訊，然後按一下 [結束] 關閉 [Microsoft Azure Active Directory Connect] 視窗。
 
 
-#### <a name="task-3-verify-directory-synchronization"></a>工作 3：驗證目錄同步作業
+#### 工作 3：驗證目錄同步作業
 
 在此工作中，您必須驗證目錄同步作業可正常運作。 
 
@@ -317,7 +317,7 @@ lab:
 
 2. 在 [使用者 \| 所有使用者 (預覽)] 刀鋒視窗中，留意包含 **aduser1** 帳戶在內的使用者物件清單。 
 
->**注意**：您可能需要等待數分鐘並選取 [重新整理]，**aduser1** 使用者帳戶才會出現。
+   >**注意**：您可能需要等待數分鐘並選取 [重新整理]，**aduser1** 使用者帳戶才會出現。
 
 3. 選取 [aduser1] 帳戶。在 [設定檔 > 身分識別] 區段中留意 [來源] 屬性是否已設定為 [Windows Server AD]。
 
@@ -337,7 +337,7 @@ lab:
     Start-ADSyncSyncCycle -PolicyType Delta
     ```
 
-9. 切換至顯示 [aduser1 \| 設定檔] 刀鋒視窗的 Microsoft Edge 視窗。重新整理頁面後，請留意 [部門] 屬性已設定為 [銷售]。
+9. 切換至顯示 **aduser1** 刀鋒視窗的 Microsoft Edge 視窗，重新整理頁面，並注意 Department 屬性設定為 [銷售]。
 
     >**注意**：如果 [部門] 屬性仍然顯示為未設定，您可能需要稍候片刻再重新整理頁面。
 
