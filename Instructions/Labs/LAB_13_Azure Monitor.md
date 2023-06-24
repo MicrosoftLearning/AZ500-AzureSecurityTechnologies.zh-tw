@@ -4,10 +4,10 @@ lab:
   module: Module 04 - Manage security operations
 ---
 
-# <a name="lab-13-azure-monitor"></a>實驗室 13：Azure 監視器
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 13：Azure 監視器
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 您收到要求，必須建立監視虛擬機器效能的概念證明。  具體而言，您必須：
 
@@ -15,23 +15,23 @@ lab:
 -  顯示可收集哪些遙測和記錄。
 - 示範資料的使用和查詢方法。 
 
-> 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
 - 練習 1：使用 Azure 監視器從 Azure 虛擬機器收集資料
 
-## <a name="azure-monitor"></a>Azure 監視器
+## Azure 監視器
 
 ![image](https://user-images.githubusercontent.com/91347931/157536648-0a286514-a7e2-4058-9dea-e42da21eef76.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-### <a name="exercise-1-collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>練習 1：使用 Azure 監視器從 Azure 虛擬機器收集資料
+### 練習 1：使用 Azure 監視器從 Azure 虛擬機器收集資料
 
-### <a name="exercise-timing-20-minutes"></a>練習時間：20 分鐘
+### 練習時間：20 分鐘
 
 在本練習中，您將會完成下列工作： 
 
@@ -41,7 +41,7 @@ lab:
 - 工作 4：收集虛擬機器事件和效能資料
 - 工作 5：檢視和查詢收集的資料 
 
-#### <a name="task-1-deploy-an-azure-virtual-machine"></a>工作 1：部署 Azure 虛擬機器
+#### 工作 1：部署 Azure 虛擬機器
 
 1. 登入 Azure 入口網站： **`https://portal.azure.com/`** 。
 
@@ -82,7 +82,7 @@ lab:
 
 8. 關閉 [Cloud Shell] 窗格。 
 
-#### <a name="task-2-create-a-log-analytics-workspace"></a>工作 2：建立 Log Analytics 工作區
+#### 工作 2：建立 Log Analytics 工作區
 
 在此工作中，您必須建立 Log Analytics 工作區。 
 
@@ -103,7 +103,7 @@ lab:
 
 5. 在 [建立 Log Analytics 工作區] 刀鋒視窗的 [檢閱 + 建立] 索引標籤上，選取 [建立]。
 
-#### <a name="task-3-enable-the-log-analytics-virtual-machine-extension"></a>工作 3：啟用 Log Analytics 虛擬機器擴充功能
+#### 工作 3：啟用 Log Analytics 虛擬機器擴充功能
 
 在此工作中，您必須啟用 Log Analytics 虛擬機器擴充功能。 此擴充功能會在 Windows 和 Linux 虛擬機器上安裝 Log Analytics 代理程式。 這個代理程式會從虛擬機器收集資料，並傳輸至您指定的 Log Analytics 工作區。 代理程式安裝完畢後會自動升級，確保隨時具備最新功能和修正程式。 
 
@@ -121,7 +121,7 @@ lab:
 
     >**注意**：這可能需要幾分鐘的時間。 [myVM] 刀鋒視窗中顯示的 [狀態] 會從 [正在連線] 變更為 [此工作區]。 
 
-#### <a name="task-4-collect-virtual-machine-event-and-performance-data"></a>工作 4：收集虛擬機器事件和效能資料
+#### 工作 4：收集虛擬機器事件和效能資料
 
 在此工作中，您必須設定 Windows 系統記錄檔集合和數個常見的效能計數器。 此外，您還須檢閱其他可用的來源。
 
@@ -148,7 +148,7 @@ lab:
   
 7. 在 [代理程式設定] 刀鋒視窗中按一下 [套用]。
 
-#### <a name="task-5-view-and-query-collected-data"></a>工作 5：檢視和查詢收集的資料
+#### 工作 5：檢視和查詢收集的資料
 
 在此工作中，您必須在收集的資料上執行記錄搜尋。 
 
@@ -192,5 +192,5 @@ lab:
 
 **清除資源**
 
->**注意**：請勿移除此實驗室中的資源，因為 Azure 資訊安全中心實驗室和 Microsoft Sentinel 實驗室都需要使用這些資源。
+>**注意**：請勿從此實驗室中移除資源，因為雲端實驗室和 Microsoft Sentinel 實驗室需要Microsoft Defender資源。
  

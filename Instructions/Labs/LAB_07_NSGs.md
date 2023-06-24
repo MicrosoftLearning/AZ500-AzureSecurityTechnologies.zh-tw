@@ -4,10 +4,10 @@ lab:
   module: Module 02 - Implement Platform Protection
 ---
 
-# <a name="lab-07-network-security-groups-and-application-security-groups"></a>實驗室 07：網路安全性群組和應用程式安全性群組
-# <a name="student-lab-manual"></a>學生實驗室手冊
+# 實驗室 07：網路安全性群組和應用程式安全性群組
+# 學生實驗室手冊
 
-## <a name="lab-scenario"></a>實驗案例
+## 實驗案例
 
 您必須實作貴組織的虛擬網路基礎結構並進行測試，確保其能正常運作。 尤其是：
 
@@ -17,24 +17,24 @@ lab:
 - 透過網際網路存取時，網頁伺服器必須顯示 IIS 網頁。 
 - 必須使用網路安全性群組規則控管網路存取。 
 
-> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
+> 此實驗室中所有資源使用的都是**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
-## <a name="lab-objectives"></a>實驗室目標
+## 實驗室目標
 
 在本實驗室中，您須完成下列練習：
 
 - 練習 1：建立虛擬網路基礎結構
 - 練習 2：部署虛擬機器並測試網路篩選器
 
-## <a name="network-and-application-security-groups-diagram"></a>網路和應用程式安全性群組圖表
+## 網路和應用程式安全性群組圖表
 
 ![image](https://user-images.githubusercontent.com/91347931/157526438-6da4f68b-db88-4931-a041-8474e66d3fe5.png)
 
-## <a name="instructions"></a>指示
+## 指示
 
-### <a name="exercise-1-create-the-virtual-networking-infrastructure"></a>練習 1：建立虛擬網路基礎結構
+### 練習 1：建立虛擬網路基礎結構
 
-### <a name="estimated-timing-20-minutes"></a>預估時間：20 分鐘
+### 預估時間：20 分鐘
 
 > 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
 
@@ -45,7 +45,7 @@ lab:
 - 工作 3：建立一個網路安全性群組，並與虛擬網路子網路建立關聯。
 - 工作 4：針對連入網頁伺服器的所有流量建立輸入 NSG 安全性規則，並針對管理伺服器建立 RDP。
 
-#### <a name="task-1--create-a-virtual-network"></a>工作 1：建立虛擬網路
+#### 工作 1：建立虛擬網路
 
 在此工作中，您必須建立要與網路及應用程式安全性群組搭配使用的虛擬網路。 
 
@@ -77,7 +77,7 @@ lab:
 
 7. 在 [建立虛擬網路] 刀鋒視窗的 [檢閱 + 建立] 索引標籤上，按一下 [建立]。
 
-#### <a name="task-2--create-application-security-groups"></a>工作 2：建立應用程式安全性群組
+#### 工作 2：建立應用程式安全性群組
 
 在此工作中，您必須建立一個應用程式安全性群組。
 
@@ -111,7 +111,7 @@ lab:
 
 7. 按一下 [檢閱 + 建立]  ，然後按一下 [建立]  。
 
-#### <a name="task-3--create-a-network-security-group-and-associate-the-nsg-to-the-subnet"></a>工作 3：建立一個網路安全性群組，使之與子網路建立關聯
+#### 工作 3：建立一個網路安全性群組，使之與子網路建立關聯
 
 在此工作中，您必須建立一個網路安全性群組。 
 
@@ -141,7 +141,7 @@ lab:
     |虛擬網路|**myVirtualNetwork**|
     |子網路|**預設值**|
 
-#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-servers"></a>工作 4：針對連入 Web 伺服器的所有流量建立輸入 NSG 安全性規則，並以 RDP 方式連線到那些伺服器。 
+#### 工作 4：針對連入 Web 伺服器的所有流量建立輸入 NSG 安全性規則，並以 RDP 方式連線到那些伺服器。 
 
 1. 在 [myNsg] 刀鋒視窗的 [設定] 區段按一下 [輸入安全性規則]。
 
@@ -175,9 +175,9 @@ lab:
 
 > 結果：您已部署虛擬網路、具有輸入安全性規則的網路安全性，以及兩個應用程式安全性群組。 
 
-### <a name="exercise-2-deploy-virtual-machines-and-test-network-filters"></a>練習 2：部署虛擬機器並測試網路篩選器
+### 練習 2：部署虛擬機器並測試網路篩選器
 
-### <a name="estimated-timing-25-minutes"></a>預估時間：25 分鐘
+### 預估時間：25 分鐘
 
 在本練習中，您將會完成下列工作：
 
@@ -186,7 +186,7 @@ lab:
 - 工作 3：為每個虛擬機器網路介面及其應用程式安全性群組建立關聯。
 - 工作 4：測試網路流量篩選。
 
-#### <a name="task-1-create-a-virtual-machine-to-use-as-a-web-server"></a>工作 1：建立要當作網頁伺服器使用的虛擬機器。
+#### 工作 1：建立要當作網頁伺服器使用的虛擬機器。
 
 在此工作中，您必須建立要當作網頁伺服器使用的虛擬機器。
 
@@ -198,11 +198,11 @@ lab:
 
    |設定|值|
    |---|---|
-   |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
+   |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
    |資源群組|**AZ500LAB07**|
    |虛擬機器名稱|**myVmWeb**|
    |區域|**(美國) 美國東部**|
-   |映像|**Windows Server 2022 Datacenter：Azure Edition - Gen2**|
+   |映像|**Windows Server 2022 Datacenter：Azure Edition - x64 Gen2**|
    |大小|**標準 D2s v3**|
    |使用者名稱|**Student**|
    |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 建立的個人密碼。**|
@@ -218,7 +218,7 @@ lab:
 
 6. 在 [NIC 網路安全性群組] 下方選取 [無]。
 
-7. 按一下 [下一步: 管理 >]，然後在 [建立虛擬機器] 刀鋒視窗的 [管理] 索引標籤上，按一下 [下一步: 監視 >]，確認下列設定：
+7. 按 **[下一步：管理>**]，然後按一下 [下一步：監視>在 [**建立虛擬機器**] 刀鋒視窗的 [**監視**] 索引標籤上，確認下列設定：
 
    |設定|值|
    |---|---|
@@ -226,7 +226,7 @@ lab:
 
 8. 在 [檢閱 + 建立] 刀鋒視窗中按一下 [檢閱 + 建立]，確定驗證成功後再點選 [建立]。
 
-#### <a name="task-2-create-a-virtual-machine-to-use-as-a-management-server"></a>工作 2：建立要當作管理伺服器使用的虛擬機器。 
+#### 工作 2：建立要當作管理伺服器使用的虛擬機器。 
 
 在此工作中，您必須建立要當作管理伺服器使用的虛擬機器。
 
@@ -236,16 +236,16 @@ lab:
 
    |設定|值|
    |---|---|
-   |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
+   |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
    |資源群組|**AZ500LAB07**|
    |虛擬機器名稱|**myVMMgmt**|
    |區域|(美國) 美國東部|
-   |映像|**Windows Server 2022 Datacenter：Azure Edition - Gen2**|
+   |映像|**Windows Server 2022 Datacenter：Azure Edition - x64 Gen2**|
    |大小|**標準 D2s v3**|
    |使用者名稱|**Student**|
    |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 中建立的個人密碼。**|
    |公用輸入連接埠|**None**|
-   |已經有 Windows Server 授權了嗎|**否**|
+   |已經有 Windows Server 授權了嗎|否|
 
     >**注意**：針對公用輸入連接埠，我們會依賴預先建立的 NSG。 
 
@@ -255,7 +255,7 @@ lab:
 
 5. 在 [NIC 網路安全性群組] 下方選取 [無]。
 
-6. 按一下 [下一步: 管理 >]，然後在 [建立虛擬機器] 刀鋒視窗的 [管理] 索引標籤上，按一下 [下一步: 監視 >]，確認下列設定：
+6. 按 **[下一步：管理>**]，然後按一下 [下一步：監視>在 [**建立虛擬機器**] 刀鋒視窗的 [**監視**] 索引標籤上，確認下列設定：
 
    |設定|值|
    |---|---|
@@ -265,7 +265,7 @@ lab:
 
     >**注意**：請等待這兩個虛擬機器佈建完畢後再繼續操作。 
 
-#### <a name="task-3-associate-each-virtual-machines-network-interface-to-its-application-security-group"></a>工作 3：為每個虛擬機器網路介面及其應用程式安全性群組建立關聯。
+#### 工作 3：為每個虛擬機器網路介面及其應用程式安全性群組建立關聯。
 
 在此工作中，您必須將每個虛擬機器網路介面與對應的應用程式安全性群組建立關聯。 myVMWeb 虛擬機器介面須與 myAsgWebServers ASG 建立關聯。 myVMMgmt 虛擬機器介面須與 myAsgMgmtServers ASG 建立關聯。 
 
@@ -283,7 +283,7 @@ lab:
 
 7. 按一下 [設定應用程式安全性群組]，然後在 [應用程式安全性群組] 下拉式清單中選取 [myAsgMgmtServers]，再按一下 [儲存]。
 
-#### <a name="task-4-test-the-network-traffic-filtering"></a>工作 4：測試網路流量篩選
+#### 工作 4：測試網路流量篩選
 
 在此工作中，您會測試網路流量篩選器。 您必須能夠透過 RDP 連線至 myVMMgmnt 虛擬機器。 您必須能夠從網際網路連線至 myVMWeb 虛擬機器，並看到預設的 IIS 網頁。  
 
