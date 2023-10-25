@@ -50,9 +50,9 @@ lab:
 
     >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於此實驗室的 Azure 訂用賬戶中具有擁有者或參與者角色，並在與該訂用賬戶相關聯的 Azure AD 租用戶中具有全域管理員角色。
 
-2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件] 文字輸入框中，輸入 **Azure Active Directory**，然後按 **Enter** 鍵。
+2. 在Azure 入口網站頁面頂端的 **[搜尋資源、服務和檔**] 文字方塊中，輸入**Microsoft Entra識別碼**，然後按**Enter**鍵。
 
-3. 在 Azure Active Directory 租用戶的 [概觀] 刀鋒視窗中，選取 [管理] 區段中的 [使用者]，然後選取 [+ 新增使用者]。
+3. 在 [Microsoft Entra識別碼租使用者] 的 [**概觀**] 刀鋒視窗中，選取 [**管理**] 區段中的 [**使用者**]，然後選取 [**+ 新增使用者**]。
 
 4. 在 [新增使用者] 刀鋒視窗上，確認已選取 [建立使用者] 選項並指定下列設定：
 
@@ -73,7 +73,7 @@ lab:
 
 在此工作中，您會建立*資深系統管理員*群組、將 Joseph Price 的使用者帳戶新增至群組，並將其設定為群組擁有者。
 
-1. 在 Azure 入口網站中，巡覽回顯示 Azure Active Directory 租用戶的刀鋒視窗。 
+1. 在Azure 入口網站中，流覽回顯示您Microsoft Entra識別碼租使用者的刀鋒視窗。 
 
 2. 在 [管理] 區段中，按一下 [群組]，然後選取 [+ 新增群組]。
  
@@ -123,7 +123,7 @@ lab:
     $passwordProfile.Password = "Pa55w.rd1234"
     ```
 
-5. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以連線至 Azure Active Directory：
+5. 在 [Cloud Shell] 窗格中的 PowerShell 會話中，執行下列命令以連線至Microsoft Entra識別碼：
 
     ```powershell
     Connect-AzureAD
