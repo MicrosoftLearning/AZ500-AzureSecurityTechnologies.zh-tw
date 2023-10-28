@@ -16,7 +16,7 @@ lab:
 
 >**注意**：此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
-若要專注在與建置此概念證明相關的 Azure 安全性層面，您會從自動化 ARM 範本部署開始，使用 Visual Studio 2019 和 SQL Server Management Studio 2018 設定虛擬機器。
+若要將焦點放在 Azure 的安全性層面，與建置此概念證明相關，您將從自動化 ARM 範本部署開始，使用 Visual Studio 2019 設定虛擬機器，並SQL Server Management Studio 19。
 
 ## 實驗室目標
 
@@ -49,9 +49,9 @@ lab:
 
 #### 工作 1：部署 Azure VM 與 Azure SQL 資料庫
 
-在此工作中，您將部署 Azure VM，這會在部署過程中自動安裝 Visual Studio 2019 和 SQL Server Management Studio 2018。 
+在這項工作中，您將部署 Azure VM，這會在部署過程中自動安裝 Visual Studio 2019 和 SQL Server Management Studio 19。 
 
-1. 登入 Azure 入口網站 **`https://portal.azure.com/`** 。
+1. 登入 Azure 入口網站： **`https://portal.azure.com/`** 。
 
     >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂用帳戶中具有「擁有者」或「參與者」角色。
 
@@ -128,8 +128,8 @@ lab:
     |設定|值|
     |----|----|
     |從範本設定 (選用)|**金鑰、祕密及憑證管理**|
-    |金鑰權限|按一下 **[全部選取** ]，總共 **9 個選取** 的許可權|
-    |金鑰許可權/密碼編譯作業|按一下 **[登入** ]，總共 **1 個選取** 的許可權|
+    |金鑰權限|按一下 **[全部選取]** 以產生 **總共 9 個選取** 的許可權|
+    |金鑰許可權/密碼編譯作業|按一下 **[簽署** ] 以總計 **1 個選取** 的許可權|
     |秘密權限|按一下 [全選]，總共會產生 **7 個已選取**的權限|
     |認證權限|按一下 [全選]，總共會產生 **15 個已選取**的權限|
     |選取主體|按一下 [未選取任何項目]，在 [主體] 刀鋒視窗上，選取您的使用者帳戶，然後按一下 [下一步]|
@@ -221,7 +221,7 @@ lab:
 - 工作 1：啟用用戶端應用程式，以存取 Azure SQL Database 服務。
 - 工作 2：建立允許應用程式存取 Key Vault 的原則。
 - 工作 3：擷取 SQL Azure 資料庫 ADO.NET 連接字符串 
-- 工作 4：登入執行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
+- 工作 4：登入執行 Visual Studio 2019 和 SQL Management Studio 19 的 Azure VM
 - 工作 5：在 SQL Database 中建立資料表，然後選取要加密的資料行
 
 
@@ -311,13 +311,13 @@ lab:
 
     >**注意**：介面包括適用於 ADO.NET、JDBC、ODBC、PHP 和 Go 的連接字串。 
    
-4. 記錄 **ADO.NET (SQL 驗證) ** 連接字串。 稍後您將會用到此資訊。
+4. 記錄**ADO.NET (SQL 驗證) **連接字串。 稍後您將會用到此資訊。
 
     >**注意**：當您使用連接字串時，請務必將 `{your_password}` 預留位置取代為您在練習 1 中以部署設定的密碼。
 
-#### 工作 4：登入執行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
+#### 工作 4：登入執行 Visual Studio 2019 和 SQL Management Studio 19 的 Azure VM
 
-在此工作中，您會登入在練習 1 中起始部署的 Azure VM。 此 Azure VM 裝載 Visual Studio 2019 和 SQL Server Management Studio 2018。
+在此工作中，您會登入在練習 1 中起始部署的 Azure VM。 此 Azure VM 裝載 Visual Studio 2019 和 SQL Server Management Studio 19。
 
     >**Note**: Before you proceed with this task, ensure that the deployment you initiated in the first exercise has completed successfully. You can validate this by navigating to the blade of the Azure resource group "Az500Lab10" (or other name you chose) and selecting **Deployments** from the Settings pane.  
 
@@ -358,7 +358,7 @@ lab:
 
     >**注意**：此實驗室中的其餘步驟會在 **az500-10-vm1** Azure VM 的遠端桌面工作階段中執行。 
 
-6. 按一下 [開始]，在 [開始] 功能表中，展開 [Microsoft SQL Server Tools 18] 資料夾，然後按一下 [Micosoft SQL Server Management Studio] 功能表項目。
+6. 按一下 [**開始**]，在 [**開始]** 功能表中展開 **[Microsoft SQL Server Tools 19**] 資料夾，然後按一下 **[Micosoft SQL Server Management Studio**] 功能表項目。
 
 7. 在 [連接到伺服器] 對話方塊上，指定下列設定： 
 
@@ -459,7 +459,7 @@ lab:
 
 10. 返回 RDP 工作階段，然後在 Visual Studio 主控台的 [方案總管] 視窗中，按一下 [Program.cs]，並以您複製到剪貼簿的程式碼取代內容。
 
-11. 在 [Visual Studio] 視窗 [Program.cs] 窗格的第 15 行中，用您稍早在實驗室中記錄的 Azure SQL 資料庫 **ADO.NET** 連接字串取代 `<connection string noted earlier>` 預留位置。 在連接字串中 `{your_password}` ，將 placehodler 取代為您在練習 1 中部署中指定的密碼。 如果您將字串儲存在實驗室電腦中，您可能需要離開 RDP 工作階段以複製 ADO 字串，然後返回 Azure 虛擬機器貼上字串。
+11. 在 [Visual Studio] 視窗 [Program.cs] 窗格的第 15 行中，用您稍早在實驗室中記錄的 Azure SQL 資料庫 **ADO.NET** 連接字串取代 `<connection string noted earlier>` 預留位置。 在連接字串中，將 placehodler 取代 `{your_password}` 為您在練習 1 中部署中指定的密碼。 如果您將字串儲存在實驗室電腦中，您可能需要離開 RDP 工作階段以複製 ADO 字串，然後返回 Azure 虛擬機器貼上字串。
 
 12. 在 [Visual Studio] 視窗中，於 [Program.cs] 窗格的第 16 行，用您稍早在實驗室中記錄已註冊應用程式的**應用程式 (用戶端) 識別碼**值取代 `<client id noted earlier>` 預留位置。 
 
