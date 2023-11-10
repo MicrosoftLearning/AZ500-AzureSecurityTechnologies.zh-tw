@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 03 - Resource Manager 鎖定
+  title: 04 - Resource Manager 鎖定
   module: Module 01 - Manage Identity and Access
 ---
 
-# 實驗室 03：Resource Manager 鎖定
+# 實驗室 04：Resource Manager 鎖定
 # 學生實驗室手冊
 
 ## 實驗案例 
@@ -35,19 +35,19 @@ lab:
 
 在本練習中，您將會完成下列工作：
 
-- 工作 1：使用記憶體帳戶建立資源群組。
-- 工作 2：在記憶體帳戶上新增 ReadOnly 鎖定。 
+- 工作 1：使用儲存體帳戶建立資源群組。
+- 工作 2：在儲存體帳戶上新增 ReadOnly 鎖定。 
 - 工作 3：測試 ReadOnly 鎖定。 
 - 工作 4：移除 ReadOnly 鎖定並建立刪除鎖定。
 - 工作 5：測試刪除鎖定。
 
-#### 工作 1：使用記憶體帳戶建立資源群組。
+#### 工作 1：使用儲存體帳戶建立資源群組。
 
 在此工作中，您必須為本實驗室建立資源群組和儲存體帳戶。 
 
 1. 登入 Azure 入口網站：**`https://portal.azure.com/`**。
 
-    >**注意**：使用在您要用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶登入 Azure 入口網站。
+    >**注意 ** ：使用在您要用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶登入Azure 入口網站。
 
 1. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請選取 [PowerShell]**** 與 [建立儲存體]****。
 
@@ -70,11 +70,11 @@ lab:
     New-AzStorageAccount -ResourceGroupName AZ500LAB03 -Name (Get-Random -Maximum 999999999999999) -Location  EastUS -SkuName Standard_LRS -Kind StorageV2 
     ```
 
-   >**注意**：等到記憶體帳戶建立為止。 這可能需要幾分鐘的時間。 
+   >**注意 ** ：等到儲存體帳戶建立為止。 這可能需要幾分鐘的時間。 
 
 1. 關閉 [Cloud Shell] 窗格。
 
-#### 工作 2：在記憶體帳戶上新增 ReadOnly 鎖定。 
+#### 工作 2：在儲存體帳戶上新增 ReadOnly 鎖定。 
 
 在此工作中，您必須為儲存體帳戶新增唯讀鎖定。 這項操作可避免資源意外遭到刪除或修改。 
 
@@ -95,7 +95,7 @@ lab:
 
 1. 按一下 [確定]****。 
 
-   >**注意**：記憶體帳戶現在會受到保護，免於意外刪除和修改。
+   >**注意 ** ：儲存體帳戶現在會受到保護，免于意外刪除和修改。
 
 #### 工作 3：測試 ReadOnly 鎖定 
 
@@ -107,7 +107,7 @@ lab:
 
 1. 在 Azure 入口網站頂端的工具列中按一下**通知**圖示以檢閱通知，內容應類似於下列文字： 
 
-    > **「無法更新記憶體帳戶 』xxxxxxxxxx'。錯誤：範圍 'xxxxxxxx' 無法執行寫入作業，因為下列範圍已鎖定：'/subscriptions/xxxxx-xxx-xxxx-xxxx-xxxxxxxx/resourceGroups/AZ500LAB03/providers/Microsoft。儲存體/storageAccounts/xxxxxxx'。請移除鎖定，然後再試一次」**
+    > **「無法更新儲存體帳戶 'xxxxxxxx'。錯誤：範圍 'xxxxxxxx' 無法執行寫入作業，因為下列範圍已鎖定：'/subscriptions/xxxxx-xxx-xxxx-xxxx-xxxxxxxx/resourceGroups/AZ500LAB03/providers/Microsoft。儲存體/storageAccounts/xxxxxxx'。請移除鎖定，然後再試一次」**
 
 1. 返回儲存體帳戶的 [設定****] 刀鋒視窗，然後按一下 [捨棄****]。 
 
@@ -117,9 +117,9 @@ lab:
 
 1. 檢閱新產生的通知，內容應類似於下列文字： 
 
-    > **「無法刪除記憶體帳戶 』xxxxxxx'。錯誤：範圍 'xxxxxxx' 無法執行刪除作業，因為下列範圍已鎖定：'/subscriptions/xxxx-xxxx-xxxxxx/resourceGroups/AZ500LAB03/providers/Microsoft。儲存體/storageAccounts/xxxxxxx'。請移除鎖定，然後再試一次。**
+    > **「無法刪除儲存體帳戶 'xxxxxxx'。錯誤：範圍 'xxxxxxx' 無法執行刪除作業，因為下列範圍已鎖定：'/subscriptions/xxxx-xxxx-xxxxxx/resourceGroups/AZ500LAB03/providers/Microsoft。儲存體/storageAccounts/xxxxxxx'。請移除鎖定，然後再試一次。**
 
-   >**注意**：您現在已確認 ReadOnly 鎖定會停止意外刪除和修改資源。
+   >**注意 ** ：您現在已確認 ReadOnly 鎖定會停止意外刪除和修改資源。
 
 #### 工作 4：移除 ReadOnly 鎖定並建立刪除鎖定。
 
@@ -148,7 +148,7 @@ lab:
 
 1. 將 [需要安全傳輸]**** 選項設定為 ****[停用]，然後按一下 [儲存****]。
 
-   >**注意**：這次應該會成功變更。
+   >**注意 ** ：這次應該會成功變更。
 
 1. 在 [儲存體帳戶] 刀鋒視窗中選取 [概觀****]，然後在 [概觀****] 刀鋒視窗中按一下 [刪除****]。
 
@@ -156,11 +156,11 @@ lab:
 
     > **無法刪除 'xxxxxx'，因為此資源或其父系有刪除鎖定。必須先移除鎖定，才能刪除此資源」**
 
-   >**注意**：您現在已 **確認刪除** 鎖定將允許設定變更，但停止意外刪除。
+   >**注意 ** ：您現在已 ** 確認刪除 ** 鎖定將允許設定變更，但停止意外刪除。
 
-   >**注意**：使用資源鎖定，您可以實作額外的防線，以防止意外或惡意變更和/或刪除最重要的資源。 **** 具備「擁有者」角色的所有使用者都可以移除資源鎖定，但必須在充分瞭解情況的條件下才能這麼做。 鎖定可以彌補角色型存取控制的不足。 
+   >**注意 ** ：使用資源鎖定，您可以實作額外的防線，以防止意外或惡意變更和/或刪除最重要的資源。 **** 具備「擁有者」角色的所有使用者都可以移除資源鎖定，但必須在充分瞭解情況的條件下才能這麼做。 鎖定可以彌補角色型存取控制的不足。 
 
-> 結果：在此練習中，您已瞭解如何使用 Resource Manager 鎖定來保護資源免於修改和意外刪除。
+> 結果：在此練習中，您已瞭解如何使用 Resource Manager 鎖定來保護資源免于修改和意外刪除。
 
 **清除資源**
 
