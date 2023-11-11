@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 13 - Azure 監視器
+  title: 14 - Azure 監視器
   module: Module 04 - Manage security operations
 ---
 
-# 實驗室 13：Azure 監視器
+# 實驗室 14：Azure 監視器
 
 # 學生實驗室手冊
 
@@ -154,8 +154,7 @@ lab:
 
 2. 在 [ ** 監視設定] ** 刀鋒視窗中，按一下  ** [資料收集規則]。**
 
-  ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d43e8f94-efb2-4255-9320-210c976fd45e)
-
+    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/2184da69-12c2-476b-b2b2-b80620e822a6)
 
 3. 在 [ ** 建立資料收集規則 ** ] 刀鋒視窗的 [ ** 基本] ** 索引標籤上，指定下列設定：
   

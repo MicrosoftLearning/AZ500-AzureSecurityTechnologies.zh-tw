@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 15 - Microsoft Sentinel
+  title: 16 - Microsoft Sentinel
   module: Module 04 - Manage Security Operations
 ---
 
-# 實驗室 15：Microsoft Sentinel
+# 實驗室 16：Microsoft Sentinel
 # 學生實驗室手冊
 
 ## 實驗案例
@@ -27,7 +27,7 @@ lab:
 
 ## Microsoft Sentinel 圖表
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/509aa70d-de11-4470-a289-877fbfecbc00)
+![image](https://user-images.githubusercontent.com/91347931/157538440-4953be73-90be-4edd-bd23-b678326ba637.png)
 
 ## 指示
 
@@ -54,11 +54,11 @@ lab:
 
 1. 登入 Azure 入口網站：**`https://portal.azure.com/`**。
 
-    >**注意**：使用在您要用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶登入 Azure 入口網站。
+    >**注意**：使用您用於此實驗室之 Azure 訂用帳戶中擁有擁有者或參與者角色的帳戶登入 Azure 入口網站。
 
 2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入****「Microsoft Sentinel」****，然後按下 **Enter** 鍵。
 
-    >**注意**：如果這是您第一次嘗試在 Azure 儀錶板中執行 Microsoft Sentinel，請完成下列步驟：在 [Azure 入口網站 **] 的 [搜尋資源]、[服務和檔**] 文本框中，Azure 入口網站 頁面頂端輸入 **Microsoft Sentinel**，然後按 **Enter** 鍵。 在 [服務] 檢視中選取 [Microsoft Sentinel]。********
+    >**注意**：如果這是您第一次嘗試在 Azure 儀錶板中執行 Microsoft Sentinel，請完成下列步驟：在 [Azure 入口網站] 中，於 **[Azure 入口網站] 頁面頂端的 [搜尋資源、服務和檔]** 文本框中輸入 **Microsoft Sentinel**，然後按 **Enter** 鍵。 在 [服務] 檢視中選取 [Microsoft Sentinel]。********
   
 3. 在 ****[Microsoft Sentinel] 刀鋒視窗中按一下 [+ 建立****]。
 
