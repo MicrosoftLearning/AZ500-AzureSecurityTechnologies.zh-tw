@@ -1,24 +1,24 @@
 ---
 lab:
-  title: 03 - Microsoft Entra Privileged Identity Management
+  title: 11 - Azure AD Privileged Identity Management
   module: Module 01 - Manage Identity and Access
 ---
 
-# 實驗室 03：Microsoft Entra Privileged Identity Management
+# 實驗室 11：Azure AD Privileged Identity Management
 # 學生實驗室手冊
 
 ## 實驗案例
 
-系統要求您建立概念證明，該證明使用 Microsoft Entra Privileged Identity Management （PIM） 來啟用 Just-In-Time 系統管理，並控制可執行特殊許可權作業的使用者數目。 具體需求如下：
+系統要求您建立使用 Azure Privileged Identity Management (PIM) 的概念證明，以啟用 Just-In-Time 系統管理，並控制可執行特殊許可權作業的使用者數目。 具體需求如下：
 
-- 建立 aaduser2 Microsoft Entra ID 使用者的永久指派給 Security 管理員istrator 角色。 
-- 將 aaduser2 Microsoft Entra ID 使用者設定為符合 Billing 管理員istrator 和 Global Reader 角色的資格。
-- 設定全域讀取者角色啟用以要求核准 aaduser3 Microsoft Entra ID 使用者
+- 對安全性系統管理員角色建立 aaduser2 Azure AD 使用者的永久指派。 
+- 將 aaduser2 Azure AD 使用者設定為符合計費管理員和全域讀者角色的資格。
+- 將全域讀者角色啟用設定為必須取得 aaduser3 Azure AD 使用者核准
 - 設定全域讀者角色的存取權檢閱並檢閱稽核功能。
 
 > 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
-> 繼續之前，請確定您已完成實驗室 02：MFA、條件式存取和 Microsoft Entra Identity Protection 。 您將需要 Microsoft Entra 租使用者 AdatumLab500-04 和 aaduser1、aaduser2 和 aaduser3 使用者帳戶。
+> 繼續之前，請確定您已完成實驗室 04：MFA、條件式存取和 AAD Identity Protection 。 您需要使用 Azure AD 租用戶、AdatumLab500-04，以及 aaduser1、aaduser2、aaduser3 使用者帳戶。
 
 ## 實驗室目標
 
@@ -28,9 +28,9 @@ lab:
 - 練習 2：在未經核准的情況下啟用 PIM 角色。
 - 練習 3：建立存取權檢閱並檢閱 PIM 稽核功能。
 
-## Microsoft Entra Privileged Identity Management 圖表
+## Azure AD Privileged Identity Management 圖表
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/aef34a22-8ebd-4015-a04a-7ac3c357b862)
+![image](https://user-images.githubusercontent.com/91347931/157522920-264ce57e-5c55-4a9d-8f35-e046e1a1e219.png)
 
 ## 指示
 
@@ -46,17 +46,17 @@ lab:
 
 #### 工作 1：讓使用者符合角色資格
 
-在這項工作中，您會讓使用者符合 Microsoft Entra ID 角色的資格。
+在此工作中，您必須讓使用者有資格獲派 Azure AD 目錄角色。
 
 1. 登入位於 ** `https://portal.azure.com/` ** 的Azure 入口網站。
 
-    >**注意 ** ：請確定您已登入 ** AdatumLab500-04 ** Microsoft Entra 租使用者。 您可以使用目錄 + 訂 ** 用 ** 帳戶篩選在 Microsoft Entra 租使用者之間切換。 確定您是透過具有全域管理員角色的使用者身分登入。
+    >**注意 ** ：請確定您已登入 ** AdatumLab500-04 ** Azure AD 租使用者。 您可以使用 [目錄 + 訂用帳戶]**** 篩選器切換 Azure AD 租用戶。 確定您是透過具有全域管理員角色的使用者身分登入。
     
     >**注意 ** ：如果您仍然看不到 AdatumLab500-04 專案，請按一下 [切換 Diretory] 連結，選取 [AdatumLab500-04] 行，然後按一下 [切換] 按鈕。
 
-2. 在 [Azure 入口網站] ** 的 [搜尋資源、服務和檔] ** 文字方塊中，于 [Azure 入口網站] 頁面頂端輸入 ** Microsoft Entra Privileged Identity Management ** ，然後按 ** Enter ** 鍵。
+2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入****「Azure AD Privileged Identity Management」****，然後按下 **Enter** 鍵。
 
-3. 在 [ ** Privileged Identity Management ** ] 刀鋒視窗的 ** [管理 ** ] 區段中，按一下 ** [Microsoft Entra ID 角色 ** ]。
+3. 在 [Privileged Identity Management] 刀鋒視窗的 [管理] 區段中，按一下 [Azure AD 角色]。************
 
 4. 在 [AdatumLab500-04 \| 快速入門****] 刀鋒視窗的 [管理****] 區段中，按一下 [角色****]。
 
@@ -80,7 +80,7 @@ lab:
 
 #### 工作 2：設定角色以要求核准以啟用並新增合格成員
 
-1. 在 Azure 入口網站中，流覽回 [ ** Privileged Identity Management ** ] 刀鋒視窗，然後按一下 [ ** Microsoft Entra ID 角色 ** ]。
+1. 在 Azure 入口網站中巡覽回 [Privileged Identity Management] 刀鋒視窗，然後按一下 [Azure AD 角色]。********
 
 2. 在 [AdatumLab500-04 \| 快速入門****] 刀鋒視窗的 [管理****] 區段中，按一下 [角色****]。
 
@@ -118,7 +118,7 @@ lab:
  
 #### 工作 3：為使用者授與角色永久指派。
 
-1. 在 Azure 入口網站中，流覽回 [ ** Privileged Identity Management ** ] 刀鋒視窗，然後按一下 [ ** Microsoft Entra ID 角色 ** ]。
+1. 在 Azure 入口網站中巡覽回 [Privileged Identity Management] 刀鋒視窗，然後按一下 [Azure AD 角色]。********
 
 2. 在 [AdatumLab500-04 \| 快速入門****] 刀鋒視窗的 [管理****] 區段中，按一下 [角色****]。
 
@@ -153,9 +153,9 @@ lab:
 
 2. 在 InPrivate 瀏覽器視窗中，流覽至 Azure 入口網站， ** `https://portal.azure.com/` ** 並使用 ** aaduser2 ** 使用者帳戶登入。
 
-    >**注意 ** ：若要登入，您必須提供 aaduser2 ** 使用者帳戶的完整名稱 ** ，包括您稍早在此實驗室中記錄的 Microsoft Entra 租使用者 DNS 功能變數名稱。 此使用者名稱的格式為 aaduser2@ `<your_tenant_name>` .onmicrosoft.com，其中 `<your_tenant_name>` 是代表您唯一 Microsoft Entra 租使用者名稱的預留位置。 
+    >**注意 ** ：若要登入，您必須提供 aaduser2 ** 使用者帳戶的完整名稱 ** ，包括您稍早在此實驗室中記錄的 Azure AD 租使用者 DNS 功能變數名稱。 使用者名稱的格式為 aaduser2@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 是代表您唯一 Azure AD 租用戶名稱的預留位置。 
 
-3. 在 [Azure 入口網站] ** 的 [搜尋資源、服務和檔] ** 文字方塊中，于 [Azure 入口網站] 頁面頂端輸入 ** Microsoft Entra Privileged Identity Management ** ，然後按 ** Enter ** 鍵。
+3. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入****「Azure AD Privileged Identity Management」****，然後按下 **Enter** 鍵。
 
 4. 在 [Privileged Identity Management] 刀鋒視窗的 [工作] 區段中，按一下 [我的角色]。************
 
@@ -173,7 +173,7 @@ lab:
 
 9. 巡覽回 [Privileged Identity Management] 刀鋒視窗，然後在 [工作] 區段中按一下 [我的角色]。************
 
-10. 在 [ ** 我的角色 \| ][Microsoft Entra ID 角色 ** ] 刀鋒視窗上，切換至 [ ** 作用中指派] 索引 ** 標籤。請注意 ** ，帳單管理員istrator ** 角色已啟用 ** ** 。
+10. 在 [ ** 我的角色 \| Azure AD 角色 ** ] 刀鋒視窗上，切換至 [ ** 作用中指派] 索引 ** 標籤。請注意 ** ，計費管理員istrator ** 角色已啟用 ** ** 。
 
     >**注意 ** ：一旦啟用角色之後，它就會在達到結束時間 ** （合格持續時間）下 ** 的時間限制時自動停用。
 
@@ -192,7 +192,7 @@ lab:
 
 2. 在 [Privileged Identity Management \| 快速入門]**** 刀鋒視窗的 **** [工作] 區段中，按一下 ****[我的角色]。
 
-3. 在 [ ** 我的角色 \| Microsoft Entra ID 角色 ** ] 刀鋒視窗的 [合格指派 ** ] 清單中 ** ，于顯示 ** 全域讀者 ** 角色的資料列中，按一下 [ ** 啟用 ** ]。 
+3. 在 [我的角色 \| Azure AD 角色****] 刀鋒視窗的 [合格的指派****] 清單中，於顯示 [全域讀者]**** 角色的資料列上按一下 [啟用****]。 
 
 4. 在 [啟用 - 全域讀者****] 刀鋒視窗中的 [原因****] 文字輸入框內，輸入提供啟用理由的文字，然後按一下 [啟用****]。
 
@@ -200,7 +200,7 @@ lab:
 
     >**注意 ** ：身為特殊許可權角色管理員，您可以隨時檢閱和取消要求。 
 
-6. 在 [ ** 我的角色 \| ][Microsoft Entra ID 角色 ** ] 刀鋒視窗中，找出 ** [安全性] 管理員istrator ** 角色，然後按一下 [ ** 啟用 ** ]。 
+6. 在 [我的角色 \| Azure AD 角色****] 刀鋒視窗**** 中找出 [安全性系統管理員]**** 角色，然後按一下 [啟用]。 
 
 7. 如有需要，請按一下警告 ** [需要其他驗證]。按一下以繼續 ** ，並遵循指示來驗證您的身分識別。
 
@@ -210,7 +210,7 @@ lab:
 
     >**注意 ** ：自動核准程式應該完成。
 
-9. 回到 [ ** 我的角色 \| ][Microsoft Entra ID 角色 ** ] 刀鋒視窗，按一下 [ ** 作用中指派 ** ] 索引標籤，並注意使用中指派 ** 的清單 ** 包含 ** [安全性] 管理員istrator ** ，但不包含 ** [全域讀取者 ** ] 角色。
+9. 返回 [我的角色 \| Azure AD 角色****] 刀鋒視窗****，按一下 [使用中指派]**** 索引標籤。請注意 [使用中指派] 內包含**安全性系統管理員**，但不含**全域讀者**角色。
 
     >**注意 ** ：您現在會核准全域讀取者角色。
 
@@ -218,13 +218,13 @@ lab:
 
 11. 在 InPrivate 瀏覽器中，以 aaduser3 身分登入 Azure 入口網站 ** 。 `https://portal.azure.com/` ** ** **
 
-    >**注意 ** ：如果您使用任何使用者帳戶進行驗證時遇到問題，您可以使用使用者帳戶來重設其密碼或重新設定其登入選項，以登入 Microsoft Entra 租使用者。
+    >**注意 ** ：如果您使用任何使用者帳戶進行驗證時遇到問題，您可以使用使用者帳戶來重設其密碼，或重新設定其登入選項來登入 Azure AD 租使用者。
 
-12. 在 [Azure 入口網站] 中，流覽至 ** [Microsoft Entra Privileged Identity Management ** ] （在 [Azure 入口網站] 頁面頂端的 [搜尋資源、服務和檔] 文字方塊中，輸入 Microsoft Entra Privileged Identity Management，然後按 Enter 鍵。
+12. 在 Azure 入口網站中巡覽至 [Azure AD Privileged Identity Management] (在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入「Azure AD Privileged Identity Management」，然後按下 Enter 鍵)。****
 
 13. 在 [Privileged Identity Management \| 快速入門]**** 刀鋒視窗的 **** [工作] 區段中，按一下 ****[核准要求]。
 
-14. 在 [ ** 核准要求 \| Microsoft Entra ID 角色 ** ] 刀鋒視窗的 [ ** 角色啟用 ** 要求] 區段中，選取專案核取方塊，代表 aaduser2 ** 對 ** 全域讀取者 ** 角色 ** 的角色啟用要求。
+14. 在 [核准要求 ****\| Azure AD 角色] 刀鋒視窗的 [要求啟用角色] 區段，勾選代表 **aaduser2** 所提出「全域讀者」角色啟用要求的項目核取方塊。********
 
 15. 按一下**核准**。 在 [核准要求] 刀鋒視窗中的 [原因] 文字輸入框內輸入啟用理由，並記下開始和結束的時間，然後按一下 [確認]。************ 
 
@@ -234,11 +234,11 @@ lab:
 
 17. 在 InPrivate 瀏覽器中，以 aaduser2 身分登入 Azure 入口網站 ** `https://portal.azure.com/` ** ****
 
-18. 在 [Azure 入口網站] 中，流覽至 ** [Microsoft Entra Privileged Identity Management ** ] （在 [Azure 入口網站] 頁面頂端的 [搜尋資源、服務和檔] 文字方塊中，輸入 Microsoft Entra Privileged Identity Management，然後按 Enter 鍵。
+18. 在 Azure 入口網站中巡覽至 [Azure AD Privileged Identity Management] (在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入「Azure AD Privileged Identity Management」，然後按下 Enter 鍵)。****
 
 19. 在 [Privileged Identity Management \| 快速入門]**** 刀鋒視窗的 **** [工作] 區段中，按一下 ****[我的角色]。
 
-20. 在 [ ** 我的角色 \| Microsoft Entra ID 角色 ** ] 刀鋒視窗中，按一下 [作用中 ** 指派 ** ] 索引標籤，並確認 [全域讀取者] 角色目前為作用中。
+20. 在 [我的角色 ****\| Azure AD 角色] 刀鋒視窗中，切換至 [使用中指派] 索引標籤，**** 並確認全域讀者角色已啟用。
 
     >**注意 ** ：您可能必須重新整理頁面，才能檢視使用中工作分派的更新清單。
 
@@ -252,24 +252,24 @@ lab:
 
 在本練習中，您將會完成下列工作：
 
-- 工作 1：在 PIM 中設定 Microsoft Entra ID 角色的安全性警示
+- 工作 1：在 PIM 中設定 Azure AD 目錄角色的安全性警示
 - 工作 2：檢閱 PIM 警示、摘要資訊和詳細的稽核資訊
 
-#### 工作 1：在 PIM 中設定 Microsoft Entra ID 角色的安全性警示
+#### 工作 1：在 PIM 中設定 Azure AD 目錄角色的安全性警示
 
 在此工作中，您必須降低角色指派過時所帶來的風險。 為達成這個目標，您需要建立 PIM 存取權檢閱，確定指派的角色仍然有效。 具體而言，您必須檢閱全域讀者角色。 
 
 1. 使用您的帳戶登入 Azure 入口網站：**`https://portal.azure.com/`**。
 
-    >**注意 ** ：請確定您已登入 ** AdatumLab500-04 ** Microsoft Entra 租使用者。 您可以使用目錄 + 訂 ** 用 ** 帳戶篩選在 Microsoft Entra 租使用者之間切換。 確定您是透過具有全域管理員角色的使用者身分登入。
+    >**注意 ** ：請確定您已登入 ** AdatumLab500-04 ** Azure AD 租使用者。 您可以使用 [目錄 + 訂用帳戶]**** 篩選器切換 Azure AD 租用戶。 確定您是透過具有全域管理員角色的使用者身分登入。
     
     >**注意 ** ：如果您仍然看不到 AdatumLab500-04 專案，請按一下 [切換 Diretory] 連結，選取 [AdatumLab500-04] 行，然後按一下 [切換] 按鈕。
 
-2. 在 [Azure 入口網站] ** 的 [搜尋資源、服務和檔] ** 文字方塊中，于 [Azure 入口網站] 頁面頂端輸入 ** Microsoft Entra Privileged Identity Management ** ，然後按 ** Enter ** 鍵。
+2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入****「Azure AD Privileged Identity Management」****，然後按下 **Enter** 鍵。
 
 3. 巡覽至 ****[Privileged Identity Management] 刀鋒視窗。 
 
-4. 在 [ ** Privileged Identity Management \| 快速入門] ** 刀鋒視窗的 [ ** 管理 ** ] 區段中，按一下 ** [Microsoft Entra 角色 ** ]。
+4. 在 [Privileged Identity Management \| 快速入門]**** 刀鋒視窗的 **** [管理] 區段中，按一下 ****[Azure AD 角色]。
 
 5. 在 [AdatumLab500-04 \| 快速入門****] 刀鋒視窗的 [管理****] 區段中，按一下 [存取權檢閱****]。
 
@@ -307,7 +307,7 @@ lab:
 
 16. 在 [原因]**** 文字輸入框中輸入核准的依據，然後按一下 [核准****] 維持目前的角色成員資格，或者按一下 [拒絕****] 撤銷角色成員資格。 
 
-17. 流覽回 Privileged ** Identity Management ** 刀鋒視窗， ** 然後在 [管理 ** ] 區段中，按一下 ** [Microsoft Entra ID 角色 ** ]。
+17. 巡覽回 [Privileged Identity Management] 刀鋒視窗，然後在 [管理] 區段中按一下 [Azure AD 角色]。************
 
 18. 在 [AdatumLab500-04 \| 快速入門****] 刀鋒視窗的 [管理****] 區段中，按一下 [存取權檢閱****]。
 
@@ -317,7 +317,7 @@ lab:
 
 在此工作中，您必須檢閱 PIM 警示、摘要資訊，以及詳細的稽核資訊。 
 
-1. 流覽回 Privileged ** Identity Management ** 刀鋒視窗， ** 然後在 [管理 ** ] 區段中，按一下 ** [Microsoft Entra ID 角色 ** ]。
+1. 巡覽回 [Privileged Identity Management] 刀鋒視窗，然後在 [管理] 區段中按一下 [Azure AD 角色]。************
 
 2. 在 [AdatumLab500-04 \| 快速入門****] 刀鋒視窗的 [管理****] 區段中點選 [警示****]，再按一下 [設定****]。
 
@@ -339,9 +339,9 @@ lab:
 
 > 請記得移除您不再使用的任何新建立的 Azure 資源。 移除未使用的資源可避免產生非預期的費用。 
 
-1. 在Azure 入口網站中，將 ** [目錄 + 訂 ** 用帳戶] 篩選器設定為與您部署 ** az500-04-vm1 ** Azure VM 之 Azure 訂用帳戶相關聯的 Microsoft Entra 租使用者。
+1. 在 Azure 入口網站中，將**** [目錄 + 訂用帳戶] 篩選條件設定為與您部署 **az500-04-vm1** Azure VM 的 Azure 訂用帳戶相關聯的 Azure AD 租用戶。
 
-    >**注意 ** ：如果您沒有看到主要 Microsoft Entra 租使用者專案，請按一下 [切換轉租使用者] 連結，選取您的主要租使用者行，然後按一下 [切換] 按鈕。
+    >**注意 ** ：如果您沒有看到主要 Azure AD 租使用者專案，請按一下 [切換 Diretory] 連結，選取您的主要租使用者行，然後按一下 [切換] 按鈕。
 
 2. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請點選 [PowerShell]**** 與 [建立儲存體]****。
 
@@ -355,26 +355,26 @@ lab:
 
 5. 關閉 [Cloud Shell] 窗格。 
 
-6. 回到Azure 入口網站，使用 ** 目錄 + 訂 ** 用帳戶篩選準則切換至 ** AdatumLab500-04 ** AMicrosoft Entra 租使用者。
+6. 返回 Azure 入口網站，使用[目錄 + 訂用帳戶****] 篩選器切換至 **AdatumLab500-04** Azure Active Directory 租用戶。
 
-7. 流覽至 ** [AdatumLab500-04 Microsoft Entra ** ] 刀鋒視窗，然後在 [ ** 管理 ** ] 區段中，按一下 [ ** 授權 ** ]。
+7. 巡覽回**** [AdatumLab500-04] Azure Active Directory 刀鋒視窗，然後在 [管理****] 區段中按一下 [授權****]。
 
-8. 在授權 ** ** 上 |[概觀] 刀鋒視窗，按一下 ** [所有產品 ** ]，選取 Microsoft Entra ID P2 ** 的 ** 核取方塊，然後按一下它以開啟。
+8. 在 [授權 | 概觀****] 刀鋒視窗中按一下 [所有產品****]，勾選 [Azure Active Directory Premium P2****] 核取方塊，再按一下以開啟該項目。
 
-    >**注意 ** ：在實驗室 2 - 練習 2 - 工作 4 ** 將 Microsoft Entra ID P2 授權指派給 Microsoft Entra 使用者 ** 是將進階版授權指派給 aaduser1、aaduser2 和 aaduser3 ** 的使用者，請確定我們從指派的使用者 ** 移除這些授權
+    >**注意 ** ：在實驗室 4 - 練習 2 - 工作 4 ** 將 Azure AD 進階版 P2 授權指派給 Azure AD 使用者 ** 是將進階版授權指派給 aaduser1、aaduser2 和 aaduser3 ** 的使用者，請確定我們從指派的使用者 ** 中移除這些授權
 
-9. 在 [ ** Microsoft Entra ID P2 - 授權的使用者 ** ] 刀鋒視窗中，選取您指派 ** Microsoft Entra ID P2 ** 授權的使用者帳戶核取方塊。 在頂端窗格中按一下 [移除授權]，接著在確認提示出現時選取 [是]。********
+9. 在 [Azure Active Directory Premium P2 - 經過授權的使用者]**** 刀鋒視窗中，找出指派過 **Azure Active Directory Premium P2** 授權的使用者帳戶，並勾選其核取方塊。 在頂端窗格中按一下 [移除授權]，接著在確認提示出現時選取 [是]。********
 
 10. 在 Azure 入口網站中巡覽至 [使用者 - 所有使用者]**** 刀鋒視窗，按一下代表 **aaduser1** 使用者帳戶的項目，然後在 [aaduser1 - 設定檔]**** 刀鋒視窗中點選 [刪除]****。出現確認提示時，請選取 [是]****。
 
 11. 重複相同的步驟順序，以刪除您建立的其餘使用者帳戶。
 
-12. 流覽至 ** [AdatumLab500-04 - ** Microsoft Entra 租使用者概觀] 刀鋒視窗，選取 [管理租 ** 使用者]，然後在下一個畫面上，選取 ** AdatumLab500-04 ** 旁 ** 的核取方塊，然後選取 [ ** 刪除 ** ]。 在 [ ** 刪除租使用者 'AdatumLab500-04' ** 刀鋒視窗上，選取 ** [取得刪除 Azure 資源的許可權] 連結，在 [AMicrosoft Entra ID] 的 [屬性 ** ] 刀鋒視窗上 ** ，將 [Azure 資源的 ** ** 存取管理] 設定 ** 為 [ ** 是 ** ]，然後選取 [ ** 儲存 ** ]。
+12. 巡覽至 Azure AD 租用戶的 [AdatumLab500-04 - 概觀] **** 刀鋒視窗，選取 [管理租用戶]****，然後在下一個畫面中勾選 [AdatumLab500-04]**** 旁邊的核取方塊，再選取 [刪除****]。 在 [刪除租用戶「AdatumLab500-04」] **** 刀鋒視窗中點選 [取得刪除 Azure 資源的權限]**** 連結，然後在 Azure Active Directory 的 [屬性]**** 刀鋒視窗中，將 [Azure 資源的存取管理]**** 設為 [是]****，再選取 [儲存]****。
 
 13. 登出 Azure 入口網站後再次登入。 
 
 14. 巡覽回 [刪除目錄「AdatumLab500-04」]**** 刀鋒視窗，然後按一下 [刪除****]。
 
-    >**注意 ** ：仍然無法刪除租使用者並擲回錯誤 ** 刪除所有授權型和訂 ** 用帳戶，可能是因為任何已連結至租使用者的訂用帳戶。 這裡 ** 免費 P2 授權 ** 可能會擲回驗證錯誤。 使用 M365 系統管理員的全域管理員識別碼刪除 P2 授權的試用訂用帳戶>> ** 您的產品 ** ，並從 ** 商務市集入口網站 ** 刪除此問題。 另請注意，刪除租用戶需要較長時間。 檢查訂閱的結束日期，在試用期間結束後一次，重新流覽 Microsoft Entra 識別碼，然後嘗試刪除租使用者。    
+    >**注意 ** ：仍然無法刪除租使用者並擲回錯誤 ** 刪除所有授權型和訂 ** 用帳戶，可能是因為任何已連結至租使用者的訂用帳戶。 在這裡**免費 Premium P2 授權**可能會擲回驗證錯誤。 若要解決此問題，請使用全域管理員識別碼從 M365 系統管理中心 >> [您的產品]**** 以及**企業市集**入口網站刪除 Premium P2 授權的試用版訂用帳戶。 另請注意，刪除租用戶需要較長時間。 查看訂用帳戶的結束日期。試用期結束後，請重新前往 Azure Active Directory 並嘗試刪除租用戶。    
 
 > 如需有關這項工作的任何其他資訊，請參閱 [https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto)

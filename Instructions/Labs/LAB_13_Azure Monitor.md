@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 11 - Azure 監視器
+  title: 13 - Azure 監視器
   module: Module 04 - Manage security operations
 ---
 
-# 實驗室 11：Azure 監視器
+# 實驗室 13：Azure 監視器
 
 # 學生實驗室手冊
 
@@ -49,13 +49,7 @@ lab:
     New-AzResourceGroup -Name AZ500LAB131415 -Location 'EastUS'
     ```
 
-    >**注意 ** ：此資源群組將用於實驗室 13、14 和 15。
-
-5. 在 Cloud Shell 窗格中的 PowerShell 會話中，執行下列命令以在主機啟用加密 （EAH）
-   
-   ```powershell
-    Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace Microsoft.Compute 
-    ```
+    >**注意 ** ：此資源群組將用於實驗室 13、14 和 15。 
 
 5. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以建立新的 Azure 虛擬機器。 
 
@@ -68,7 +62,7 @@ lab:
     |設定|值|
     |---|---|
     |User |**localadmin**|
-    |密碼|**請使用實驗室 02 >練習 1 >工作 1 >步驟 9 中建立的個人密碼。**|
+    |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 建立的個人密碼。**|
 
     >**注意**：等待部署完成。 
 
@@ -179,16 +173,14 @@ lab:
 
 
 4. 按一下標示為 ** [下一步：資源] > ** 的按鈕，繼續進行。
-   
-6. 在 [資源] 索引標籤上，選取 ** [+ 新增資源]， ** 勾選 [ ** 啟用資料收集端點]。** 在 [選取範圍範本] 中，檢查 ** AZ500LAB131415， ** 然後按一下 [ ** 套用]。**
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d4191115-11bc-43ec-9bee-e84b9b95a821)
+5. 在 [ ** 資源] ** 索引標籤上，選取 ** [+ 新增資源 ** ]，然後核取 ** [啟用資料收集端點]。**
 
-10. 按一下標示為 ** [下一步：收集並傳遞> ** ] 的按鈕，繼續進行。
+    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/c8388619-c254-4c80-a1ff-dde2f35ed350)
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/8294d300-f910-4757-ad52-43c7594ac822)
+6. 按一下標示為 ** [下一步：收集並傳遞> ** ] 的按鈕，繼續進行。
 
-11. 按一下 ** [+ 新增資料來源]，然後在 [ ** 新增資料來源 ** ** ] 頁面上，變更 ** [資料來源類型 ** ] 下拉式功能表以顯示 ** 效能計數器。** 保留下列預設設定：
+7. 按一下 ** [+ 新增資料來源]，然後在 [ ** 新增資料來源 ** ** ] 頁面上，變更 ** [資料來源類型 ** ] 下拉式功能表以顯示 ** 效能計數器。** 保留下列預設設定：
 
     |設定|值|
     |---|---|
@@ -200,13 +192,13 @@ lab:
 
    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/a24e44ad-1d10-4533-80e2-bae1b3f6564d)
 
-11. 按一下標示為 ** [下一步：目的地> ** ] 的按鈕，繼續進行。
+8. 按一下標示為 ** [下一步：目的地> ** ] 的按鈕，繼續進行。
   
-12. 變更 [ ** 目的地類型 ** ] 下拉式功能表以顯示 ** Azure 監視器記錄。** 在 [ ** 訂 ** 用帳戶] 視窗中，確定您的 * * 訂用帳戶已顯示，然後變更 ** [帳戶] 或 [命名空間] ** 下拉式功能表，以反映您先前建立的 Log Analytics 工作區。
+9. 變更 [ ** 目的地類型 ** ] 下拉式功能表以顯示 ** Azure 監視器記錄。** 在 [ ** 訂 ** 用帳戶] 視窗中，確定您的 * * 訂用帳戶已顯示，然後變更 ** [帳戶] 或 [命名空間] ** 下拉式功能表，以反映您先前建立的 Log Analytics 工作區。
 
    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/481843f5-94c4-4a8f-bf51-a10d49130bf8)
 
-11. 按一下頁面底部的 [ ** 新增資料來源 ** ]。
+10. 按一下頁面底部的 [ ** 新增資料來源 ** ]。
     
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/964091e7-bbbc-4ca8-8383-bb2871a1e7f0)
 

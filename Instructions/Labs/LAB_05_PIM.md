@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 03 - Microsoft Entra Privileged Identity Management
+  title: 05 - Microsoft Entra Privileged Identity Management
   module: Module 01 - Manage Identity and Access
 ---
 
-# 實驗室 03：Microsoft Entra Privileged Identity Management
+# 實驗室 05：Microsoft Entra Privileged Identity Management
 # 學生實驗室手冊
 
 ## 實驗案例
@@ -18,7 +18,7 @@ lab:
 
 > 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
-> 繼續之前，請確定您已完成實驗室 02：MFA、條件式存取和 Microsoft Entra Identity Protection 。 您將需要 Microsoft Entra 租使用者 AdatumLab500-04 和 aaduser1、aaduser2 和 aaduser3 使用者帳戶。
+> 繼續之前，請確定您已完成實驗室 04：MFA、條件式存取和 Microsoft Entra Identity Protection 。 您將需要 Microsoft Entra 租使用者 AdatumLab500-04 和 aaduser1、aaduser2 和 aaduser3 使用者帳戶。
 
 ## 實驗室目標
 
@@ -361,7 +361,7 @@ lab:
 
 8. 在授權 ** ** 上 |[概觀] 刀鋒視窗，按一下 ** [所有產品 ** ]，選取 Microsoft Entra ID P2 ** 的 ** 核取方塊，然後按一下它以開啟。
 
-    >**注意 ** ：在實驗室 2 - 練習 2 - 工作 4 ** 將 Microsoft Entra ID P2 授權指派給 Microsoft Entra 使用者 ** 是將進階版授權指派給 aaduser1、aaduser2 和 aaduser3 ** 的使用者，請確定我們從指派的使用者 ** 移除這些授權
+    >**注意 ** ：在實驗室 4 - 練習 2 - 工作 4 ** 將 Microsoft Entra ID P2 授權指派給 Microsoft Entra 使用者 ** 是將進階版授權指派給使用者 aaduser1、aaduser2 和 aaduser3 ** 中，請務必從指派的使用者 ** 移除這些授權
 
 9. 在 [ ** Microsoft Entra ID P2 - 授權的使用者 ** ] 刀鋒視窗中，選取您指派 ** Microsoft Entra ID P2 ** 授權的使用者帳戶核取方塊。 在頂端窗格中按一下 [移除授權]，接著在確認提示出現時選取 [是]。********
 

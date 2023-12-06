@@ -1,19 +1,19 @@
 ---
 lab:
-  title: 02 - MFA 和條件式存取
+  title: 04 - MFA 和條件式存取
   module: Module 01 - Manage Identity and Access
 ---
 
-# 實驗室 02：MFA 和條件式存取
+# 實驗室 05：MFA 和條件式存取
 # 學生實驗室手冊
 
 ## 實驗案例
 
-系統要求您建立增強 Microsoft Entra ID 驗證的功能概念證明。 具體而言，您必須評估：
+您收到要求，必須為用於增強 Azure Active Directory (Azure AD) 驗證的功能建立概念證明。 具體而言，您必須評估：
 
-- Microsoft Entra ID 多重要素驗證
-- Microsoft Entra 識別碼條件式存取
-- Microsoft Entra ID 條件式存取風險型原則
+- Azure AD 多重要素驗證
+- Azure AD 條件式存取
+- Azure AD 條件式存取風險型原則
 
 > 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
@@ -23,12 +23,12 @@ lab:
 
 - 練習 1：使用 Azure Resource Manager 範本部署 Azure VM
 - 練習 2：實作 Azure MFA
-- 練習 3：實作 Microsoft Entra ID 條件式存取原則 
-- 練習 4：實作 Microsoft Entra ID Identity Protection
+- 練習 3：實作 Azure AD 條件式存取原則 
+- 練習 4：實作 Azure AD Identity Protection
 
 ## MFA - 條件式存取 - 身分識別保護圖表
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/246a3798-6f50-4a41-99c2-71e9ab6a4c8f)
+![image](https://user-images.githubusercontent.com/91347931/157518628-8b4a9efe-0086-4ec0-825e-3d062748fa63.png)
 
 ## 指示
 
@@ -51,7 +51,7 @@ lab:
 
 1. 登入 Azure 入口網站：**`https://portal.azure.com/`**。
 
-    >**注意 ** ：使用您用於此實驗室的 Azure 訂用帳戶中擁有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Microsoft Entra ID 租使用者中的全域管理員istrator 角色登入Azure 入口網站。
+    >**注意 ** ：使用您用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Azure AD 租使用者中的全域管理員istrator 角色來登入Azure 入口網站。
 
 2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入****「部署自訂範本」****。
 
@@ -103,22 +103,22 @@ lab:
 
 在本練習中，您將會完成下列工作：
 
-- 工作 1：建立新的 Microsoft Entra ID 租使用者。
-- 工作 2：啟動 Microsoft Entra ID P2 試用版。
-- 工作 3：建立 Microsoft Entra ID 使用者和群組。
-- 工作 4：將 Microsoft Entra ID P2 授權指派給 Microsoft Entra ID 使用者。
+- 工作 1：建立新的 Azure AD 租使用者。
+- 工作 2：啟動 Azure AD 進階版 P2 試用版。
+- 工作 3：建立 Azure AD 使用者和群組。
+- 工作 4：將 Azure AD 進階版 P2 授權指派給 Azure AD 使用者。
 - 工作 5：設定 Azure MFA 設定。
 - 工作 6：驗證 MFA 設定
 
-#### 工作 1：建立新的 Microsoft Entra ID 租使用者
+#### 工作 1：建立新的 Azure AD 租使用者
 
-在這項工作中，您將建立新的 Microsoft Entra ID 租使用者。 
+在此工作中，您必須建立新的 Azure AD 租用戶。 
 
-1. 在 [Azure 入口網站] ** 頁面頂端 Azure 入口網站的 [搜尋資源、服務和檔] ** 文字方塊中，輸入 ** Microsoft Entra ID ** ，然後按 ** Enter ** 鍵。
+1. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入****「Azure Active Directory」****，然後按下 **Enter** 鍵。
 
-2. 在顯示 ** 您目前 Microsoft Entra ID 租使用者概觀 ** 的刀鋒視窗上，按一下 ** [管理租使用者 ** ]，然後在下一個畫面上，按一下 ** [+ 建立 ** ]。
+2. 在顯示您目前 Azure AD 租用戶的 [概觀] 刀鋒視窗中，按一下 [管理租用戶]，然後在下一個畫面中點選 [+ 建立]。************
 
-3. 在 [建立租 ** 使用者] 刀鋒視窗的 ** [ ** 基本] ** 索引標籤上，確定已選取 [Microsoft Entra ID ** ] 選項 ** ，然後按 ** [下一步：組態> ** ]。
+3. 在 [建立租 ** 使用者] 刀鋒視窗的 ** [ ** 基本] 索引 ** 標籤上，確定已選取 [Azure Active Directory ** ] 選項 ** ，然後按 ** [下一步：組態] > ** 。
 
 4. 在 [建立租用戶]**** 刀鋒視窗的 [設定]**** 索引標籤上，指定下列設定：
 
@@ -136,9 +136,9 @@ lab:
     >**注意 ** ：等候建立新的租使用者。 使用**通知**圖示監視部署狀態。 
 
 
-#### 工作 2：啟用 Microsoft Entra ID P2 試用版
+#### 工作 2：啟用 Azure AD 進階版 P2 試用版
 
-在這項工作中，您將註冊 Microsoft Entra ID P2 免費試用。 
+在此工作中，您必須註冊 Azure AD Premium P2 試用版。 
 
 1. 在 Azure 入口網站的工具列中，按一下 Cloud Shell 圖示右邊的**目錄 + 訂用帳戶**圖示。 
 
@@ -146,18 +146,18 @@ lab:
 
     >**注意 ** ：如果 ** AdatumLab500-04 ** 專案未出現在 ** [目錄 + 訂 ** 用帳戶篩選] 清單中，您可能需要重新整理瀏覽器視窗。
 
-3. 在 [Azure 入口網站] ** 頁面頂端 Azure 入口網站的 [搜尋資源、服務和檔] ** 文字方塊中，輸入 ** Microsoft Entra ID ** ，然後按 ** Enter ** 鍵。 在 ****[AdatumLab500-04] 刀鋒視窗的 [管理****] 區段中，按一下 [授權****]。
+3. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] 文字輸入框中輸入****「Azure Active Directory」****，然後按下 **Enter** 鍵。 在 ****[AdatumLab500-04] 刀鋒視窗的 [管理****] 區段中，按一下 [授權****]。
 
-4. 在 [ ** 授權概 \| 觀] ** 刀鋒視窗的 [快速工作 ** ] 底下 ** ，按一下 [ ** 取得免費試用 ** ]。
+4. 在 [**** 授權 \| 概觀] 刀鋒視窗的 [管理****] 區段中，按一下 [所有產品****]，然後點選 [+ 試用/購買****]。
 
-5. 展開 [MICROSFT ENTRA ID P2]，然後按一下 [ ** 啟用]。**
+5. 在 [啟用****] 刀鋒視窗的 [Azure AD Premium P2] 區段中，按一下 [免費試用****]，然後點選 [啟用****]。
 
 
-#### 工作 3：建立 Microsoft Entra ID 使用者和群組。
+#### 工作 3：建立 Azure AD 使用者和群組。
 
 在這項工作中，您必須建立三位使用者：aaduser1 (全域管理員)、aaduser2 (使用者) 以及 aaduser3 (使用者)。 您將需要每個使用者的使用者主體名稱和密碼，以供後續工作使用。 
 
-1. 流覽回 ** AdatumLab500-04 ** Microsoft Entra ID 刀鋒視窗，然後在 [管理 ** ] 區段中， ** 按一下 [ ** 使用者 ** ]。
+1. 返回**** [AdatumLab500-04] Azure Active Directory 刀鋒視窗，然後在 [管理****] 區段中按一下 [使用者****]。
 
 2. 在 [ ** 使用者 \| 所有使用者] ** 刀鋒視窗上，按一下 ** [+ 新增使用者 ** ]，然後按一下 [ ** 建立新使用者 ** ]。 
 
@@ -207,17 +207,17 @@ lab:
 
     >**注意 ** ：此時，您應該會在 [使用者 ** ] 頁面上列出 ** 三個新使用者。 
     
-#### 工作 4：將 Microsoft Entra ID 進階版 P2 授權指派給 Microsoft Entra ID 使用者
+#### 工作 4：將 Azure AD 進階版 P2 授權指派給 Azure AD 使用者
 
-在這項工作中，您會將每個使用者指派給 Microsoft Entra ID 進階版 P2 授權。
+在此工作中，您必須為每位使用者指派 Azure Active Directory Premium P2 授權。
 
 1. 在 [使用者 \| 所有使用者]**** 刀鋒視窗中，按一下代表您使用者帳戶的項目。 
 
 2. 在顯示使用者帳戶屬性的刀鋒視窗上，按一下 [編輯屬性]****。  確認 [使用位置] 已設定為 ** [美國 ** ]。 如果沒有，請設定使用位置，然後按一下 [ ** 儲存 ** ]。
 
-3. 流覽回 ** AdatumLab500-04 ** Microsoft Entra ID 刀鋒視窗，然後在 [管理 ** ] 區段中， ** 按一下 [授權]。 ** **
+3. 返回**** [AdatumLab500-04] Azure Active Directory 刀鋒視窗，然後在 [管理****] 區段中按一下 [授權****]。
 
-4. 在 [ ** 授權概 \| 觀 ** ] 刀鋒視窗中，按一下 ** [所有產品 ** ]，選取 ** [Microsoft Entra ID 進階版 P2 ** ] 核取方塊，然後按一下 [ ** + 指派 ** ]。
+4. 在 [授權 \| 概觀****] 刀鋒視窗上，按一下 [所有產品****]，勾選 [Azure Active Directory Premium P2****] 核取方塊，然後按一下 [+ 指派****]。
 
 5. 在 [指派授權]**** 刀鋒視窗上，按一下 [+ 新增使用者與群組]****。
 
@@ -227,17 +227,17 @@ lab:
 
 8. 登出 Azure 入口網站，再使用同一個帳戶重新登入。 （此步驟是必要的，才能讓授權指派生效。
 
-    >**注意 ** ：此時，您已將 Microsoft Entra ID 進階版 P2 授權指派給您將在此實驗室中使用的所有使用者帳戶。 請務必先登出，再重新登入。 
+    >**注意 ** ：此時，您已將 Azure Active Directory 進階版 P2 授權指派給您將在此實驗室中使用的所有使用者帳戶。 請務必先登出，再重新登入。 
 
 #### 工作 5：設定 Azure MFA 設定。
 
 在此工作中，您必須設定 MFA 並且為 aaduser1 啟用 MFA。 
 
-1. 在Azure 入口網站中，流覽回 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者刀鋒視窗。
+1. 在 Azure 入口網站中，返回 [AdatumLab500-04]**** Azure Active Directory 租用戶的刀鋒視窗。
 
-    >**注意 ** ：請確定您使用的是 AdatumLab500-04 Microsoft Entra ID 租使用者。
+    >**注意 ** ：請確定您使用的是 AdatumLab500-04 Azure AD 租使用者。
 
-2. 在 [ ** AdatumLab500-04 ** Microsoft Entra ID 租使用者] 刀鋒視窗的 [ ** 管理 ** ] 區段中，按一下 [ ** 安全性 ** ]。
+2. 返回**** [AdatumLab500-04] Azure Active Directory 租用戶的刀鋒視窗，然後在 [管理****] 區段中按一下 [安全性****]。
 
 3. 在 [安全性 \| 使用者入門]**** 刀鋒視窗的 [管理]**** 區段中，按一下 [多重要素驗證]****。
 
@@ -253,7 +253,7 @@ lab:
 
 8. 按一下 ****[aaduser1]。請注意，此時也會顯示 ****[施行] 選項。 
 
-    >**注意 ** ：將使用者狀態從 [已啟用] 變更為 [強制] 只會影響不支援 Azure MFA 的舊版 Microsoft Entra ID 整合應用程式，而且一旦狀態變更為 [強制]，就需要使用應用程式密碼。
+    >**注意 ** ：將使用者狀態從 [已啟用] 變更為 [強制] 只會影響不支援 Azure MFA 的舊版 Azure AD 整合應用程式，而且一旦狀態變更為 [強制]，就需要使用應用程式密碼。
 
 9. 選取 [aaduser1] 項目後，請按一下 [管理使用者設定] 並檢閱可用選項：******** 
 
@@ -279,9 +279,9 @@ lab:
 
     >**注意 ** ：此時，您已針對 aaduser1 啟用 MFA，並設定詐騙警示設定。 
 
-14. 流覽回 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者刀鋒視窗，在 ** [管理 ** ] 區段中，按一下 ** [屬性 ** ]，然後按一下 ** 刀鋒視窗底部的 [管理安全性預設值] 連結， ** 按一下 [啟用安全性預設值 ** ** ] 刀鋒視窗上的 [ ** 停用 ** ]。 選取 ** [我的組織使用條件式存取 ** ] 作為 * 停用 * 的原因，按一下 [ ** 儲存 ** ]，讀取警告，然後按一下 [ ** 停用 ** ]。
+14. 流覽回 AdatumLab500-04 ** Azure Active Directory 租使用者刀鋒視窗，在 ** [管理 ** ] 區段中，按一下 ** [內容 ** ]，接著 ** 按一下刀鋒視窗底部的 [管理安全性預設值] 連結，在 [啟用安全性預設值 ** ** ] 刀鋒視窗上 ** ，按一下 ** [停用 ** ]。 ** 選取 ** [我的組織使用條件式存取 ** ] 作為 * 停用 * 的原因，按一下 [ ** 儲存 ** ]，讀取警告，然後按一下 [ ** 停用 ** ]。
 
-    >**注意 ** ：請確定您已登入 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者。 您可以使用目錄 + 訂 ** 用 ** 帳戶篩選，在 Microsoft Entra ID 租使用者之間切換。 請確定您已以 Microsoft Entra ID 租使用者中全域管理員istrator 角色的使用者身分登入。
+    >**注意 ** ：請確定您已登入 ** AdatumLab500-04 ** Azure AD 租使用者。 您可以使用 [目錄 + 訂用帳戶]**** 篩選器切換 Azure AD 租用戶。 確定您是透過具有 Azure AD 租用戶全域管理員角色的使用者身分登入。
 
 #### 工作 6：驗證 MFA 設定
 
@@ -291,7 +291,7 @@ lab:
 
 2. 流覽至Azure 入口網站， ** `https://portal.azure.com/` ** 並使用 aaduser1 ** 使用者帳戶登入。 ** 
 
-    >**注意 ** ：若要登入，您必須提供 aaduser1 ** 使用者帳戶的完整名稱 ** ，包括您稍早在此實驗室中記錄的 Microsoft Entra ID 租使用者 DNS 功能變數名稱。 此使用者名稱的格式為 aaduser1@ `<your_tenant_name>` .onmicrosoft.com，其中 `<your_tenant_name>` 是代表您唯一 Microsoft Entra ID 租使用者名稱的預留位置。 
+    >**注意 ** ：若要登入，您必須提供 aaduser1 ** 使用者帳戶的完整名稱 ** ，包括您稍早在此實驗室中記錄的 Azure AD 租使用者 DNS 功能變數名稱。 使用者名稱的格式為 aaduser1@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 是代表您唯一 Azure AD 租用戶名稱的預留位置。 
 
 3. 出現提示時，在 [需要更多資訊] 對話方塊中點選 [下一步]。********
 
@@ -316,7 +316,7 @@ lab:
 > 結果：您已建立新的 AD 租使用者、設定 AD 使用者、設定 MFA，以及測試使用者的 MFA 體驗。 
 
 
-### 練習 3：實作 Microsoft Entra ID 條件式存取原則 
+### 練習 3：實作 Azure AD 條件式存取原則 
 
 ### 預估時間：15 分鐘
 
@@ -329,7 +329,7 @@ lab:
 
 在此工作中，您必須檢閱條件式存取原則設定，並建立原則，要求登入 Azure 入口網站時必須使用 MFA。 
 
-1. 在Azure 入口網站中，流覽回 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者刀鋒視窗。
+1. 在 Azure 入口網站中，返回 [AdatumLab500-04]**** Azure Active Directory 租用戶的刀鋒視窗。
 
 2. 在 ****[AdatumLab500-04] 刀鋒視窗的 [管理****] 區段中，按一下 [安全性****]。
 
@@ -343,7 +343,7 @@ lab:
     
    - 在 [使用者] 底下 ** ，按一下 [ ** 0 已選取 ** 使用者和 ** 群組]。 在 [包含] 下方的 [啟用 ** 選取使用者和群組] >>選取 ** [使用者和群組 ** ] 核取方塊，在 [選取使用者和群組 ** ** ] 刀鋒視窗上 ** ，選取 ** [aaduser2 ** ] 核取方塊，然後按一下 [ ** 選取 ** ]。
     
-   - 在 [目標資源] 下 ** ，按一下 [ ** 未選取 ** 目標資源]，按一下 [ ** 選取應用程式 ** ] 下的 [選取]，按一下 [ ** 無 ** ]。 ** 在 [ ** 選取 ** ] 刀鋒視窗上，選取 Windows Azure 服務管理 API ** 的 ** 核取方塊，然後按一下 [ ** 選取 ** ]。 
+   - 在 [目標資源] 下 ** ，按一下 [ ** 未選取 ** 目標資源]，按一下 [ ** 選取應用程式 ** ] 下的 [選取]，按一下 [ ** 無 ** ]。 ** 在 [ ** 選取 ** ] 刀鋒視窗上，選取 Microsoft Azure 管理的 ** 核取方塊 ** ，然後按一下 [ ** 選取 ** ]。 
 
      >**注意 ** ：檢閱此原則會影響 Azure 入口網站存取權的警告。
     
@@ -391,7 +391,7 @@ lab:
 
     >**注意 ** ：您現在已確認新建立的條件式存取原則會在 aaduser2 登入Azure 入口網站時強制執行 MFA。
 
-12. 回到顯示Azure 入口網站的瀏覽器視窗中，流覽回 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者刀鋒視窗。
+12. 回到顯示 Azure 入口網站的瀏覽器視窗，返回 [AdatumLab500-04]**** Azure Active Directory 租用戶刀鋒視窗。
 
 13. 在 ****[AdatumLab500-04] 刀鋒視窗的 [管理****] 區段中，按一下 [安全性****]。
 
@@ -401,7 +401,7 @@ lab:
 
     >**注意 ** ：在此練習中，您會實作條件式存取原則，以在使用者登入Azure 入口網站時要求 MFA。 
 
->結果：您已設定及測試 Microsoft Entra ID 條件式存取。
+>結果：您已設定及測試 Azure AD 條件式存取。
 
 ### 練習 4：在條件式存取中部署風險型原則
 
@@ -409,25 +409,25 @@ lab:
 
 在本練習中，您將會完成下列工作：
 
-- 工作 1：在Azure 入口網站中檢視 Microsoft Entra ID Identity Protection 選項
+- 工作 1：在 Azure 入口網站 中檢視 Azure AD Identity Protection 選項
 - 工作 2：設定使用者風險原則
 - 工作 3：設定登入風險原則
-- 工作 4：針對 Microsoft Entra ID Identity Protection 原則模擬風險事件 
-- 工作 5：檢閱 Microsoft Entra ID Identity Protection 報告
+- 工作 4：針對 Azure AD Identity Protection 原則模擬風險事件 
+- 工作 5：檢閱 Azure AD Identity Protection 報告
 
-#### 工作 1：啟用 Microsoft Entra ID Identity Protection
+#### 工作 1：啟用 Azure AD Identity Protection
 
-在這項工作中，您將檢視Azure 入口網站中的 Microsoft Entra ID Identity Protection 選項。 
+在此工作中，您必須在 Azure 入口網站中檢視 Azure AD Identity Protection 選項。 
 
 1. 如有需要，請登入 Azure 入口網站 **`https://portal.azure.com/`**。
 
-    >**注意 ** ：請確定您已登入 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者。 您可以使用目錄 + 訂 ** 用 ** 帳戶篩選，在 Microsoft Entra ID 租使用者之間切換。 請確定您已以 Microsoft Entra ID 租使用者中全域管理員istrator 角色的使用者身分登入。
+    >**注意 ** ：請確定您已登入 ** AdatumLab500-04 ** Azure AD 租使用者。 您可以使用 [目錄 + 訂用帳戶]**** 篩選器切換 Azure AD 租用戶。 確定您是透過具有 Azure AD 租用戶全域管理員角色的使用者身分登入。
 
 #### 工作 2：設定使用者風險原則
 
 在此工作中，您必須建立使用者風險原則。 
 
-1. 流覽至 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者> ** 安全性 **  >  ** 條件式存取  >  ** ** 原則。 **
+1. 流覽至 ** AdatumLab500-04 ** Azure AD 租使用者> ** 安全性 **  >  ** 條件式存取  >  ** ** 原則。 **
 
 2. 按一下 ** [+ 新增原則 ** ]。
 
@@ -463,7 +463,7 @@ lab:
 
 #### 工作 3：設定登入風險原則
 
-1. 流覽至 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者> ** 安全性 **  >  ** 條件式存取 >  ** ** 原則。 **
+1. 流覽至 ** AdatumLab500-04 ** Azure AD 租使用者> ** 安全性 **  >  ** 條件式存取 >  ** ** 原則。 **
 
 2. 選取 [+ 新增原則]。
 
@@ -497,11 +497,11 @@ lab:
 
 17. 按一下 [建立]**** 以啟用您的原則。
 
-#### 工作 4：針對 Microsoft Entra ID Identity Protection 原則模擬風險事件 
+#### 工作 4：針對 Azure AD Identity Protection 原則模擬風險事件 
 
 > 開始進行此工作前，請確定您在練習 1 中啟動的範本部署已完成。 該部署內含名為 **az500-04-vm1** 的 Azure VM。 
 
-1. 在Azure 入口網站中，將 ** [目錄 + 訂 ** 用帳戶] 篩選器設定為與您部署 ** az500-04-vm1 ** Azure VM 之 Azure 訂用帳戶相關聯的 Microsoft Entra ID 租使用者。
+1. 在Azure 入口網站中，將 ** [目錄 + 訂 ** 用帳戶] 篩選器設定為與您部署 ** az500-04-vm1 ** Azure VM 之 Azure 訂用帳戶相關聯的 Azure AD 租使用者。
 
 2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件]**** 文字輸入框中輸入「虛擬機器」****，然後按下 **Enter** 鍵。
 
@@ -514,7 +514,7 @@ lab:
     |設定|值|
     |---|---|
     |使用者名稱|**Student**|
-    |密碼|**請使用實驗室 02 >練習 1 >工作 1 >步驟 9 中建立的個人密碼。**|
+    |密碼|**請使用您在實驗室 04 > 練習 1 > 工作 1 > 步驟 9 建立的個人密碼。**|
 
     >**注意 ** ：等候遠端桌面會話和 ** 伺服器管理員 ** 載入。  
 
@@ -548,11 +548,11 @@ lab:
 
     >**注意 ** ：此時，您嘗試了兩個不同的登入。接下來，您將檢閱 Azure Identity Protection 報告。
 
-#### 工作 5：檢閱 Microsoft Entra ID Identity Protection 報告
+#### 工作 5：檢閱 Azure AD Identity Protection 報告
 
-在這項工作中，您將檢閱從 ToR 瀏覽器登入產生的 Microsoft Entra ID Identity Protection 報告。
+在此工作中，您要檢閱透過 ToR 瀏覽器登入產生的 Azure AD Identity Protection 報告。
 
-1. 回到Azure 入口網站，使用 ** [目錄 + 訂 ** 用帳戶] 篩選準則切換至 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者。
+1. 返回 Azure 入口網站，使用[目錄 + 訂用帳戶****] 篩選器切換至 **AdatumLab500-04** Azure Active Directory 租用戶。
 
 2. 在 ****[AdatumLab500-04] 刀鋒視窗的 [管理****] 區段中，按一下 [安全性****]。
 
@@ -570,15 +570,15 @@ lab:
 
     >**注意 ** ：風險可能需要 10-15 分鐘才會顯示在報告中。
 
-> **結果 ** ：您已啟用 Microsoft Entra ID Identity Protection、設定使用者風險原則和登入風險原則，以及模擬風險事件來驗證 Microsoft Entra ID Identity Protection 設定。
+> **結果 ** ：您已啟用 Azure AD Identity Protection、設定使用者風險原則和登入風險原則，以及模擬風險事件來驗證 Azure AD Identity Protection 設定。
 
 **清除資源**
 
 > 我們必須移除您不再使用的身分識別保護資源。 
 
-使用下列步驟來停用 AdatumLab500-04 ** Microsoft Entra ID 租使用者中的 ** 身分識別保護原則。
+請按照下列步驟停用 **AdatumLab500-04** Azure AD 租用戶中的身分識別保護原則。
 
-1. 在Azure 入口網站中，流覽回 ** AdatumLab500-04 ** Microsoft Entra ID 租使用者刀鋒視窗。
+1. 在 Azure 入口網站中，返回 [AdatumLab500-04]**** Azure Active Directory 租用戶的刀鋒視窗。
 
 2. 在 ****[AdatumLab500-04] 刀鋒視窗的 [管理****] 區段中，按一下 [安全性****]。
 
@@ -594,7 +594,7 @@ lab:
 
 按照下列步驟停止您先前在實驗室中佈建的 Azure VM。
 
-1. 在Azure 入口網站中，將 ** [目錄 + 訂 ** 用帳戶] 篩選器設定為與您部署 ** az500-04-vm1 ** Azure VM 之 Azure 訂用帳戶相關聯的 Microsoft Entra ID 租使用者。
+1. 在Azure 入口網站中，將 ** [目錄 + 訂 ** 用帳戶] 篩選器設定為與您部署 ** az500-04-vm1 ** Azure VM 之 Azure 訂用帳戶相關聯的 Azure AD 租使用者。
 
 2. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件]**** 文字輸入框中輸入「虛擬機器」****，然後按下 **Enter** 鍵。
 
