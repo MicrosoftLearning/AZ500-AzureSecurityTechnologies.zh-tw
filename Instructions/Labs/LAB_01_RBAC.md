@@ -29,7 +29,7 @@ lab:
 
 ## 角色型存取控制架構圖表
 
-![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
+![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/506cde9c-5242-4438-a793-f88a5434a2b2)
 
 ## 指示
 
@@ -48,9 +48,9 @@ lab:
 
 1. 啟動瀏覽器工作階段並登入 Azure 入口網站 **`https://portal.azure.com/`**。
 
-    >**注意**：使用您用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Azure AD 租使用者中的全域 管理員 istrator 角色來登入 Azure 入口網站。
+    >**注意**：使用您用於此實驗室的 Azure 訂用帳戶中擁有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Microsoft Entra 租使用者中的全域 管理員 istrator 角色登入 Azure 入口網站。
 
-2. 在 Azure 入口網站 頁面頂端的 [**搜尋資源、服務和檔]** 文本框中，輸入 **Microsoft Entra ID**，然後按 **Enter** 鍵。
+2. 在 **Azure 入口網站 頁面頂端的 [搜尋資源、服務和檔]** 文本框中，輸入 **Microsoft Entra ID**，然後按 **Enter** 鍵。
 
 3. 在 Microsoft Entra ID 租使用者的 [概觀 **] 刀鋒視窗中，選取 **[管理**] 區段中的 **[使用者**]，然後選取 **[+ 新增使用者**]。**
 
@@ -65,9 +65,9 @@ lab:
 
 6. 確認已選取 [自動產生密碼]****，選取 [顯示密碼]**** 核取方塊，以識別自動產生的密碼。 您必須向 Joseph 提供此密碼及使用者名稱。 
 
-7. 按一下 [建立]。
+7. 按一下 [建立]****。
 
-8. 重新整理 [使用者 \| 所有使用者]**** 刀鋒視窗，確認在 Azure AD 租用戶中已建立新的使用者。
+8. 重新整理 [ **使用者 \| 所有使用者** ] 刀鋒視窗，以確認已在您的 Microsoft Entra 租使用者中建立新使用者。
 
 #### 工作2：使用 Azure 入口網站 建立資深 管理員 群組，並將 Joseph Price 的用戶帳戶新增至群組。
 
@@ -129,7 +129,7 @@ lab:
     Connect-AzureAD
     ```
       
-6. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以識別 Azure AD 租用戶的名稱： 
+6. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令來識別 Microsoft Entra 租使用者的名稱： 
 
     ```powershell
     $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
@@ -141,7 +141,7 @@ lab:
     New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
-8. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以列出 Azure AD 使用者 (Joseph 和 Isabel 的帳戶應出現於列表中)： 
+8. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令以列出 Microsoft Entra ID 使用者（約瑟夫和 Isabel 的帳戶應該會出現在列出的上）： 
 
     ```powershell
     Get-AzureADUser 
@@ -157,7 +157,7 @@ lab:
     New-AzureADGroup -DisplayName 'Junior Admins' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
     ```
 
-2. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以列出 Azure AD 租用戶中的群組 (清單應包含資深系統管理員和初級系統管理員群組)：
+2. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令以列出 Microsoft Entra 租使用者中的群組（清單應包含資深 管理員 和少年 管理員 群組）：
 
     ```powershell
     Get-AzureADGroup
@@ -199,7 +199,7 @@ lab:
 
 1. 在 [Cloud Shell] 窗格左上角的下拉式功能表中，選取 [Bash]****，並在提示出現時按一下 [確認]****。 
 
-2. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以識別 Azure AD 租用戶的名稱：
+2. 在 Cloud Shell 窗格中的 Bash 工作階段中，執行下列命令來識別 Microsoft Entra 租使用者的名稱：
 
     ```cli
     DOMAINNAME=$(az ad signed-in-user show --query 'userPrincipalName' | cut -d '@' -f 2 | sed 's/\"//')
@@ -211,7 +211,7 @@ lab:
     az ad user create --display-name "Dylan Williams" --password "Pa55w.rd1234" --user-principal-name Dylan@$DOMAINNAME
     ```
       
-4. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以列出 Azure AD 使用者帳戶 (清單應包含 Joseph、Isabel 和 Dylan 的使用者帳戶)
+4. 在 Cloud Shell 窗格中的 Bash 工作階段中，執行下列命令以列出 Microsoft Entra ID 使用者帳戶（清單應包含 Joseph、Isabel 和 Dylan 的使用者帳戶）
     
     ```cli
     az ad user list --output table
@@ -227,7 +227,7 @@ lab:
     az ad group create --display-name "Service Desk" --mail-nickname "ServiceDesk"
     ```
  
-2. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以列出 Azure AD 群組 (清單應包含服務台、資深系統管理員和初級系統管理員群組)：
+2. 在 Cloud Shell 窗格中的 Bash 工作階段中，執行下列命令來列出 Microsoft Entra ID 群組（列表應包括 Service Desk、Senior 管理員 s 和 Junior 管理員 s 群組）：
 
     ```cli
     az ad group list -o table
@@ -279,9 +279,9 @@ lab:
 
    |設定|值|
    |---|---|
-   |訂閱名稱|Azure 訂用帳戶的名稱|
+   |訂用帳戶名稱|Azure 訂用帳戶的名稱|
    |資源群組名稱|**AZ500Lab01**|
-   |位置|**美國東部**|
+   |Location|**美國東部**|
 
 3. 按一下 [檢閱 + 建立]****，然後按一下 [建立]****。
 

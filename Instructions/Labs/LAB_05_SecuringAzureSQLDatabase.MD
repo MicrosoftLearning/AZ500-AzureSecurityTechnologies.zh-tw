@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 11 - 保護 Azure SQL Database
-  module: Module 03 - Secure data and applications
+  title: 05 - 保護 Azure SQL 資料庫
+  module: Module 02 - Plan and implement security for Azure SQL Database and Azure SQL Managed Instance
 ---
 
-# 實驗室 11：保護 Azure SQL 資料庫
+# 實驗室 05：保護 Azure SQL 資料庫
 # 學生實驗室手冊
 
 ## 實驗案例
@@ -68,7 +68,7 @@ lab:
    |---|---|
    |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
    |資源群組|按一下 [新建]****，然後輸入以下名稱：**AZ500LAB11**|
-   |位置|**(美國) 美國東部**|
+   |Location|**(美國) 美國東部**|
 
 7. 按一下 [檢閱 + 建立]，然後按一下 [建立]。
 

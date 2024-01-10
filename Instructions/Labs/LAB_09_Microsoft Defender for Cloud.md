@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 14 - 適用於雲端的 Microsoft Defender
-  module: Module 04 - Microsoft Defender for Cloud
+  title: 09 - 適用於雲端的 Microsoft Defender
+  module: Module 03 - Manage security posture by using Microsoft Defender for Cloud
 ---
 
-# 實驗室 14：適用於雲端的 Microsoft Defender
+# 實驗室 09：適用於雲端的 Microsoft Defender
 # 學生實驗室手冊
 
 ## 實驗案例
