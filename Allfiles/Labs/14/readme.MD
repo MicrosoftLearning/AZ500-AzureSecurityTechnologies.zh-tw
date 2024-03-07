@@ -1,6 +1,6 @@
-This contains the bicep file to deploy the resources configured in the lab
+這包含 bicep 檔案，用來部署實驗室中設定的資源
 
-To deploy this template: 
+若要部署此範本： 
 
 ```
 $date = Get-Date -Format "MM-dd-yyyy"
