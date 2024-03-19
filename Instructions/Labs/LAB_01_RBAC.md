@@ -22,8 +22,8 @@ lab:
 
 在本實驗室中，您將完成下列練習：
 
-- 練習 1：建立具有用戶帳戶約瑟夫·普萊斯（Azure 入口網站）的資深 管理員 群組。 
-- 練習 2：使用使用者帳戶 Isabel Garcia 作為其成員 （PowerShell） 建立 Junior 管理員 s 群組。
+- 練習 1：建立具有用戶帳戶約瑟夫·普萊斯作為其成員的資深 管理員 群組（Azure 入口網站）。 
+- 練習 2：使用使用者帳戶 Isabel Garcia 作為其成員 （PowerShell） 建立少年 管理員 群組。
 - 練習 3：建立服務台群組，並將使用者 Dylan Williams 作為其成員 （Azure CLI）。 
 - 練習 4：將虛擬機參與者角色指派給 Service Desk 群組。
 
@@ -48,7 +48,7 @@ lab:
 
 1. 啟動瀏覽器工作階段並登入 Azure 入口網站 **`https://portal.azure.com/`**。
 
-    >**注意**：使用您用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Microsoft Entra 租使用者中的全域 管理員 istrator 角色，登入 Azure 入口網站。
+    >**注意**：使用您用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Microsoft Entra 租使用者中的全域 管理員 istrator 角色登入 Azure 入口網站。
 
 2. 在 **Azure 入口網站 頁面頂端的 [搜尋資源、服務和檔]** 文本框中，輸入 **Microsoft Entra ID**，然後按 **Enter** 鍵。
 
@@ -138,7 +138,7 @@ lab:
 7. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令為 Isabel Garcia 建立使用者帳戶： 
 
     ```powershell
-    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
+    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled -MailNickName 'Isabel'
     ```
 
 8. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令以列出 Microsoft Entra ID 使用者（約瑟夫和 Isabel 的帳戶應該會出現在列出的上）： 
@@ -235,7 +235,7 @@ lab:
     az ad group create --display-name "Service Desk" --mail-nickname "ServiceDesk"
     ```
  
-2. 在 Cloud Shell 窗格中的 Bash 工作階段中，執行下列命令來列出 Microsoft Entra ID 群組（列表應包括 Service Desk、Senior 管理員 s 和 Junior 管理員 s 群組）：
+2. 在 Cloud Shell 窗格中的 Bash 工作階段中，執行下列命令以列出 Microsoft Entra ID 群組（清單應包括服務台、資深 管理員 和初級 管理員 群組）：
 
     ```cli
     az ad group list -o table
