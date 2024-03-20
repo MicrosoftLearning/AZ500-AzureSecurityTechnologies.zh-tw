@@ -48,7 +48,7 @@ lab:
 
 1. 啟動瀏覽器工作階段並登入 Azure 入口網站 **`https://portal.azure.com/`**。
 
-    >**注意**：使用您用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Microsoft Entra 租使用者中的全域 管理員 istrator 角色登入 Azure 入口網站。
+    >**注意**：使用您在 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶登入 Azure 入口網站，以及與該訂用帳戶相關聯的 Microsoft Entra 租使用者中的全域 管理員 istrator 角色。
 
 2. 在 **Azure 入口網站 頁面頂端的 [搜尋資源、服務和檔]** 文本框中，輸入 **Microsoft Entra ID**，然後按 **Enter** 鍵。
 
@@ -120,13 +120,17 @@ lab:
 
 4. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以在設定檔物件中設置密碼的值：
     ```powershell
-    $passwordProfile.Password = "Pa55w.rd1234"
+    $PasswordProfile = @{
+      Password = 'Helo123!'
+      ForceChangePasswordNextSignIn = $true
+      ForceChangePasswordNextSignInWithMfa = $true
+    }
     ```
 
 5. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以連線到 Microsoft Entra ID：
 
     ```powershell
-    Connect-MgGraph
+    Connect-MgGraph -Scopes "User.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
     ```
       
 6. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令來識別 Microsoft Entra 租使用者的名稱： 
@@ -138,7 +142,7 @@ lab:
 7. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令為 Isabel Garcia 建立使用者帳戶： 
 
     ```powershell
-    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled -MailNickName 'Isabel'
+    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -MailNickName 'Isabel' -AccountEnabled
     ```
 
 8. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令以列出 Microsoft Entra ID 使用者（約瑟夫和 Isabel 的帳戶應該會出現在列出的上）： 
