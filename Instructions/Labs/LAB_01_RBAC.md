@@ -22,7 +22,7 @@ lab:
 
 在本實驗室中，您將完成下列練習：
 
-- 練習 1：建立具有用戶帳戶約瑟夫·普萊斯作為其成員的資深 管理員 群組（Azure 入口網站）。 
+- 練習 1：建立具有用戶帳戶約瑟夫·普萊斯（Azure 入口網站 Azure 入口網站）的資深 管理員 群組。 
 - 練習 2：使用使用者帳戶 Isabel Garcia 作為其成員 （PowerShell） 建立 Junior 管理員 s 群組。
 - 練習 3：建立服務台群組，並將使用者 Dylan Williams 作為其成員 （Azure CLI）。 
 - 練習 4：將虛擬機參與者角色指派給 Service Desk 群組。
@@ -33,7 +33,7 @@ lab:
 
 ## 指示
 
-### 練習 1：建立具有使用者帳戶約瑟夫·普萊斯作為其成員的資深 管理員 群組。 
+### 練習 1：建立具有使用者帳戶約瑟夫·普萊斯作為其成員的高級 管理員 群組。 
 
 #### 估計時間：10 分鐘
 
@@ -48,9 +48,9 @@ lab:
 
 1. 啟動瀏覽器工作階段並登入 Azure 入口網站 **`https://portal.azure.com/`**。
 
-    >**注意**：使用您用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Microsoft Entra 租使用者中的全域 管理員 istrator 角色，登入 Azure 入口網站。
+    >**注意**：使用您用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶，以及與該訂用帳戶相關聯的 Microsoft Entra 租使用者中的全域 管理員 istrator 角色登入 Azure 入口網站。
 
-2. 在 **Azure 入口網站 頁面頂端的 [搜尋資源、服務和檔]** 文本框中，輸入 **Microsoft Entra ID**，然後按 **Enter** 鍵。
+2. 在 Azure 入口網站 頁面頂端的 [**搜尋資源、服務和檔]** 文本框中，輸入 **Microsoft Entra ID**，然後按 **Enter** 鍵。
 
 3. 在 Microsoft Entra ID 租使用者的 [概觀 **] 刀鋒視窗中，選取 **[管理**] 區段中的 **[使用者**]，然後選取 **[+ 新增使用者**]。**
 
@@ -130,7 +130,7 @@ lab:
 5. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以連線到 Microsoft Entra ID：
 
     ```powershell
-    Connect-MgGraph -Scopes "User.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
+    Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
     ```
       
 6. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令來識別 Microsoft Entra 租使用者的名稱： 
@@ -155,10 +155,10 @@ lab:
 
 在此工作中，您會使用 PowerShell 建立初級系統管理員群組，並將 Isabel Garcia 的使用者帳戶新增至群組。
 
-1. 在 Cloud Shell 窗格中的相同 PowerShell 工作階段中，執行下列命令以**建立名為 Junior 管理員 s 的新安全組**：
+1. 在 Cloud Shell 窗格中的相同 PowerShell 工作階段中，執行下列命令以**建立名為 Junior 管理員 的新安全組**：
    
    ```powershell
-   Get-MgGroup -"DisplayName 'Junior Admins'" -MailEnabled:$false -SecurityEnabled:$true -MailNickName JuniorAdmins
+   New-MgGroup -DisplayName "Junior Admins" -MailEnabled:$false -SecurityEnabled:$true -MailNickName JuniorAdmins
    ```
    
 2. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令以**列出 Microsoft Entra 租使用者中的群組**（清單應包含資深 管理員 和少年 管理員 群組）
@@ -173,16 +173,21 @@ lab:
    $user =Get-MgUser -Filter "MailNickName eq 'Isabel'"
    ```
 
-4. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令，將 **Isabel** 的使用者帳戶新增至 Junior 管理員 s 群組：
+4. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令以**取得 Junior 管理員 s 群組的參考**：
+   ```powershell
+   $targetGroup = Get-MgGroup -ConsistencyLevel eventual -Search '"DisplayName:Junior Admins"'
+   ```
+
+5. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令，將 **Isabel** 的使用者帳戶新增至 Junior 管理員 s 群組：
    
    ```powershell
-    New-MgGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins" 
+    New-MgGroupMember -DirectoryObjectId $user.id -GroupId $targetGroup.id
     ```
    
-5. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令來**確認** [少年 管理員] 群組包含 Isabel 的用戶帳戶：
+5. 在 [Cloud Shell] 窗格內的 PowerShell 會話中，執行下列命令來**確認** Junior 管理員 s 群組包含 Isabel 的使用者帳戶：
    
     ```powershell
-    Get-MgGroupMember -GroupDisplayName "Junior Admins"
+    Get-MgGroupMember -GroupId $targetGroup.id
     ```
  
 > 結果：您使用PowerShell建立使用者和群組帳戶，並將用戶帳戶新增至群組帳戶。 
