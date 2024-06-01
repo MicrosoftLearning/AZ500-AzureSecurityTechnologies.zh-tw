@@ -105,11 +105,7 @@ lab:
 3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令，以便在資源群組 **AZ500LAB10** 中建立 Azure Key Vault。 (如果您在工作 1 中為此實驗室的資源群組選擇另一個名稱，則也請為此工作使用相同名稱)。 Key Vault 名稱必須是唯一的。 記住您選擇的名稱。 在此實驗室中，您會需要用到這個名稱。  
 
     ```powershell
-    $kvName = 'az500kv' + $(Get-Random)
-
-    $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500LAB10').Location
-
-    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location
+    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10-lod41132372' -Location $location -DisableRbacAuthorization
     ```
 
     >**注意**：最後一個命令的輸出會顯示保存庫名稱和保存庫 URI。 保存庫 URI 的格式為 `https://<vault_name>.vault.azure.net/`
@@ -139,7 +135,7 @@ lab:
     
     >**注意**：先前的 [檢閱 + 建立] 作業會返回 [存取原則] 頁面，其中會列出 [應用程式]、[電子郵件]、[金鑰權限]、[祕密權限] 與 [憑證權限]。
       
-#### 工作 2：將金鑰新增至 金鑰保存庫
+#### 工作 2：將索引鍵新增至 金鑰保存庫
 
 在此工作中，您會將金鑰新增至 Key Vault，並檢視金鑰的相關資訊。 
 
@@ -220,7 +216,7 @@ lab:
 在本練習中，您將會完成下列工作：
 
 - 工作 1：讓用戶端應用程式能夠存取 Azure SQL 資料庫 服務。
-- 工作 2：建立允許應用程式存取 金鑰保存庫 的原則。
+- 工作 2：建立原則，允許應用程式存取 金鑰保存庫。
 - 工作 3：擷取 SQL Azure 資料庫 ADO.NET 連線字串 
 - 工作 4：登入執行 Visual Studio 2019 和 SQL Management Studio 19 的 Azure VM
 - 工作 5：在 SQL 資料庫 中建立數據表，然後選取要加密的數據行
@@ -403,7 +399,7 @@ lab:
 
 15. 在 [資料行選取]**** 頁面上，選取 [SSN]**** 和 [Birthdate]**** 資料行，將 [SSN]**** 資料行的 [加密類型]**** 設定為**確定性**，並將 [Birthdate]**** 資料行設定為**隨機化**，然後按 [下一步]****。
 
-    >**注意**：如果輪替原則作業**的任何錯誤擲回類似**例外狀況的錯誤已由與 Rotation 相關的**目標**擲回（Microsoft.SQLServer.Management.ServiceManagement）** 而執行加密時，如果不是在 Azure 入口網站 流覽至 **金鑰保存庫 >> **** Access 原則**原則，請確定**密鑰許可權的**輪替原則值**未**核取** >> **密鑰限**>>取消核取 [輪替原則作業 **] 底下**的所有值>> **[特殊許可權密鑰作業**] >>取消核取 **[發行**]。
+    >**注意**：執行加密時，如果任何擲回類似**例外狀況的錯誤已由與 Rotation 相關的**目標擲回（Microsoft.SQLServer.Management.ServiceManagement）** 的目標**擲回，請確定**未核取**輪替原則作業**** 的**密鑰許可權值**，如果未在 Azure 入口網站 瀏覽至 **金鑰保存庫 >> **** Access 原則** >> **密鑰限**>>取消核取 [輪替原則作業 **] 底下**的所有值>> **[特殊許可權密鑰作業**] >>取消核取 **[發行**]。
 
 16. 在 [主要金鑰設定]**** 頁面上，選取 [Azure Key Vault]****，在出現提示時按一下 [登入]****，使用您稍早在此實驗室中佈建 Azure Key Vault 執行個體的相同使用者帳戶進行驗證，確保 Key Vault 出現在 [選取 Azure Key Vault]**** 下拉式清單中，然後按 [下一步]****。
 
@@ -418,7 +414,7 @@ lab:
     >**注意**： **Always Encrypted Keys** 子節點包含數據 **行主要密鑰** 和數據 **行加密密鑰** 子資料夾。
 
 
-### 練習 4：示範如何使用 Azure 金鑰保存庫 來加密 Azure SQL 資料庫
+### 練習 4：示範如何在加密 Azure SQL 資料庫中使用 Azure 金鑰保存庫
 
 在本練習中，您將會完成下列工作：
 
