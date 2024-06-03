@@ -4,13 +4,13 @@ lab:
   module: Module 02 - Configure data collection in Azure Monitor
 ---
 
-# 實驗室 08：Azure 監視器
+# 實驗 08：Azure 監視器
 
 # 學生實驗室手冊
 
 ## 實驗案例
 
-系統要求您使用 Azure 監視器代理程式從虛擬機收集事件和性能計數器。
+您已被要求使用 Azure 監視器代理程式，從虛擬機器收集事件和效能計數器。
 
 > 此實驗室中所有資源均使用**美國東部**區域。 請與講師驗證這是課程中要使用的區域。 
 
@@ -18,26 +18,26 @@ lab:
 
 在本實驗室中，您將完成下列練習：
 
-- 練習 1：部署 Azure 虛擬機
+- 練習 1：部署 Azure 虛擬機器
 - 練習 2：建立 Log Analytics 工作區
-- 練習 3：建立 Azure 記憶體帳戶
-- 練習 4：建立數據整理規則。
+- 練習 3：建立 Azure 儲存體帳戶
+- 練習 4：建立資料收集規則。
   
 ## 指示
 
-### 練習 1：部署 Azure 虛擬機
+### 練習 1：部署 Azure 虛擬機器
 
 ### 練習時間：10 分鐘
 
 在本練習中，您將會完成下列工作： 
 
-- 工作 1：部署 Azure 虛擬機。 
+- 工作 1：部署 Azure 虛擬機器。 
 
-#### 工作 1：部署 Azure 虛擬機
+#### 工作 1：部署 Azure 虛擬機器
 
 1. 登入 Azure 入口網站：**`https://portal.azure.com/`**。
 
-    >**注意**：使用在您要用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶登入 Azure 入口網站。
+    >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂用帳戶中具有「擁有者」或「參與者」角色。
 
 2. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請選取 [PowerShell]**** 與 [建立儲存體]****。
 
@@ -49,9 +49,9 @@ lab:
     New-AzResourceGroup -Name AZ500LAB131415 -Location 'EastUS'
     ```
 
-    >**注意**：此資源群組將用於實驗室 13、14 和 15。
+    >**注意**：實驗室 13、14 和 15 都會使用此資源群組。
 
-5. 在 Cloud Shell 窗格中的 PowerShell 工作階段中，執行下列命令以在主機啟用加密 （EAH）
+5. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以在主機上啟用加密 ((EAH))
    
    ```powershell
     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace Microsoft.Compute 
@@ -63,12 +63,12 @@ lab:
     New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -PublicIpSku Standard -OpenPorts 80,3389 -Size Standard_DS1_v2 
     ```
     
-6.  當系統提示您輸入認證時：
+6.  出現憑據提示時：
 
     |設定|值|
     |---|---|
     |User |**localadmin**|
-    |密碼|**請使用實驗室 02 >練習 2 > 工作 1 >步驟 3 中建立的個人密碼。**|
+    |密碼|**請使用您在實驗室 02 > 練習 2 > 工作 1 > 步驟 3 中建立的個人密碼。**|
 
     >**注意**：等待部署完成。 
 
@@ -109,21 +109,21 @@ lab:
 
 5. 在 [建立 Log Analytics 工作區]**** 刀鋒視窗的 [檢閱 + 建立]**** 索引標籤上，選取 [建立]****。
 
-### 練習 3：建立 Azure 記憶體帳戶
+### 練習 3：建立 Azure 儲存體帳戶
 
-### 估計時間：10 分鐘
+### 預計時間：10 分鐘
 
 在本練習中，您將會完成下列工作：
 
-- 工作 1：建立 Azure 記憶體帳戶。
+- 工作 1：建立 Azure 儲存體帳戶。
 
-#### 工作 1：建立 Azure 記憶體帳戶
+#### 工作 1：建立 Azure 儲存體帳戶
 
-在這項工作中，您將建立記憶體帳戶。
+在此工作中，您將建立儲存體帳戶。
 
 1. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件] **** 文字輸入框中輸入**儲存體帳戶**，然後按下 **Enter** 鍵。
 
-2. **在 Azure 入口網站 的 [儲存體 帳戶**] 刀鋒視窗中，按兩下 [**+ 建立**] 按鈕以建立新的記憶體帳戶。
+2. 在 Azure 入口網站的 [儲存體帳戶]**** 刀鋒視窗中，按一下 [+ 建立]**** 按鈕來建立新的儲存體帳戶。
 
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/73eb9241-d642-455a-a1ff-b504670395c0)
 
@@ -138,36 +138,36 @@ lab:
     |效能|**標準 (一般用途 v2 帳戶)**|
     |異地備援|**本機備援儲存體 (LRS)**|
 
-4. 在 [**建立記憶體帳戶 **] 刀鋒視窗的 **[基本] 索引**卷標上，按兩下 **[檢**閱]，等待驗證程式完成，然後按兩下 [**建立**]。
+4. 在 [建立儲存體帳戶]**** 刀鋒視窗的 [基本]**** 索引標籤上，按一下 [檢閱]****、等候驗證流程完成，然後按一下 [建立]****。
 
      ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d443821c-2ddf-4794-87fa-bfc092980eba)
 
     >**注意**：等候儲存體帳戶建立完成。 這應該大約需要 2 分鐘的時間。
 
-### 練習3：建立數據收集規則
+### 練習 3：建立資料收集規則
 
-### 預估時間：15 分鐘
+### 預計時間：15 分鐘
 
 在本練習中，您將會完成下列工作：
 
-- 工作 1：建立數據收集規則。
+- 工作 1：建立資料收集規則。
 
-#### 工作 1：建立數據收集規則。
+#### 工作 1：建立資料收集規則。
 
-在這項工作中，您將建立數據收集規則。
+在此工作中，您將建立資料收集規則。
 
-1. 在 [Azure 入口網站] **的 [搜尋資源、服務和檔**] 文本框中，於 [Azure 入口網站] 頁面頂端輸入 **[監視**]，然後按 **Enter** 鍵。
+1. 在 Azure 入口網站中，於 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件]**** 文字輸入框中，輸入 [監視器]****，然後按 **Enter** 鍵。
 
-2. 在 [**監視 設定]** 刀鋒視窗中，按兩下 **[資料收集規則]。**
+2. 在 [監視器設定]**** 刀鋒視窗上，按一下 [資料收集規則] ****。
 
   ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d43e8f94-efb2-4255-9320-210c976fd45e)
 
 
-3. 在 [**建立數據收集規則**] 刀鋒視窗的 [**基本]** 索引卷標上，指定下列設定：
+3. 在 [建立資料收集規則]**** 刀鋒視窗的 [基本]**** 索引標籤上，指定下列設定：
   
     |設定|值|
     |---|---|
-    |**規則詳細數據**|
+    |**規則詳細資料**|
     |規則名稱|**DCR1**|
     |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
     |資源群組|**AZ500LAB131415**|
@@ -178,21 +178,21 @@ lab:
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/9b58c4ce-b7a8-4acf-8289-d95b270a6083)
 
 
-4. 按兩下標示為 **[下一步：資源] >** 的按鈕，繼續進行。
+4. 按一下標記為 [下一步:**** 資源 >] 的按鈕以繼續進行。
    
-6. 在 [資源] 索引標籤上，選取 **[+ 新增資源]，** 勾選 [ **啟用數據收集端點]。** 在 [選取範圍範本] 中，檢查 **AZ500LAB131415，** 然後按兩下 [ **套用]。**
+6. 在 [資源] 索引標籤上，選取 [+ 新增資源]****，然後核取 [啟用資料收集端點]****。 在 [選取範圍] 範本中，核取 [AZ500LAB131415]****，並按一下 [套用]****。
 
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d4191115-11bc-43ec-9bee-e84b9b95a821)
 
-10. 按兩下標示為 **[下一步：收集並傳遞>** ] 的按鈕，繼續進行。
+10. 按一下標記為 [下一步:**** 收集並傳遞 >] 的按鈕以繼續進行。
 
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/8294d300-f910-4757-ad52-43c7594ac822)
 
-11. 單擊 **[+ 新增數據源]，然後在 [**新增數據源****] 頁面上，變更 **[數據源類型**] 下拉功能表以顯示**性能計數器。** 保留下列預設設定：
+11. 按一下 [+ 新增資料來源]****，然後在 [新增資料來源]**** 頁面上，變更 [資料來源類型]**** 下拉式功能表，以顯示 [效能計數器]****。 保留下列預設設定：
 
     |設定|值|
     |---|---|
-    |**性能計數器**|**取樣率（秒）**|
+    |**效能計數器**|**採樣速率 (秒)**|
     |CPU|60|
     |記憶體|60|
     |磁碟|60|
@@ -200,13 +200,13 @@ lab:
 
    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/a24e44ad-1d10-4533-80e2-bae1b3f6564d)
 
-11. 按兩下標示為 **[下一步：目的地>** ] 的按鈕，繼續進行。
+11. 按一下標記為 [下一步:**** 目的地 >] 的按鈕以繼續進行。
   
-12. 變更 [ **目的地類型** ] 下拉功能表以顯示 **Azure 監視器記錄。** 在 [**訂**用帳戶] 視窗中，確定您的** 訂用帳戶已顯示，然後變更 **[帳戶] 或 [命名空間]** 下拉功能表，以反映您先前建立的Log Analytics 工作區。
+12. 變更 [目的地類型]**** 下拉式功能表，以顯示 [Azure 監視器記錄]****。 在 [訂用帳戶]**** 視窗中，確定已顯示您的 [訂用帳戶]**，然後變更 [帳戶或命名空間]**** 下拉式功能表，以反映您先前建立的 Log Analytics 工作區。
 
    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/481843f5-94c4-4a8f-bf51-a10d49130bf8)
 
-11. 按兩下頁面底部的 [ **新增數據源** ]。
+11. 按一下頁面底部的 [新增資料來源]****。
     
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/964091e7-bbbc-4ca8-8383-bb2871a1e7f0)
 
@@ -216,7 +216,7 @@ lab:
 
 14. 按一下 [建立]****。
 
-> 結果：您已部署 Azure 虛擬機、Log Analytics 工作區、Azure 儲存器帳戶，以及數據收集規則，以使用 Azure 監視器代理程式從虛擬機收集事件和性能計數器。
+> 結果：您已部署 Azure 虛擬機器、Log Analytics 工作區、Azure 儲存體帳戶和資料收集規則，以使用 Azure 監視器代理程式，從虛擬機器收集事件和效能計數器。
 
->**注意**：請勿視 適用於雲端的 Microsoft Defender 實驗室和 Microsoft Sentinel 實驗室所需的資源，從此實驗室中移除資源。
+>**注意**：請勿移除此實驗室中的資源，因為適用於雲端的 Microsoft Defender 實驗室和 Microsoft Sentinel 實驗室都需要使用這些資源。
  
