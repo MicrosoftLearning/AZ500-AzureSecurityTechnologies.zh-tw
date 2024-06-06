@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 04 - 設定和保護 ACR 和 AKS
+  title: 04 - 設定和保護 ACR 與 AKS
   module: 'Module 01 - Secure compute, storage, and databases'
 ---
 
-# 實驗室 04：設定和保護 ACR 和 AKS
+# 實驗室 04：設定和保護 ACR 與 AKS
 # 學生實驗室手冊
 
 ## 實驗案例
@@ -22,7 +22,7 @@ lab:
 
 在本實驗室中，您須完成下列練習：
 
-- 練習 1：設定和保護 ACR 和 AKS
+- 練習 1：設定和保護 ACR 與 AKS
 
 ## 設定和保護 ACR 與 AKS 圖表
 
@@ -35,7 +35,7 @@ lab:
 - **\\Allfiles\\Labs\\09\\nginxexternal.yaml**
 - **\\Allfiles\\Labs\\09\\nginxinternal.yaml**
 
-### 練習 1：設定和保護 ACR 和 AKS
+### 練習 1：設定和保護 ACR 與 AKS
 
 ### 預估時間：45 分鐘
 
@@ -44,13 +44,13 @@ lab:
 在本練習中，您將會完成下列工作：
 
 - 工作 1：建立 Azure 容器登錄
-- 工作 2：建立 Dockerfile、建置容器，並將其推送至 Azure Container Registry
+- 工作 2：建立 Dockerfile、組建容器，並將其推送至 Azure Container Registry
 - 工作 3：建立 Azure Kubernetes Service 叢集
-- 工作 4：授與 AKS 叢集存取 ACR 的許可權
+- 工作 4：將存取 ACR 的權限授與 AKS 叢集
 - 工作 5：將外部服務部署至 AKS
-- 工作 6：確認您可以存取外部 AKS 裝載的服務
+- 工作 6：驗證您是否可以存取外部 AKS 託管服務
 - 工作 7：將內部服務部署至 AKS
-- 工作 8：確認您可以存取內部 AKS 裝載的服務
+- 工作 8：驗證您是否可以存取內部 AKS 託管服務
 
 #### 工作 1：建立 Azure 容器登錄
 
@@ -58,7 +58,7 @@ lab:
 
 1. 登入 Azure 入口網站：**`https://portal.azure.com/`**。
 
-    >**注意**：使用您用於此實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色的帳戶登入 Azure 入口網站，以及與該訂用帳戶相關聯的 Microsoft Entra 租使用者中的全域 管理員 istrator 角色。
+    >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色，並在與該訂用帳戶相關聯的 Microsoft Entra 租用戶中具有全域管理員角色。
 
 2. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請按一下 [Bash]**** 和 [建立儲存體]****。
 
@@ -90,7 +90,7 @@ lab:
 
     >**注意**：記錄 ACR 的名稱。 您將在下一個工作中需要它。
 
-#### 工作 2：建立 Dockerfile、建置容器，並將其推送至 Azure Container Registry
+#### 工作 2：建立 Dockerfile、組建容器，並將其推送至 Azure Container Registry
 
 在此工作中，您將建立 Dockerfile、從 Dockerfile 組建映像，並將映像部署至 ACR。 
 
@@ -102,7 +102,7 @@ lab:
 
 2. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令，從 Dockerfile 組建映像，並將映像推送至新的 ACR。 
 
-    >**注意**：需要命令行結尾處的尾端期間。 這會將目前目錄指定為 Dockerfile 的位置。 
+    >**注意**：命令列結尾的後置句點是必要的。 這會將目前目錄指定為 Dockerfile 的位置。 
 
     ```sh
     ACRNAME=$(az acr list --resource-group AZ500LAB09 --query '[].{Name:name}' --output tsv)
@@ -110,7 +110,7 @@ lab:
     az acr build --resource-group AZ500LAB09 --image sample/nginx:v1 --registry $ACRNAME --file Dockerfile .
     ```
 
-    >**注意**：等候命令順利完成。 這大約需要 2 分鐘。
+    >**注意**：等候命令成功完成。 這大約需要 2 分鐘。
 
 3. 關閉 [Cloud Shell] 窗格。
 
@@ -124,7 +124,7 @@ lab:
 
 8. 按一下 **v1** 項目以檢視映像資訊清單。
 
-    >**注意**：指令清單包含 sha256 摘要、指令清單建立日期和平台專案。 
+    >**注意**：資訊清單包含 sha256 摘要、資訊清單建立日期和平台項目。 
 
 #### 工作 3：建立 Azure Kubernetes Service 叢集
 
@@ -152,7 +152,7 @@ lab:
     |----|----|
     |啟用虛擬節點|已清除的核取方塊|
     
-5. 按 **[下一步：存取>**]，在 [建立 Kubernetes 叢集 **] 刀鋒視窗的 **[存取 **] 索引卷標上**，接受預設值，然後按 **[下一步：網络>**。 
+5. 按一下 [下一步：**存取] >**，在 [Create Kubernetes 叢集]**** 刀鋒視窗的 [存取]**** 索引標籤上，接受預設值並按 [下一步]**：網路 >]**。 
 
 6. 在 [建立 Kubernetes 叢集]**** 刀鋒視窗的 [網路]**** 索引標籤上，指定下列設定 (將其他設定保留為預設值)：
 
@@ -163,7 +163,7 @@ lab:
 
     >**注意**：AKS 可以設定為私人叢集。 這會將私人 IP 指派給 API 伺服器，以確保 API 伺服器與節點集區之間的網路流量僅會保留在私人網路上。 如需詳細資訊，請前往[建立私人 Azure Kubernetes Service 叢集](https://docs.microsoft.com/en-us/azure/aks/private-clusters)頁面。
 
-7. 按兩下 **[下一步：整合>**，然後在 [建立 Kubernetes 叢集 **] 刀鋒視窗的 **[整合 **] 索引標籤上**，將 [容器監視]** 設定**為 **[已停用**]。 
+7. 按一下 [下一步：**整合] >**，然後在 [建立 Kubernetes 叢集]**** 刀鋒視窗的 [整合]**** 索引標籤上，將 [容器監視]**** 設定為 [已停用]****。 
 
     >**注意**：在生產案例中，您會想要啟用監視。 在此情況下會停用監視，因為實驗室中未涵蓋監視。 
 
@@ -181,7 +181,7 @@ lab:
 
 12. 在 Azure 入口網站中，在 Cloud Shell 中開啟 Bash 工作階段。 
 
-    >**注意**：確定 **已選取 Cloud Shell 窗格左上角的下拉功能表中的 Bash** 。
+    >**注意**：確認在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [Bash]****。
 
 13. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以連線至 Kubernetes 叢集：
 
@@ -195,9 +195,9 @@ lab:
     kubectl get nodes
     ```
 
-    >**注意**：確認**** 叢集節點的狀態已列為 [**就緒**]。
+    >**注意**：確認叢集節點的**狀態**已列為**就緒**。
 
-#### 工作 4：授與 AKS 叢集存取 ACR 和管理其虛擬網路的許可權
+#### 工作 4：將存取 ACR 和管理其虛擬網路的權限授與 AKS 叢集
 
 在此工作中，您會將存取 ACR 和管理其虛擬網路的權限授與 AKS 叢集。 
 
@@ -209,9 +209,9 @@ lab:
     az aks update -n MyKubernetesCluster -g AZ500LAB09 --attach-acr $ACRNAME
     ```
 
-    >**注意**：此命令會將 'acrpull' 角色指派授與 ACR。 
+    >**注意**：此命令會將「acrpull」角色指派授與 ACR。 
 
-    >**注意**：此命令可能需要幾分鐘的時間才能完成。 
+    >**注意**：完成此命令可能會需要幾分鐘的時間。 
 
 2. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令，向 AKS 叢集授與對虛擬網路的參與者角色。 
 
@@ -243,7 +243,7 @@ lab:
     echo $ACRNAME
     ```
 
-    >**注意**：記錄 Azure Container Registry 實例名稱。 之後在此工作中會用到。
+    >**注意**：記錄 Azure Container Registry 執行個體名稱。 之後在此工作中會用到。
 
 3. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以開啟 nginxexternal.yaml 檔案，以便編輯其內容。 
 
@@ -251,7 +251,7 @@ lab:
     code ./nginxexternal.yaml
     ```
 
-    >**注意**：這是 *外部* yaml 檔案。
+    >**注意**：這是*外部* yaml 檔案。
 
 4. 在編輯器窗格中，向下捲動至**第 24 行**，並以 ACR 名稱取代 **`<ACRUniquename>`** 預留位置。
 
@@ -270,7 +270,7 @@ lab:
     service/nginxexternal created
     ```
 
-#### 工作 6：確認您可以存取外部 AKS 裝載的服務
+#### 工作 6：驗證您是否可以存取外部 AKS 託管服務
 
 在此工作中，使用公用 IP 位址確認容器可從外部存取。
 
@@ -280,7 +280,7 @@ lab:
     kubectl get service nginxexternal
     ```
 
-2. 在 [Cloud Shell] 窗格的 Bash 工作階段中，檢閱輸出並將值記錄於 [外部 IP] 資料行中。 在下一個步驟中，您將需要用到它。 
+2. 在 [Cloud Shell] 窗格的 Bash 工作階段中，檢閱輸出並將值記錄於 [外部 IP] 資料行中。 您將在下一個步驟中需要它。 
 
 3. 開啟新的瀏覽器索引標籤，並瀏覽至您在上一個步驟中識別的 IP 位址。
 
@@ -296,7 +296,7 @@ lab:
     code ./nginxinternal.yaml
     ```
 
-    >**注意**：這是 *內部* yaml 檔案。
+    >**注意**：這是*內部* yaml 檔案。
 
 2. 在編輯器窗格中，向下捲動至包含容器映像參考的行，並以 ACR 名稱取代 **`<ACRUniquename>`** 預留位置。
 
@@ -323,13 +323,13 @@ lab:
 
 7. 在 [Cloud Shell] 窗格的 Bash 工作階段中，檢閱輸出。 在此案例中，外部 IP 為私人 IP 位址。 如果處於**擱置**狀態，請再次執行先前的命令。
 
-    >**注意**：記錄此IP位址。 您將在下一個工作中需要它。 
+    >**注意**：記錄此 IP 位址。 您將在下一個工作中需要它。 
 
-    >**注意**：若要存取內部服務端點，您會以互動方式連線到叢集中執行的其中一個 Pod。 
+    >**注意**：若要存取內部服務端點，您會以互動方式連線至叢集中執行的其中一個 Pod。 
 
-    >**注意**：或者，您可以使用 CLUSTER-IP 位址。
+    >**注意**：或者，您可以使用 叢集 IP 位址。
 
-#### 工作 8：確認您可以存取內部 AKS 裝載的服務
+#### 工作 8：驗證您是否可以存取內部 AKS 託管服務
 
 在此工作中，您會使用 AKS 叢集上執行的其中一個 Pod 來存取內部服務。 
 
@@ -341,7 +341,7 @@ lab:
 
 2. 在 Pod 清單中，複製 **NAME** 資料行中的第一個項目。
 
-    >**注意**：這是您在後續步驟中使用的Pod。
+    >**注意**：這是您會在後續步驟中使用的 Pod。
 
 3. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以互動方式連線至第一個 Pod (以您在上一個步驟中複製的名稱取代 `<pod_name>` 預留位置)：
 
