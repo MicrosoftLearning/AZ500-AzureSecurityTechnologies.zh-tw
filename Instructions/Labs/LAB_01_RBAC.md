@@ -120,35 +120,31 @@ lab:
 
 4. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以在設定檔物件中設置密碼的值：
     ```powershell
-    $PasswordProfile = @{
-      Password = 'Helo123!'
-      ForceChangePasswordNextSignIn = $true
-      ForceChangePasswordNextSignInWithMfa = $true
-    }
+    $passwordProfile.Password = "Pa55w.rd1234"
     ```
 
 5. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以連線至 Microsoft Entra ID：
 
     ```powershell
-    Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
+    Connect-AzureAD
     ```
       
 6. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以識別 Microsoft Entra 租用戶的名稱： 
 
     ```powershell
-    $domainName = ((Get-MgOrganization).VerifiedDomains)[0].Name
+    $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
     ```
 
 7. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令為 Isabel Garcia 建立使用者帳戶： 
 
     ```powershell
-    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -MailNickName 'Isabel' -AccountEnabled
+    New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
 8. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以列出 Microsoft Entra ID 使用者 (Joseph 和 Isabel 的帳戶應出現在清單上)： 
 
     ```powershell
-    Get-MgUser 
+    Get-AzureADUser -All $true | Where-Object {$_.UserPrincipalName -like "*43846135@LOD*"} 
     ```
 
 #### 工作 2：使用 PowerShell 建立初級系統管理員群組，並將 Isabel Garcia 的使用者帳戶新增至群組。
@@ -158,38 +154,32 @@ lab:
 1. 在 Cloud Shell 窗格內的相同 PowerShell 工作階段中，執行下列命令以建立名為 Junior Admins 的新安全性群組****：
    
    ```powershell
-   New-MgGroup -DisplayName "Junior Admins" -MailEnabled:$false -SecurityEnabled:$true -MailNickName JuniorAdmins
+   New-AzureADGroup -DisplayName 'Junior Admins43846135' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
    ```
    
 2. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以列出 Microsoft Entra 租用戶中的群組**** (清單應包含 Senior Admins 和 Junior Admins 群組)
    
    ```powershell
-   Get-MgGroup
+   Get-AzureADGroup
    ```
 
 3. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以取得對 Isabel Garcia 使用者帳戶的參考****：
 
    ```powershell
-   $user =Get-MgUser -Filter "MailNickName eq 'Isabel'"
+   $user = Get-AzureADUser -Filter "UserPrincipalName eq 'Isabel-43846135@LODSPRODMCA.onmicrosoft.com'"
    ```
 
-4. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以取得對 Junior Admins 群組的參考****：
+4. 在 Cloud Shell 窗格中的 PowerShell 會話中，執行下列命令，將 Isabel 的使用者帳戶新增至 Junior Admins43846135 群組：
    ```powershell
-   $targetGroup = Get-MgGroup -ConsistencyLevel eventual -Search '"DisplayName:Junior Admins"'
+   Add-AzADGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins43846135"
    ```
 
-5. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以將 Isabel 的使用者帳戶**** 新增至 Junior Admins 群組：
+5. 在 Cloud Shell 窗格內的 PowerShell 會話中，執行下列命令以確認 Junior Admins43846135 群組包含 Isabel 的用戶帳戶：
    
    ```powershell
-    New-MgGroupMember -DirectoryObjectId $user.id -GroupId $targetGroup.id
+    Get-AzADGroupMember -GroupDisplayName "Junior Admins43846135"
     ```
    
-5. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以驗證**** Junior Admins 群組是否包含 Isabel 的使用者帳戶：
-   
-    ```powershell
-    Get-MgGroupMember -GroupId $targetGroup.id
-    ```
- 
 > 結果：您使用 PowerShell 建立使用者和群組帳戶，並將使用者帳戶新增至群組帳戶。 
 
 ### 練習 3：建立服務台群組，其中包含 Dylan Williams 的使用者帳戶作為其成員。
