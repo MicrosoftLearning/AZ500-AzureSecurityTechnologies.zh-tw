@@ -9,7 +9,7 @@ lab:
 
 ## 實驗案例
 
-**注意：****Azure Sentinel** 已重新命名為 **Microsoft Sentinel** 
+**注意：****Microsoft Sentinel** 已重新命名為 **sentinel Microsoft** 
 
 您收到要求，必須建立 Microsoft Sentinel 式威脅偵測及回應的概念證明。 具體而言，您必須：
 
@@ -64,7 +64,7 @@ lab:
 
 4. 在 [將 Microsoft Sentinel 新增到工作區] 刀鋒視窗中，選取您在 Azure 監視器實驗室裡建立的 Log Analytics 工作區，然後按一下 [新增]。********
 
-    >**注意**：Microsoft Sentinel 對工作區有非常明確的需求。 舉例來說，您無法使用適用於雲端的 Microsoft Defender 所建立的工作區。 如需詳細資訊請參閱[快速入門：讓 Microsoft Sentinel 上線](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard) (機器翻譯)
+    >**注意**：Microsoft Sentinel 對工作區有非常明確的需求。 舉例來說，您無法使用適用於雲端的 Microsoft Defender 所建立的工作區。 如需詳細資訊，請參閱 [快速入門：船上Microsoft Sentinel](https://docs.microsoft.com/en-us/microsoft/sentinel/quickstart-onboard)
     
 #### 工作 2：將 Microsoft Sentinel 設定為使用 Azure 活動資料連接器。 
 
