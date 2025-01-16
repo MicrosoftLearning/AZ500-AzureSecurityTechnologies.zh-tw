@@ -158,7 +158,7 @@ lab:
 
     |設定|值|
     |----|----|
-    |網路組態|**Azure CNI**|
+    |網路組態|**Azure CNI 重疊**|
     |DNS 名稱首碼|**保留預設值**|
 
     >**注意**：AKS 可以設定為私人叢集。 這會將私人 IP 指派給 API 伺服器，以確保 API 伺服器與節點集區之間的網路流量僅會保留在私人網路上。 如需詳細資訊，請前往[建立私人 Azure Kubernetes Service 叢集](https://docs.microsoft.com/en-us/azure/aks/private-clusters)頁面。
