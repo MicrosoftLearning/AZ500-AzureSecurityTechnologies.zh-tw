@@ -23,7 +23,7 @@ lab:
 - 練習 1：部署 Azure 虛擬機器
 - 練習 2：建立 Log Analytics 工作區
 - 練習 3：建立 Azure 儲存體帳戶
-- 練習 4：建立資料收集規則。
+- 練習 4：建立數據整理規則
   
 ## 指示
 
@@ -222,5 +222,5 @@ lab:
 
 > 結果：您已部署 Azure 虛擬機器、Log Analytics 工作區、Azure 儲存體帳戶和資料收集規則，以使用 Azure 監視器代理程式，從虛擬機器收集事件和效能計數器。
 
->**注意**：請勿從此實驗室中移除資源，因為 適用於雲端的 Microsoft Defender 實驗室需要這些資源、在 VM 上啟用 Just-In-Time 存取」實驗室，以及Microsoft Sentinel 實驗室
+>**注意**：請勿從此實驗室移除資源，因為 適用於雲端的 Microsoft Defender 實驗室需要這些資源、在 VM 上啟用 Just-In-Time 存取」實驗室，以及Microsoft Sentinel 實驗室
  
