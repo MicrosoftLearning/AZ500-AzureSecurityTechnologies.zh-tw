@@ -14,17 +14,17 @@ lab:
 
 ## 實驗室目標
 
-- 為伺服器設定 適用於雲端的 Microsoft Defender 增強式安全性功能
+- 設定伺服器 適用於雲端的 Microsoft Defender 增強式安全性功能
   
 - 檢閱適用於伺服器Microsoft Defender 方案 2 的 ehanced 安全性功能
 
 ## 練習指示
 
-### 為伺服器設定 適用於雲端的 Microsoft Defender 增強式安全性功能
+### 設定伺服器 適用於雲端的 Microsoft Defender 增強式安全性功能
 
-1. 在 [Azure 入口網站] 頁面頂端 Azure 入口網站 的 [搜尋資源、服務和檔] 文本框中，輸入 **適用於雲端的 Microsoft Defender**，然後按 **Enter** 鍵。
+1. 在 Azure 入口網站 的 [搜尋資源、服務和檔] 文本框中，於 [Azure 入口網站] 頁面頂端輸入 **適用於雲端的 Microsoft Defender**，然後按 **Enter** 鍵。
 
-2. 在 [適用於雲端的 Microsoft Defender] 的 **[管理] 刀鋒**視窗上，移至 [**環境設定**]。 **** 展開 [環境設定] 資料夾，直到**** 顯示訂用帳戶區段為止，然後按兩下**訂**用帳戶以檢視詳細數據。
+2. 在 **[適用於雲端的 Microsoft Defender**] **的 [管理] 刀鋒視窗**上，移至 [**環境設定**]。 展開 [環境設定] 資料夾，直到**** 顯示訂用帳戶區段為止，然後按兩下**訂**用帳戶以檢視詳細數據。
 
    ![image](https://github.com/user-attachments/assets/3b25dd82-e09e-4f8a-b85e-c9bc6c4bd488)
    
