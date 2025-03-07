@@ -106,42 +106,44 @@ lab:
 
 在此工作中，您將使用 PowerShell 為 Isabel Garcia 建立使用者帳戶。
 
-1. 按一下 Azure 入口網站右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請選取 [PowerShell]**** 與 [建立儲存體]****。
+1. **按兩下 **Azure 入口網站 右上角的 Cloud Shell 圖示**，以開啟 Cloud Shell**。
 
-2. 確認在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]****。
+2. **如果出現提示，請建立記憶體帳戶**來設定 Cloud Shell。 只有在您第一次啟動 Cloud Shell 時 **，才需要**這樣做。
+
+3. 在 Cloud Shell 窗格中， **確定已從左上角的下拉功能表中選取** PowerShell。
 
    >**注意**：若要將複製的文字貼到 Cloud Shell，請在窗格視窗中按一下滑鼠右鍵，然後選取 [貼上]****。 或者，您可以使用 **Shift+Insert** 按鍵組合。
 
-3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以建立密碼設定檔物件：
+4. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以建立密碼設定檔物件：
 
     ```powershell
     $passwordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
     ```
 
-4. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以在設定檔物件中設置密碼的值：
+5. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以在設定檔物件中設置密碼的值：
     ```powershell
     $passwordProfile.Password = "Pa55w.rd1234"
     ```
 
-5. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以連線至 Microsoft Entra ID：
+6. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以連線至 Microsoft Entra ID：
 
     ```powershell
     Connect-AzureAD
     ```
       
-6. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以識別 Microsoft Entra 租用戶的名稱： 
+7. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以識別 Microsoft Entra 租用戶的名稱： 
 
     ```powershell
     $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
     ```
 
-7. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令為 Isabel Garcia 建立使用者帳戶： 
+8. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令為 Isabel Garcia 建立使用者帳戶： 
 
     ```powershell
     New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
-8. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以列出 Microsoft Entra ID 使用者 (Joseph 和 Isabel 的帳戶應出現在清單上)： 
+9. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列命令以列出 Microsoft Entra ID 使用者 (Joseph 和 Isabel 的帳戶應出現在清單上)： 
 
     ```powershell
     Get-AzureADUser -All $true | Where-Object {$_.UserPrincipalName -like "*43846135@LOD*"} 
@@ -296,7 +298,9 @@ lab:
 
 3. 在 [AZ500Lab01 \| 存取控制 (IAM)]**** 刀鋒視窗上，按一下 [+ 新增]****，然後在下拉式功能表中按一下 [新增角色指派]****。
 
-4. 在 [新增角色指派]**** 刀鋒視窗上，指定下列設定，並在每個步驟後按一下 [下一步]****：
+4. 在 [ **新增角色指派** ] 刀鋒視窗上，按兩下 [下一步] 之前，請先完成下列每個設定：
+
+   **注意：** 完成所有步驟之後，請按 [ **下一步**]。
 
    |設定|值|
    |---|---|
@@ -304,17 +308,17 @@ lab:
    |存取權指派對象 (在成員窗格下)|**使用者、群組或服務主體**|
    |選取 (+選取成員)|**服務台**|
 
-5. 按兩下 [檢閱 + 指派]**** 以建立角色指派。
+6. 按兩下 [檢閱 + 指派]**** 以建立角色指派。
 
-6. 從 [存取控制 (IAM) ]**** 刀鋒視窗中，選取 [角色指派]****。
+7. 從 [存取控制 (IAM) ]**** 刀鋒視窗中，選取 [角色指派]****。
 
-7. 在 [AZ500Lab01 \| 存取控制 (IAM)]**** 刀鋒視窗的 [檢查存取權]**** 索引標籤上，在 [依名稱或電子郵件地址搜尋]**** 文字輸入框中，輸入 **Dylan Williams**。
+8. 在 [AZ500Lab01 \| 存取控制 (IAM)]**** 刀鋒視窗的 [檢查存取權]**** 索引標籤上，在 [依名稱或電子郵件地址搜尋]**** 文字輸入框中，輸入 **Dylan Williams**。
 
-8. 在搜尋結果清單中，選取 Dylan Williams 的使用者帳戶，然後在 [Dylan Williams 指派 - AZ500Lab01]**** 刀鋒視窗上，檢視新建立的指派。
+9. 在搜尋結果清單中，選取 Dylan Williams 的使用者帳戶，然後在 [Dylan Williams 指派 - AZ500Lab01]**** 刀鋒視窗上，檢視新建立的指派。
 
-9. 關閉 [Dylan Williams 指派 - AZ500Lab01]**** 刀鋒視窗。
+10. 關閉 [Dylan Williams 指派 - AZ500Lab01]**** 刀鋒視窗。
 
-10. 重複相同的最後兩個步驟，以檢查 **Joseph Price** 的存取權。 
+11. 重複相同的最後兩個步驟，以檢查 **Joseph Price** 的存取權。 
 
 > 結果：您已指派並檢查 RBAC 權限。 
 
