@@ -26,7 +26,7 @@ lab:
 
 ## 設定和保護 ACR 與 AKS 圖表
 
-![image](https://user-images.githubusercontent.com/91347931/157532250-1104a829-792a-4b6d-beff-fe976e2d5d4b.png)
+![顯示本實驗室中任務流程的圖表。](../media/configuring-and-securing-acr-and-aks-diagram.png)
 
 ## 指示
 
@@ -81,6 +81,11 @@ lab:
     ```sh
     az acr create --resource-group AZ500LAB09 --name az500$RANDOM$RANDOM --sku Basic
     ```
+    > **附註** 註冊 Azure Container Registry 資源提供者。 如果您在執行 `az acr create`時遇到錯誤，可能是因為 **尚未為您的訂用帳戶註冊 Azure Container Registry** 服務。 若要修正此問題，您可以註冊服務，並在一個命令中建立登錄：
+    
+    > ```sh
+    > az provider register --namespace Microsoft.ContainerRegistry
+    > ```
 
 7. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令來確認已建立新的 ACR：
 
