@@ -107,11 +107,11 @@ lab:
 
 在此工作中，您將使用 PowerShell 為 Isabel Garcia 建立使用者帳戶。
 
-1. **按兩下 **Azure 入口網站 右上角的 Cloud Shell 圖示**，以開啟 Cloud Shell**。
+1. **按一下Azure 入口網站右上角的 Cloud Shell 圖示 **，以開啟 **Cloud Shell**。
 
-2. **如果出現提示，請建立記憶體帳戶**來設定 Cloud Shell。 只有在您第一次啟動 Cloud Shell 時 **，才需要**這樣做。
+2. **如果出現提示，請建立儲存體帳戶**來設定 Cloud Shell。 只有在您第一次啟動 Cloud Shell 時**才需要**這樣做。
 
-3. 在 Cloud Shell 窗格中， **確定已從左上角的下拉功能表中選取** PowerShell。
+3. 在 [Cloud Shell] 窗格中， **確定已從左上角的下拉式功能表中選取** [PowerShell]。
 
    >**注意**：若要將複製的文字貼到 Cloud Shell，請在窗格視窗中按一下滑鼠右鍵，然後選取 [貼上]****。 或者，您可以使用 **Shift+Insert** 按鍵組合。
 
@@ -172,12 +172,12 @@ lab:
    $user = Get-AzureADUser -Filter "UserPrincipalName eq 'Isabel-43846135@LODSPRODMCA.onmicrosoft.com'"
    ```
 
-4. 在 Cloud Shell 窗格中的 PowerShell 會話中，執行下列命令，將 Isabel 的使用者帳戶新增至 Junior Admins43846135 群組：
+4. 在 [Cloud Shell] 窗格內的 PowerShell 會話中，執行下列命令，將 Isabel 的使用者帳戶新增至 Junior Admins43846135 群組：
    ```powershell
    Add-AzADGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins43846135"
    ```
 
-5. 在 Cloud Shell 窗格內的 PowerShell 會話中，執行下列命令以確認 Junior Admins43846135 群組包含 Isabel 的用戶帳戶：
+5. 在 [Cloud Shell] 窗格內的 PowerShell 工作階段中，執行下列專案，以確認 Junior Admins43846135 群組包含 Isabel 的使用者帳戶：
    
    ```powershell
     Get-AzADGroupMember -GroupDisplayName "Junior Admins43846135"
@@ -299,9 +299,9 @@ lab:
 
 3. 在 [AZ500Lab01 \| 存取控制 (IAM)]**** 刀鋒視窗上，按一下 [+ 新增]****，然後在下拉式功能表中按一下 [新增角色指派]****。
 
-4. 在 [ **新增角色指派** ] 刀鋒視窗上，按兩下 [下一步] 之前，請先完成下列每個設定：
+4. 在 [新增角色指派 **] **刀鋒視窗上，完成下列每個設定，再按一下 [下一步]：
 
-   **注意：** 完成所有步驟之後，請按 [ **下一步**]。
+   **注意：** 完成所有步驟後，按一下 **下一步**。
 
    |設定|值|
    |---|---|
