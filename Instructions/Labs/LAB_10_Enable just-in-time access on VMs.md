@@ -53,7 +53,7 @@ lab:
 
    - 從已設定**索引**標籤中，以滑鼠右鍵按一下您要新增連接埠的虛擬機器，然後選取編輯。
 
-   ![image](https://github.com/user-attachments/assets/aa4ded55-c5b1-4d40-b5a0-a4c33b9eb81b)
+   ![VM 組態畫面的 Just-In-Time 存取畫面擷取。](../media/just-in-time-vm-access.png)
    
    - 在 [JIT VM 存取設定]**** 下方，您可以對於已經保護的連接埠編輯現有設定，也可以新增自訂連接埠。
    - 當連接埠編輯完成時，請選取 [儲存]****。   
@@ -72,6 +72,6 @@ lab:
     
         - 如果已啟用 JIT，請選取 [要求存取]**** 以傳遞存取要求，其中包含對該 VM 設定的要求 IP、時間範圍以及連接埠。
     
-   ![image](https://github.com/user-attachments/assets/f5d0b67c-7731-4261-b0eb-a56c505dadd4)
+   ![使用 JIT 連線到虛擬機器的螢幕擷取。](../media/vm-connection-for-vm1.png)
 
 > **結果**：您已探索如何在 VM 上啟用 JIT，以及如何要求存取適用於雲端的 Microsoft Defender 中已啟用 JIT 的 VM 的各種方法。

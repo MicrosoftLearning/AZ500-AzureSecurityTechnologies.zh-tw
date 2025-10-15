@@ -26,7 +26,7 @@ lab:
 
 2. 在適用於雲端的 Microsoft Defender 的 **[**管理] 刀鋒視窗**上，移至 [**環境設定**]。** 展開環境設定資料夾，直到顯示訂閱**區段，** 然後按一下訂閱**** 以檢視詳細資料。
 
-   ![image](https://github.com/user-attachments/assets/3b25dd82-e09e-4f8a-b85e-c9bc6c4bd488)
+   ![適用於雲端的 Microsoft Defender 環境設定的螢幕擷取](../media/defender-for-cloud-environment-settings.png)
    
 3. 在 [設定 **] 刀鋒視窗的 [** Defender 方案]** 底下**，展開**雲端工作負載保護 （CWP）。**
 
@@ -36,6 +36,6 @@ lab:
 
    附註： 啟用雲端工作負載保護 （CWP） 伺服器方案，從關閉到開啟，可啟用適用於伺服器的 Microsoft Defender 方案 2。
  
-   ![image](https://github.com/user-attachments/assets/de434a75-345a-4023-83f1-fa53fcb5f288)
+   ![適用於雲端的 Microsoft Defender 方案選取頁面的螢幕擷取畫面。](../media/defender-for-cloud-plan-selection.png)
    
 > **結果**：您已在訂用帳戶上啟用適用於伺服器的 Microsoft Defender 方案 2。

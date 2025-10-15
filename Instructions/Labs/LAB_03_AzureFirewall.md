@@ -27,7 +27,7 @@ lab:
 
 ## Azure 防火牆圖表
 
-![image](https://user-images.githubusercontent.com/91347931/157529954-a1bc434b-2eca-41c1-b875-1f0c977d5e20.png)
+![顯示本實驗室中任務流程的圖表。](../media/azure-firewall-diagram.png)
 
 ## 指示
 
