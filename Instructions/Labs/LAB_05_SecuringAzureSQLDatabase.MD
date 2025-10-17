@@ -25,7 +25,7 @@ lab:
 
 ## 保護 Azure SQL Database 圖表
 
-![image](https://user-images.githubusercontent.com/91347931/157533836-7250fa58-a109-4882-a55b-d3fa3baf34ab.png)
+![顯示本實驗室中任務流程的圖表。](../media/securing-azure-sql-database-diagram.png)
 
 ## 指示
 

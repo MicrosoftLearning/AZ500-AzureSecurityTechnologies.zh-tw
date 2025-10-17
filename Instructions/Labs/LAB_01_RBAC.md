@@ -30,7 +30,7 @@ lab:
 
 ## 角色型存取控制架構圖表
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/506cde9c-5242-4438-a793-f88a5434a2b2)
+![顯示此實驗室的系統配置以及實驗室流程的圖表](../media/role-based-access-control-architecture-diagram.png)
 
 ## 指示
 
@@ -68,7 +68,7 @@ lab:
 
 7. 按一下 [建立]****。
 
-8. 重新整理 [使用者 \| 所有使用者]**** 刀鋒視窗，驗證是否已在 Microsoft Entra 租用戶中建立新的使用者。
+8. 重新整理 **使用者 |[所有使用者** ] 刀鋒視窗，以確認新使用者已在您的 Microsoft Entra 租用戶中建立。
 
 #### 工作 2：使用 Azure 入口網站來建立資深系統管理員群組，並將 Joseph Price 的使用者帳戶新增至群組。
 

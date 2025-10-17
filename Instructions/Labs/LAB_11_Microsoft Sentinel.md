@@ -27,7 +27,7 @@ lab:
 
 ## Microsoft Sentinel 圖表
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/509aa70d-de11-4470-a289-877fbfecbc00)
+![此實驗室的作業流程圖。](../media/microsoft-sentinel-diagram.png)
 
 ## 指示
 

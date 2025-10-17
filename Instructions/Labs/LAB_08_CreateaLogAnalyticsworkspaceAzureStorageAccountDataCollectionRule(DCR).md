@@ -168,7 +168,7 @@ lab:
     東部 |平台類型|**視窗**|
     |資料收集端點|*留空*|
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/9b58c4ce-b7a8-4acf-8289-d95b270a6083)
+    ![建立資料收集規則基本概念索引標籤的畫面擷取。](../media/crete-a-data-collection-rule-basics-tab.png)
 
 
 5. 按一下標記為 [下一步:**** 資源 >] 的按鈕以繼續進行。
@@ -191,7 +191,7 @@ lab:
     |磁碟|60|
     |網路|60|
 
-   ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/a24e44ad-1d10-4533-80e2-bae1b3f6564d)
+   ![資料收集規則的 收集和傳遞 標籤的螢幕擷取。](../media/crete-a-data-collection-rule-collectanddeliver-tab.png)
 
 11. 按一下標記為 [下一步:**** 目的地 >] 的按鈕以繼續進行。
   
@@ -199,11 +199,11 @@ lab:
 
 13. 按一下頁面底部的 [新增資料來源]****。
     
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/964091e7-bbbc-4ca8-8383-bb2871a1e7f0)
+    ![[資料整理規則] 頁面上 [新增資料來源] 頁面的畫面擷取。](../media/crete-a-data-collection-rule-add-datasource.png)
 
-14. 按一下 [檢閱 + 建立]  。
+14. 按一下 [檢閱 + 建立]****。
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/50dd8407-a106-4540-9e14-ae40a3c04830)
+    ![「資料收集規則」精靈的「檢閱 + 建立」索引標籤的螢幕擷取。](../media/crete-a-data-collection-rule-reviewcreate-tab.png)
 
 15. 按一下 [建立]****。
 

@@ -25,7 +25,7 @@ lab:
 
 ## 服務端點與保護儲存體圖表
 
-![image](https://user-images.githubusercontent.com/91347931/157534883-29664a05-85d1-4c70-99a7-f16d2360755d.png)
+![顯示實驗室中任務流程的圖表。](../media/service-endpoints-and-securing-storage-diagram.png)
 
 ## 指示
 

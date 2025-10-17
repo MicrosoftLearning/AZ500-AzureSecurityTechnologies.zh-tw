@@ -76,18 +76,24 @@ lab:
     az group list --query "[?name=='AZ500LAB09']" -o table
     ```
 
-6. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以建立新的 Azure Container Registry (ACR) 執行個體 (ACR 的名稱必須是全域唯一)： 
+6. 在 Bash 工作階段中，執行下列命令，以在實驗室環境中註冊 **容器登錄** 。
+
+   ```sh
+   az provider register --namespace Microsoft.Kubernetes
+   az provider register --namespace Microsoft.KubernetesConfiguration
+   az provider register --namespace Microsoft.OperationsManagement
+   az provider register --namespace Microsoft.OperationalInsights
+   az provider register --namespace Microsoft.ContainerService
+   az provider register --namespace Microsoft.ContainerRegistry
+   ```
+
+7. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以建立新的 Azure Container Registry (ACR) 執行個體 (ACR 的名稱必須是全域唯一)： 
 
     ```sh
     az acr create --resource-group AZ500LAB09 --name az500$RANDOM$RANDOM --sku Basic
     ```
-    > **附註** 註冊 Azure Container Registry 資源提供者。 如果您在執行 `az acr create`時遇到錯誤，可能是因為 **尚未為您的訂用帳戶註冊 Azure Container Registry** 服務。 若要修正此問題，您可以註冊服務，並在一個命令中建立登錄：
-    
-    > ```sh
-    > az provider register --namespace Microsoft.ContainerRegistry
-    > ```
 
-7. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令來確認已建立新的 ACR：
+8. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令來確認已建立新的 ACR：
 
     ```sh
     az acr list --resource-group AZ500LAB09
@@ -135,7 +141,7 @@ lab:
 
 在此工作中，您會建立 Azure Kubernetes 服務，並檢閱已部署的資源。 
 
-1. 在 Azure 入口網站中，在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件]**** 文字輸入框中，輸入 **Kubernetes 服務**，然後按下 **Enter** 鍵。
+1. 在 Azure 入口網站 的 Azure 入口網站 頁面頂端的 [搜尋資源、服務和文件 **] **文字方塊中，輸入 +++Kubernetes services+++，然後按 **Enter** 鍵。
 
 2. 在 [Kubernetes 服務]**** 刀鋒視窗上，按一下 [+ 建立]****，然後在下拉式功能表中，按一下 [+ 建立 Kubernetes 叢集]****
 
@@ -143,32 +149,45 @@ lab:
 
     |設定|值|
     |----|----|
-    |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
-    |資源群組|**AZ500LAB09**|
-    |Kubernetes 叢集名稱|**MyKubernetesCluster**|
-    |區域|**(美國) 美國東部**|
-    |可用性區域 |**None**|
-    |缩放方法|**手動**|
-    |節點計數|**1**|
+    | 訂用帳戶 | *使用您在此實驗室中使用的 Azure 訂用帳戶名稱* |
+    | 資源群組 | **AZ500LAB09** |
+    | 叢集預設設定 | **開發/測試** |
+    | Kubernetes 叢集名稱 | +++MyKubernetes叢集+++ |
+    | 區域 | **(美國) 美國東部** |
+    | 車隊經理 | **None** |
+    | 可用性區域 | **None** |
+    | AKS 定價層 | **免費** |
+    | 啟用長期支援 | **未選取** |
+    | Kubernetes 版本 | *使用預設* |
+    | 自動升級 | *保留默認值 * |
+    | 節點安全通道類型 | *保留預設值* |
+    | 驗證和授權 | **具有 Kubernetes RBAC 的本機帳戶** |
 
-4. 按一下 [下一步：**節點集區] >** ，然後在 [建立 Kubernetes 叢集] 刀鋒視窗的 [節點集區] 索引標籤上，指定下列設定 (將其他設定保留為預設值)：
+4. 按一下 **[下一步**]，然後在 [建立 Kubernetes 叢集 **] **刀鋒視窗的 [**節點集區**] 索引標籤上，指定下列設定 （保留其他設定的預設值）：
 
     |設定|值|
     |----|----|
-    |啟用虛擬節點|已清除的核取方塊|
-    
-5. 按一下 [下一步：**存取] >**，在 [Create Kubernetes 叢集]**** 刀鋒視窗的 [存取]**** 索引標籤上，接受預設值並按 [下一步]**：網路 >]**。 
+    | 啟用節點自動佈建 | **取消核取方塊** |
+    | 啟用虛擬節點 | **取消核取方塊** |
+    | 其他值 | *保留預設值* |
+
+5. 按一下下一步****，以前往**網路**。 
+
+  >注意 - 您將收到一個彈出窗口，指出 **您的 VM 大小可用的建議** 。  **接受建議** 繼續前進。
 
 6. 在 [建立 Kubernetes 叢集]**** 刀鋒視窗的 [網路]**** 索引標籤上，指定下列設定 (將其他設定保留為預設值)：
 
     |設定|值|
     |----|----|
-    |網路組態|**Azure CNI 重疊**|
-    |DNS 名稱首碼|**保留預設值**|
+    | 啟用私人叢集 | **未選取** |
+    | 設定授權的 IP 範圍 | **未選取** |
+    | 網路組態 | **Azure CNI 重疊** |
+    | DNS 名稱首碼 | **保留預設值** |
+    | 網路原則 | **None** |
 
     >**注意**：AKS 可以設定為私人叢集。 這會將私人 IP 指派給 API 伺服器，以確保 API 伺服器與節點集區之間的網路流量僅會保留在私人網路上。 如需詳細資訊，請前往[建立私人 Azure Kubernetes Service 叢集](https://docs.microsoft.com/en-us/azure/aks/private-clusters)頁面。
 
-7. 按一下 [下一步：**整合] >**，然後在 [建立 Kubernetes 叢集]**** 刀鋒視窗的 [整合]**** 索引標籤上，將 [容器監視]**** 設定為 [已停用]****。 
+7. 按一下下一步，**然後在建立 Kubernetes 叢集**頁面**的整合**** 索引標籤上，將所有值保留**為預設**** 值。 
 
     >**注意**：在生產案例中，您會想要啟用監視。 在此情況下會停用監視，因為實驗室中未涵蓋監視。 
 
