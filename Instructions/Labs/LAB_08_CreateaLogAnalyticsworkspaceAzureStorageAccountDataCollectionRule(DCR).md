@@ -66,7 +66,7 @@ lab:
 5. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以建立新的 Azure 虛擬機器。 
 
     ```powershell
-    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -PublicIpSku Standard -OpenPorts 80,3389 -Size Standard_D2s_v3 
+    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -PublicIpSku Standard -OpenPorts 80,3389 -Size Standard_D2_v4 
     ```
     
 6.  出現憑據提示時：
@@ -106,7 +106,7 @@ lab:
     |---|---|
     |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
     |資源群組|**AZ500LAB131415**|
-    |名稱|任何有效的全域唯一名稱|
+    |名稱|**lgaw點燃**|
     |區域|**美國東部**|
 
 4. 選取 [**檢閱 + 建立**]。
@@ -133,7 +133,8 @@ lab:
     |---|---|
     |訂用帳戶|您要在此實驗室中使用的 Azure 訂用帳戶名稱|
     |資源群組|**AZ500LAB131415**|
-    **執行個體詳細資料** |儲存體帳戶名稱|長度介於 3 到 24 之間的任何全域唯一名稱，由字母和數字組成| |地區|**（美國）美國東部**|
+    **執行個體詳細資料** |儲存體帳戶名稱|**斯特加克蒂格尼特**|
+    |地區|**（美國）美國東部**|
     |主要服務|**Azure Blob 儲存體或 Azure Data Lake Storage Gen 2**|
    |性能|**標準 （一般用途 v2 帳戶）**|
     |冗餘|**本機備援儲存體 （LRS）**|
