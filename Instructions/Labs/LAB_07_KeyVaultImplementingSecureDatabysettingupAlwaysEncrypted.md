@@ -69,7 +69,7 @@ lab:
    |設定|值|
    |---|---|
    |訂用帳戶|您要在此實驗室中使用的 Azure 訂閱名稱|
-   |資源群組|按一下 [新建]****，然後輸入以下名稱：**AZ500LAB10**|
+   |資源群組|按一下 **[建立新** 建]，然後輸入名稱 **AZ500Lab10-lod@lab.LabInstance.Id**|
    |Location|**美國東部**|
    |使用者名稱|**Student**|
    |密碼|**請使用您在實驗室 02 > 練習 2 > 工作 1 > 步驟 3 中建立的個人密碼。**|
@@ -98,7 +98,7 @@ lab:
 
 ### 練習 2：使用金鑰和祕密設定 Key Vault 資源
 
->**注意**：此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
+>**注意**：此實驗室中所有資源均使用**美國東部**區域。 請向您的講師確認這是要用於課程的區域。 
 
 在本練習中，您將會完成下列工作：
 
@@ -114,14 +114,14 @@ lab:
 
 2. 確認在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [PowerShell]****。
 
-3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令，以便在資源群組 **AZ500LAB10** 中建立 Azure Key Vault。 (如果您在工作 1 中為此實驗室的資源群組選擇另一個名稱，則也請為此工作使用相同名稱)。 Key Vault 名稱必須是唯一的。 記住您選擇的名稱。 在此實驗室中，您會需要用到這個名稱。  
+3. 在 Cloud Shell 窗格內的 PowerShell 工作階段中，執行下列動作，以在資源群組**AZ500Lab10-lod@lab.LabInstance.Id**中建立 Azure 金鑰保存庫。（如果您在作業 1 中為此實驗室的資源群組選擇了另一個名稱，請也針對此作業使用該名稱）。 Key Vault 名稱必須是唯一的。 記住您選擇的名稱。 在此實驗室中，您會需要用到這個名稱。  
 
     ```powershell
     $kvName = 'az500kv' + $(Get-Random)
 
-    $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500LAB10').Location
+    $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500Lab10-lod@lab.LabInstance.Id').Location
 
-    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location -DisableRbacAuthorization
+    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500Lab10-lod@lab.LabInstance.Id' -Location $location -DisableRbacAuthorization
     ```
 
     >**注意**：最後一個命令的輸出會顯示保存庫名稱和保存庫 URI。 保存庫 URI 的格式為 `https://<vault_name>.vault.azure.net/`
@@ -130,7 +130,7 @@ lab:
 
 5. 在 Azure 入口網站分頁頂端的 [搜尋資源、服務及文件]**** 文字輸入框中輸入 **「資源群組」**，然後按下 **Enter** 鍵。
 
-6. 在 [資源群組]**** 刀鋒視窗的資源群組清單中，按一下 **AZ500LAB10** (或您稍早為資源群組選擇的其他名稱) 項目。
+6. 在 [資源群組] **刀鋒視窗的資源群組清單中，按一下 **AZ500Lab10-lod@lab.LabInstance.Id** （或您稍早為資源群組選擇的其他名稱） 項目。**
 
 7. 在 [資源群組] 刀鋒視窗上，按一下代表新建立 Key Vault 的項目。 
 
@@ -162,7 +162,7 @@ lab:
 3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令，將軟體保護的金鑰新增至 Key Vault： 
 
     ```powershell
-    $kv = Get-AzKeyVault -ResourceGroupName 'AZ500LAB10'
+    $kv = Get-AzKeyVault -ResourceGroupName 'AZ500Lab10-lod@lab.LabInstance.Id'
 
     $key = Add-AZKeyVaultKey -VaultName $kv.VaultName -Name 'MyLabKey' -Destination 'Software'
     ```
@@ -296,7 +296,7 @@ lab:
     ```
 4. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令以儲存 Key Vault 名稱。
     ```
-    $kvName = (Get-AzKeyVault -ResourceGroupName 'AZ500LAB10').VaultName
+    $kvName = (Get-AzKeyVault -ResourceGroupName 'AZ500Lab10-lod@lab.LabInstance.Id').VaultName
 
     $kvName
     ```
@@ -304,7 +304,7 @@ lab:
 5. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列命令，將 Key Vault 的權限授與您在上一個工作中註冊的應用程式：
 
     ```powershell
-    Set-AZKeyVaultAccessPolicy -VaultName $kvName -ResourceGroupName AZ500LAB10 -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AZKeyVaultAccessPolicy -VaultName $kvName -ResourceGroupName AZ500Lab10-lod@lab.LabInstance.Id -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
     ```
 
 6. 關閉 [Cloud Shell] 窗格。 
@@ -318,7 +318,7 @@ lab:
 
 2. 在 SQL 資料庫清單中，按一下 **醫學 (<randomsqlservername>)** 項目。
 
-    >**注意**：如果找不到資料庫，這可能表示您在練習 1 中起始的部署尚未完成。 您可以瀏覽至 Azure 資源群組「AZ500LAB10」(或您選擇的名稱) 來驗證此問題，然後從 [設定] 窗格中選取 [部署]****。  
+    >**注意**：如果找不到資料庫，這可能表示您在練習 1 中起始的部署尚未完成。 您可以流覽至 Azure 資源群組 “AZ500Lab10-lod@lab.LabInstance.Id” （或您選擇的名稱），然後從 [設定] 窗格中選取 **[部署** ] 來驗證這一點。  
 
 3. 在 [SQL資料庫] 刀鋒視窗的 [設定]**** 區段中，按一下 [連接字串]****。 
 
@@ -332,7 +332,7 @@ lab:
 
 在此工作中，您會登入在練習 1 中起始部署的 Azure VM。 此 Azure VM 裝載 Visual Studio 2019 和 SQL Server Management Studio 19。
 
-    >**Note**: Before you proceed with this task, ensure that the deployment you initiated in the first exercise has completed successfully. You can validate this by navigating to the blade of the Azure resource group "Az500Lab10" (or other name you chose) and selecting **Deployments** from the Settings pane.  
+    >**Note**: Before you proceed with this task, ensure that the deployment you initiated in the first exercise has completed successfully. You can validate this by navigating to the blade of the Azure resource group "AZ500Lab10-lod@lab.LabInstance.Id" (or other name you chose) and selecting **Deployments** from the Settings pane.  
 
 1. 在 Azure 入口網站頁面頂端的 [搜尋資源、服務及文件]**** 文字輸入框中輸入**虛擬機器**，然後按下 **Enter** 鍵。
 
@@ -415,7 +415,7 @@ lab:
 
 15. 在 [資料行選取]**** 頁面上，選取 [SSN]**** 和 [Birthdate]**** 資料行，將 [SSN]**** 資料行的 [加密類型]**** 設定為**確定性**，並將 [Birthdate]**** 資料行設定為**隨機化**，然後按 [下一步]****。
 
-    >**注意**：在執行加密時，如果與 **Rotary (Microsoft.SQLServer.Management.ServiceManagement)** 相關的**調用目標已擲回任何類似例外狀況**的錯誤，則請確保**未選取****金鑰權限**的**輪替原則作業**值，如果不在 Azure 入口網站中，請瀏覽至 [Key Vault]**** >>  [存取原則]**** >>  [金鑰權限]**** >> 取消選取 [輪替原則作業]**** 下的所有值 >> 在 [特殊權限金鑰作業]**** 下>> 取消選取 [發行]****。
+    >**附註**： 執行加密時，如果與 **Rotary 相關的調用**目標擲回任何錯誤**，例如例外狀況 （Microsoft.SQLServer.Management.ServiceManagement）** ，請確定**未核取**金鑰權限的**輪替原則作業**** 值**，如果不是在 Azure 入口網站 中，請流覽至 **[金鑰保存庫**** >> 存取原則]** >> **金鑰權限>>** 取消核取 [輪換原則作業 **] **下的所有值>> [特殊權限金鑰操作]** >> **[解除核取**發行]。**
 
 16. 在 [主要金鑰設定]**** 頁面上，選取 [Azure Key Vault]****，在出現提示時按一下 [登入]****，使用您稍早在此實驗室中佈建 Azure Key Vault 執行個體的相同使用者帳戶進行驗證，確保 Key Vault 出現在 [選取 Azure Key Vault]**** 下拉式清單中，然後按 [下一步]****。
 
@@ -433,7 +433,7 @@ lab:
 
 在本練習中，您將會完成下列工作：
 
-- 任務 1：安裝 Visutal Studio 2022
+- 作業 1：安裝 Visual Studio 2022
 - 作業 2：執行資料驅動應用程式，以示範如何使用 Azure 金鑰保存庫來加密 Azure SQL 資料庫
 
 #### 作業 1：安裝 Visual Studio 2022
@@ -457,13 +457,15 @@ lab:
 9. 選取 繼續 以開始安裝。
   - 安裝大約需要 10 分鐘
 
+10. 在 [工作負載] 畫面中選擇 **.Net Desktop Development** 。
+
 #### 作業 2：執行資料驅動應用程式，以示範如何使用 Azure 金鑰保存庫來加密 Azure SQL 資料庫
 
 您會使用 Visual Studio 建立主控台應用程式，將資料載入加密的資料行，然後使用存取 Key Vault 中金鑰的連接字串安全存取該資料。
 
 1. 從 RDP 工作階段到 **az500-10-vm1**，從 [開始]**** 功能表啟動 **Visual Studio 2019**。
 
-2. 切換至顯示 Visual Studio 2019 歡迎訊息的視窗，按一下 [登入]**** 按鈕，並在提示出現時，提供您用於驗證此實驗室中使用的 Azure 訂用帳戶的認證。
+2. 切換至顯示 Visual Studio 2019 歡迎訊息的視窗，按一下 [ **登入]** 按鈕，並在出現提示時，提供您用來驗證您在此實驗室中使用的 Azure 訂用帳戶的認證。
 
 3. 在 [開始]**** 頁面上，按一下 [建立新專案]****。 
 
@@ -495,7 +497,7 @@ lab:
 
 10. 返回 RDP 工作階段，然後在 Visual Studio 主控台的 [方案總管]**** 視窗中，按一下 [Program.cs]****，並以您複製到剪貼簿的程式碼取代內容。
 
-11. 在 [Visual Studio] 視窗 [Program.cs]**** 窗格的第 15 行中，用您稍早在實驗室中記錄的 Azure SQL 資料庫 **ADO.NET** 連接字串取代 `<connection string noted earlier>` 預留位置。 在連接字串中，將 `{your_password}` 預留位置取代為練習 1 中您在部署中指定的密碼。 如果您將字串儲存在實驗室電腦中，您可能需要離開 RDP 工作階段以複製 ADO 字串，然後返回 Azure 虛擬機器貼上字串。
+11. 在 [Visual Studio] 視窗 [Program.cs]**** 窗格的第 15 行中，用您稍早在實驗室中記錄的 Azure SQL 資料庫 **ADO.NET** 連接字串取代 `<connection string noted earlier>` 預留位置。 在連接字串中，將預留位置取代`{your_password}`為您在練習 1 的部署中指定的密碼。 如果您將字串儲存在實驗室電腦中，您可能需要離開 RDP 工作階段以複製 ADO 字串，然後返回 Azure 虛擬機器貼上字串。
 
 12. 在 [Visual Studio] 視窗中，於 [Program.cs]**** 窗格的第 16 行，用您稍早在實驗室中記錄已註冊應用程式的**應用程式 (用戶端) 識別碼**值取代 `<client id noted earlier>` 預留位置。 
 
@@ -536,7 +538,7 @@ lab:
 3. 在 [Cloud Shell] 窗格的 PowerShell 工作階段中，執行下列操作，移除您在此實驗室中建立的資源群組：
   
     ```powershell
-    Remove-AzResourceGroup -Name "AZ500LAB10" -Force -AsJob
+    Remove-AzResourceGroup -Name "AZ500Lab10-lod@lab.LabInstance.Id" -Force -AsJob
     ```
 
 4.  關閉 [Cloud Shell] 窗格。 
