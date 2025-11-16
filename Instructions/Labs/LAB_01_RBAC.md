@@ -109,9 +109,9 @@ lab:
 
 1. **按一下Azure 入口網站右上角的 Cloud Shell 圖示 **，以開啟 **Cloud Shell**。
 
-2. **如果出現提示，請建立儲存體帳戶**來設定 Cloud Shell。 只有在您第一次啟動 Cloud Shell 時**才需要**這樣做。
+2. 如果出現提示，請選取 [**不需要**儲存體帳戶]，選取您的訂用帳戶名稱，然後選取 [**套用]。** 只有在您第一次啟動 Cloud Shell 時*才需要*這樣做。
 
-3. 在 [Cloud Shell] 窗格中， **確定已從左上角的下拉式功能表中選取** [PowerShell]。
+3. 在 [Cloud Shell] 窗格中， **確定已從左上角的下拉式功能表中選取** [PowerShell]。 （注意：在新的 Cloud Shell 中，這將顯示： **-->切換到 Bash**）
 
    >**注意**：若要將複製的文字貼到 Cloud Shell，請在窗格視窗中按一下滑鼠右鍵，然後選取 [貼上]****。 或者，您可以使用 **Shift+Insert** 按鍵組合。
 
@@ -198,7 +198,7 @@ lab:
 
 在此工作中，您會為 Dylan Williams 建立使用者帳戶。
 
-1. 在 [Cloud Shell] 窗格左上角的下拉式功能表中，選取 [Bash]****，並在提示出現時按一下 [確認]****。 
+1. 在 Cloud Shell 窗格左上角的下拉式功能表中，選取 **Bash** （或： **切換至 Bash**），然後在出現提示時按一下 **確認**。 
 
 2. 在 Cloud Shell 窗格內的 Bash 工作階段中，執行下列命令以識別 Microsoft Entra 租用戶的名稱：
 

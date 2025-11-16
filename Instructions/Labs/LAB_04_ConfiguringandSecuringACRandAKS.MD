@@ -39,7 +39,7 @@ lab:
 
 ### 預估時間：45 分鐘
 
-> 此實驗室中所有資源均使用**美國東部**區域。 請與講師確認這是課程中要使用的區域。 
+> 此實驗室中所有資源均使用**美國東部**區域。 請向您的講師確認這是要用於課程的區域。 
 
 在本練習中，您將會完成下列工作：
 
@@ -54,13 +54,13 @@ lab:
 
 #### 工作 1：建立 Azure 容器登錄
 
-在此工作中，您會建立實驗室的資源群組和 Azure Container Registry。
+在此工作中，您將建立實驗室的資源群組和 Azure Container Registry。
 
 1. 登入 Azure 入口網站：**`https://portal.azure.com/`**。
 
     >**注意**：登入 Azure 入口網站時使用的帳戶，必須在您用於這個實驗室的 Azure 訂用帳戶中具有擁有者或參與者角色，並在與該訂用帳戶相關聯的 Microsoft Entra 租用戶中具有全域管理員角色。
 
-2. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請按一下 [Bash]**** 和 [建立儲存體]****。
+2. 在 Azure 入口網站中按一下右上方的第一個圖示，開啟 Cloud Shell。 如果出現提示，請按一下 Bash，不需要**儲存體帳戶 **，** 選取您的*訂用帳戶*，然後按一下套用****。**
 
 3. 確認在 [Cloud Shell] 窗格左上角的下拉式功能表中，已選取 [Bash]****。
 
@@ -96,7 +96,7 @@ lab:
 8. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令來確認已建立新的 ACR：
 
     ```sh
-    az acr list --resource-group AZ500LAB09
+    az acr list --resource-group AZ500LAB09 -o table
     ```
 
     >**注意**：記錄 ACR 的名稱。 您將在下一個工作中需要它。
@@ -173,7 +173,7 @@ lab:
 
 5. 按一下下一步****，以前往**網路**。 
 
-  >注意 - 您將收到一個彈出窗口，指出 **您的 VM 大小可用的建議** 。  **接受建議** 繼續前進。
+    >**注意**：您將收到一個快顯視窗，指出 **您的虛擬機器大小有可用的建議** 。  **接受建議** 繼續前進。
 
 6. 在 [建立 Kubernetes 叢集]**** 刀鋒視窗的 [網路]**** 索引標籤上，指定下列設定 (將其他設定保留為預設值)：
 
@@ -195,7 +195,7 @@ lab:
 
     >**注意**：等待部署完成。 這大約需要 10 分鐘。
 
-9. 當部署完成後，在 Azure 入口網站頁面頂端的 [搜尋資源、服務和文件]**** 文字輸入框中，輸入**資源群組**，然後按下 **Enter** 鍵。
+9. 部署完成後，在Azure 入口網站中，在Azure 入口網站頁面頂端的 [搜尋資源、服務和文件 **] **文字方塊中，輸入 +++資源群組+++，然後按 **Enter** 鍵。
 
 10. 在 [資源群組]**** 刀鋒視窗的資源群組清單中，記下名為 **MC_AZ500LAB09_MyKubernetesCluster_eastus** 的新資源群組，其中包含 AKS 節點的元件。 檢閱此資源群組中的資源。 
     
@@ -259,7 +259,7 @@ lab:
 
 在此工作中，您會下載資訊清單檔、編輯 YAML 檔案，並將變更套用至叢集。 
 
-1. 在 [Cloud Shell] 窗格的 Bash 工作階段中，按一下 [上傳/下載檔案]**** 圖示，在下拉式功能表中按一下 [上傳]****，在 [開啟]**** 對話方塊中，瀏覽至您下載實驗室檔案的位置，選取 \\Allfiles\\Labs\\09\\nginxexternal.yaml**** 並按一下 [開啟]****。 接下來，選取 \\Allfiles\\Labs\\09\\nginxinternal.yaml****，然後按一下 [開啟]****。
+1. 在 Cloud Shell 窗格內的 Bash 工作階段中，按一下**上傳/下載檔案**圖示，在下拉式功能表中按一下上傳，**在**開啟對話**** 方塊中，瀏覽至您下載實驗室檔案的位置，選取 Allfiles\\\\** Labs\\09\\nginxexternal.yaml** 按一下**** 開啟。 接下來，選取 \\Allfiles\\Labs\\09\\nginxinternal.yaml****，然後按一下 [開啟]****。
 
 2. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令以識別 Azure Container Registry 執行個體：
 
@@ -277,9 +277,17 @@ lab:
 
     >**注意**：這是*外部* yaml 檔案。
 
+    >**注意**：如果您看到快顯視窗 **_[切換至傳統 Cloud Shell]_**，請選取 **[確認]**，執行下列命令，然後重複此步驟：
+
+    ```sh
+    ACRNAME=$(az acr list --resource-group AZ500LAB09 --query '[].{Name:name}' --output tsv)
+    ```
+
 4. 在編輯器窗格中，向下捲動至**第 24 行**，並以 ACR 名稱取代 **`<ACRUniquename>`** 預留位置。
 
 5. 在編輯器窗格中，依序按一下右上角的**省略號**圖示、[儲存]**** 以及 [關閉編輯器]****。 
+
+    >**附註**： 您可以使用 **Ctrl+S** 和 **Ctrl+Q** 來儲存檔案並關閉編輯器。
 
 6. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令將變更套用至叢集：
 
@@ -287,7 +295,7 @@ lab:
     kubectl apply -f nginxexternal.yaml
     ```
 
-7. 在 [Cloud Shell] 窗格的 Bash 工作階段中，檢閱您在上一個工作中執行的命令輸出，確認已建立部署和對應的服務。 
+7. 在 [Cloud Shell] 窗格的 Bash 工作階段中，檢閱您在上一個工作中執行的命令輸出，確認已建立部署和對應的服務。 這是您應該看到的內容：
 
     ```
     deployment.apps/nginxexternal created
@@ -326,13 +334,15 @@ lab:
 
 3. 在編輯器窗格中，依序按一下右上角的**省略號**圖示、[儲存]**** 以及 [關閉編輯器]****。 
 
+    >**附註**： 您可以使用 **Ctrl+S** 和 **Ctrl+Q** 來儲存檔案並關閉編輯器。
+
 4. 在 [Cloud Shell] 窗格的 Bash 工作階段中，執行下列命令將變更套用至叢集：
 
     ```sh
     kubectl apply -f nginxinternal.yaml
     ```
 
-5.  在 [Cloud Shell] 窗格的 Bash 工作階段中，檢閱輸出以確認已建立您的部署和服務：
+5.  在 Cloud Shell 窗格內的 Bash 工作階段中，檢閱輸出以確認您的部署和服務已建立。 這是您應該看到的內容：
 
     ```
     deployment.apps/nginxinternal created
@@ -398,4 +408,6 @@ lab:
     Remove-AzResourceGroup -Name "AZ500LAB09" -Force -AsJob
     ```
 
-4.  關閉 [Cloud Shell] 窗格。 
+4. 確保 **Welcome to nginx！** 頁面會顯示。
+
+5. 關閉 [Cloud Shell] 窗格。 
