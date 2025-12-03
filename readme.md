@@ -1,3 +1,5 @@
+**⚠️ This GitHub repo will retire on 30th December 2025.**
+
 # AZ-500：Microsoft Azure 安全性技術
 
 - **[實驗室連結 (HTML 格式)](https://microsoftlearning.github.io/AZ500-AzureSecurityTechnologies/)**
